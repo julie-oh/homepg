@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.9.2 (454159)"/><meta name="altitude" content="67.5250244140625"/><meta name="author" content="18kehops@gmail.com"/><meta name="created" content="2015-10-12 13:28:48 +0000"/><meta name="latitude" content="36.37498268517"/><meta name="longitude" content="127.3589860938985"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2016-03-25 00:06:53 +0000"/><title>git</title></head><body>
+<div><span style="font-size: 24px;"><b>Organization</b></span></div>
+<div><b>git history (repository) — staging area — local workstation</b></div>
+<div><br/></div>
+<div><b>HEAD</b></div>
+<div>current snapshot</div>
+<div>현재 내가 보고있는 시점/대가리/기록/버전</div>
+<div><b>origin</b></div>
+<div>original source</div>
+<div><b>clone</b></div>
+<div>remote version of origin source</div>
+<div><br/></div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>Configuration</b></span></div>
+<div><b>git config —global core.editor “subl -n -w"</b></div>
+<div><b>git config —global user.name &lt;name&gt;</b></div>
+<div><b>git config —global user.email &lt;email&gt;</b></div>
+<div><b>git config —global alias.&lt;alias-name&gt; &lt;git-command&gt;</b></div>
+<div><b>git config —system core.editor &lt;editor&gt;</b></div>
+<div><b>git config —global —edit</b></div>
+<div>opens config file</div>
+<div><b>git config —global branch.autosetuprebase always</b></div>
+<div>uses rebase (—rebase option) with pull, not using merge</div>
+<div><br/></div>
+<div>git configuration file stored @ : ~/.gitconfig</div>
+<div>local settings : &lt;repo&gt;/.git/config</div>
+<div><b><span style="font-size: 24px;"><br/></span></b></div>
+<div>
+<hr/></div>
+<div><span style="font-size: 24px;"><b>Basic Commands</b></span></div>
+<div><b><br/></b></div>
+<div><b>git init</b></div>
+<div>initialize</div>
+<div>creates .git - contains metadata</div>
+<div><b>—bare</b>  create a .git without working directory</div>
+<div><br/></div>
+<div><b>git clone</b></div>
+<div>clone remote project to local</div>
+<div><span style="font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; float: none; background-color: rgb(255, 255, 255);">ex) $ git clone git://github.com/schacon/grit.git</span></div>
+<div><span style="background-color: rgb(255, 255, 255);"><br/></span></div>
+<div><b>git add</b></div>
+<div>file, directory 다 됨</div>
+<div>adds file to ‘staging area'</div>
+<div>커밋 할 후보들을 올려놓는거임</div>
+<div>-p : interactive chunk management session</div>
+<div><br/></div>
+<div><b>git commit -m “&lt;message&gt;"</b></div>
+<div>commits the change to repository</div>
+<div>-a : commit only ‘added’ files</div>
+<div>.gitignore : 여기에 파일 추가하면 커밋때 전부 무시함!!</div>
+<div>—amend : 방금 전 커밋에 합칠 수 있음</div>
+<div>—amend —no-edit : commit message intact</div>
+<div><br/></div>
+<div><b>git status</b></div>
+<div>show status</div>
+<div><b><br/></b></div>
+<div><b>git log</b></div>
+<div>show log</div>
+<div><b>-n &lt;n&gt;</b> restrict number of log</div>
+<div><b>-3</b> 최근 3개꺼 보여줌</div>
+<div><b>—oneline</b> 한줄로 정리</div>
+<div><b>—stat</b> 수치 보여줌</div>
+<div><b>-p</b> 하나 하나 완전 디테일하게 보여줌 like diff</div>
+<div><b>—author=“&lt;pattern&gt;"</b></div>
+<div><b>—grep=“&lt;pattern&gt;"</b></div>
+<div><b>&lt;since&gt;..&lt;until&gt;</b> 기간을 설정할 수 있음</div>
+<div><b>&lt;file&gt;</b> 특정 파일에 한정</div>
+<div><b>—graph —decorate —oneline</b> 가장 깔끔하고 예쁜 모드</div>
+<div><br/></div>
+<div><b>git checkout master</b></div>
+<div>HEAD를 옮겨다니는 명령</div>
+<div>다른 브랜치로 옮길 수도 있고, 현재 브랜치에서 과거로 옮길 수도 있다</div>
+<div><b>-b &lt;new-branch&gt;</b> 브랜치 생성 + checkout</div>
+<div><b>&lt;commit&gt; &lt;file&gt;</b> 특정 파일만 &lt;commit&gt;상태로 돌려놓기</div>
+<div><b>&lt;commit&gt;</b> 과거 commit 상태로 되돌아가기</div>
+<div><img src="git.resources/screenshot_5.png" height="398" width="636"/></div>
+<div>이거 하면 detached HEAD state가 된다</div>
+<div><img src="git.resources/screenshot_4.png" height="380" width="640"/></div>
+<div>현재 브랜치의 진행상황과 HEAD가 일치하지 않는 상태</div>
+<div><br/></div>
+<div><br/></div>
+<div><b>git revert &lt;commit&gt;</b></div>
+<div>&lt;커밋&gt; 상태로 돌아가는데, 새로운 커밋으로써 히스토리에 남음 (reset이랑 이점이 다름)</div>
+<div><br/></div>
+<div><b>git reset</b></div>
+<div>staging area 청소. Working dir, commit은 안건드림</div>
+<div><b>&lt;file&gt;</b> staging area에서 파일 제거. Working dir나 commit에는 문제가 없음</div>
+<div><b>—hard</b> Working dir도 가장 최근 커밋이랑 동기화 시켜버림. 위험!</div>
+<div><b>—soft</b> 과거로 돌아가기. 파일은 남겨두고 커밋만 제거</div>
+<div>!!!!웬만하면 로컬 청소용으로 쓰셈. 퍼블릭용은 revert임!!!!</div>
+<div><br/></div>
+<div><br/></div>
+<div><b>git clean</b></div>
+<div>stage에 없는 애들을 working dir에서 제거</div>
+<div><b>-n</b> 연습</div>
+<div><b>-f</b>  “force.” 필요함</div>
+<div><b>-df</b> dir도 제거</div>
+<div><b>-f &lt;path&gt;</b> path에 있는애들만 제거</div>
+<div><br/></div>
+<div><b>git rebase &lt;base&gt;</b></div>
+<div>rebase commit to another base commit</div>
+<div><b>-i</b> : interactive rebase</div>
+<div><b>-i HEAD~3</b> : interactive rebase 3 commits behind HEAD</div>
+<div>서버에서 싱크용 깃 풀을 한 뒤에 머지 커밋을 없앨 때</div>
+<div>풀 대신에 사용할수도 있음</div>
+<div><img src="git.resources/screenshot_2.png" height="672" width="1156"/></div>
+<div><b>git cherry-pick [commit #]</b></div>
+<div>새로운 브랜치에 내가 원하는 커밋만 가져올 수 있음. 체리피킹</div>
+<div><br/></div>
+<div><br/></div>
+<div><b>git reflog</b></div>
+<div>내가 그동안 무슨짓을 했는지 보여줌</div>
+<div>로그랑은 다르게 헤드 변경이나 브랜치, 체크아웃 등이 기록돼있음</div>
+<div><b><span style="font-size: 24px;"><br/></span></b></div>
+<div>
+<hr/></div>
+<div><span style="font-size: 24px;"><b>Collaboration</b></span></div>
+<div><b><br/></b></div>
+<div><b>git remote</b></div>
+<div>책갈피 보기. URL쓰기 귀찮으니까</div>
+<div><b>-v</b> : URL까지 보여줌</div>
+<div><b>add &lt;name&gt; &lt;url&gt;</b> 책갈피 추가</div>
+<div><b>rm &lt;name&gt;</b> 제거</div>
+<div>http 랑 ssh 형식 지원</div>
+<div>- http://host/path/to/repo.git</div>
+<div>- ssh://user@host/path/to/repo.git</div>
+<div><br/></div>
+<div><b>git fetch &lt;remote&gt;</b></div>
+<div>remote branch에서 뭐했나 통째로 가져와서 보는겁니당</div>
+<div><b>&lt;remote&gt; &lt;branch&gt;</b> 특정 브랜치만 가져옴</div>
+<div>does not affect my working dir.</div>
+<div><br/></div>
+<div><b>git pull &lt;remote&gt;</b></div>
+<div>git fetch + git merge</div>
+<div><b>git pull A B</b></div>
+<div>pulls from A to B</div>
+<div>Upstream dev를 가져올 때 주로 사용</div>
+<div><b>—rebase</b> git merge대신 git rebase를 사용하는 효과</div>
+<div><br/></div>
+<div><b>git push &lt;remote&gt; &lt;branch&gt;</b></div>
+<div>내 변화를 다른 repo에 적용시키기</div>
+<div><b>—force</b> 강제로 (non-fast-forward일 때)</div>
+<div><b>—all</b> 내 브랜치 전부 push</div>
+<div><b>—tags</b> 태그도 같이 보냄</div>
+<div><b>-u</b> set upstrem. argument 없이 pull하면 여기서 하게끔</div>
+<div><br/></div>
+<div><b>git branch</b></div>
+<div>list branches</div>
+<div><b>&lt;branch&gt;</b> create branch named &lt;branch&gt;</div>
+<div>this only “creates”</div>
+<div>to switch to this branch, use checkout     </div>
+<div><b>-d &lt;branch&gt;</b> delete branch</div>
+<div><b>-D &lt;branch&gt;</b> force delete</div>
+<div><b>-m &lt;branch&gt;</b> rename current branch</div>
+<div><b>-r</b> view remote branches</div>
+<div><img src="git.resources/screenshot_3.png" height="684" width="1112"/></div>
+<div><br/></div>
+<div><b>git merge &lt;branch&gt;</b></div>
+<div>merge &lt;branch&gt; INTO current branch</div>
+<div><b>git merge —no-ff &lt;branch&gt;</b> no fast-forward</div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>merge methods</b></span></div>
+<div><b>fast-forward</b></div>
+<div><img src="git.resources/screenshot.png" height="478" width="830"/></div>
+<div><b>3-way</b></div>
+<div><img src="git.resources/screenshot_1.png" height="550" width="1076"/></div>
+<div>changes on same part of same file - 3-way merge can have conflicts to resolve</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><b><span style="font-size: 24px;"><br/></span></b></div>
+<div>
+<hr/></div>
+<div><span style="font-size: 24px;"><b>practice conventions</b></span></div>
+<div><b>git rebase -i HEAD~n (squash)</b></div>
+<div><b>git rebase -i HEAD~3</b></div>
+<div>헤드 3개 전까지의 커밋을 리베이스한다, 인터랙티브하게</div>
+<div>do this before pull request (synchronize with server master)</div>
+<div><br/></div>
+<div><b>git commit —amend + git push -f</b></div>
+<div>add something that needs to be modified without adding a new commit history</div>
+<div><br/></div>
+<div><br/></div>
+</body></html>

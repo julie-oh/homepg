@@ -1,0 +1,54 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mainbox {
+  position: absolute;
+  top: 25%;
+
+  width: 500px;
+  height: 400px;
+}
+
+#loginbox {
+  width: 500px;
+  height: 300px;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.query {
+  font-size: 20px;
+  text-align: center;
+}
+
+#login-text {
+  font-size: 35px;
+  text-align: center;
+}
+
+input {
+  position: relative;
+  left: 10%;
+  font-size: 20px;
+  width: 75%;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.buttons {
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
