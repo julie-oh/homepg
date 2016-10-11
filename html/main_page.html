@@ -11,6 +11,14 @@
 <!-- Script dependencies -->
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
+
+<!-- 달력 -->
+<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
+<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
+
 <!-- chat js -->
 <script>
 (function () {
@@ -70,6 +78,65 @@
         }, 2000);
     });
 }.call(this));
+
+// 달력
+ $(document).ready(function() {
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+    $('#calendar').fullCalendar({
+      header : {
+        left : 'prev,next today',
+        center : 'title',
+        right : 'month,agendaWeek,agendaDay'
+      },
+      editable : true,
+      events : [ {
+        title : 'All Day Event',
+        start : new Date(y, m, 1)
+      }, {
+        title : 'Long Event',
+        start : new Date(y, m, d - 5),
+        end : new Date(y, m, d - 2)
+      }, {
+        id : 999,
+        title : 'Repeating Event',
+        start : new Date(y, m, d - 3, 16, 0),
+        allDay : false
+      }, {
+        id : 999,
+        title : 'Repeating Event',
+        start : new Date(y, m, d + 4, 16, 0),
+        allDay : false
+      }, {
+        title : 'Meeting',
+        start : new Date(y, m, d, 10, 30),
+        allDay : false
+      }, {
+        title : 'Lunch',
+        start : new Date(y, m, d, 12, 0),
+        end : new Date(y, m, d, 14, 0),
+        allDay : false
+      }, {
+        title : 'Birthday Party',
+        start : new Date(y, m, d + 1, 19, 0),
+        end : new Date(y, m, d + 1, 22, 30),
+        allDay : false
+      }, {
+        title : 'Click for Google',
+        start : new Date(y, m, 28),
+        end : new Date(y, m, 29),
+        url : 'http://google.com/'
+      } ]
+    });
+
+  });
+
+
+
  </script>
 </head>
 
@@ -140,7 +207,7 @@
                   <span><a href="#">yj_oh@naver.com</a></span>
               </div>
           </div>
-          <div class="inbox-body" style="padding:20px;">
+          <div class="inbox-body">
               <a href="#myModal" data-toggle="modal"  title="Compose"    class="btn btn-compose">
                   Compose
               </a>
@@ -256,125 +323,152 @@
   <section id="section1"> <!-- 큰상자 -->
     <section id="subsection1"> <!-- 작은상자 1-->
 
+                      <article id="article1">
                       <div class="inbox-head">
-                          <h3>Inbox</h3>
+                          <h3>Notice</h3>
+                          <span><a href="">more</a></span>
                       </div>
-                      <div class="inbox-body">
+                      <div class="inbox-body" style="padding:0;">
                           <table class="table table-inbox table-hover">
+                          <colgroup>
+                          <col style="width:25%;">
+                          <col style="width:50%;">
+                          <col style="width:25%;">
+                          </colgroup>
                             <tbody>
-                              <tr class="unread">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                  <td class="view-message  dont-show">PHPClass</td>
-                                  <td class="view-message ">Added a new class: Login Class Fast Site</td>
-                                  <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message  text-right">9:27 AM</td>
+                              <tr class="">
+                                  <td class="view-message dont-show">PHPClass</td>
+                                  <td class="view-message">Added a new class: Login Class Fast Site</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
-                              <tr class="unread">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                              <tr class="">
                                   <td class="view-message dont-show">Google Webmaster </td>
                                   <td class="view-message">Improve the search presence of WebSite</td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">March 15</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
                                   <td class="view-message dont-show">JW Player</td>
                                   <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">March 15</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
                                   <td class="view-message dont-show">Tim Reid, S P N</td>
                                   <td class="view-message">Boost Your Website Traffic</td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">April 01</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
                                   <td class="view-message dont-show">Freelancer.com</td>
                                   <td class="view-message">Stop wasting your visitors </td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">May 23</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
                                   <td class="view-message dont-show">WOW Slider </td>
                                   <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message text-right">March 14</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
                                   <td class="view-message dont-show">LinkedIn Pulse</td>
                                   <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message text-right">Feb 19</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
                                   <td class="view-message dont-show">Drupal Community</td>
                                   <td class="view-message view-message">Welcome to the Drupal Community</td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">March 04</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
                                   <td class="view-message dont-show">Facebook</td>
                                   <td class="view-message view-message">Somebody requested a new password </td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">June 13</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
                               <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
                                   <td class="view-message dont-show">Skype</td>
                                   <td class="view-message view-message">Password successfully changed</td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">March 24</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
                               </tr>
-
                           </tbody>
                           </table>
                       </div>
+                      </article>
 
-
-<!--       <article id="article1">NOTICE</article>
-      <article id="article2">NEWS</article> -->
+                      <article id="article2">
+                      <div class="inbox-head" style="background:#5bc0de;">
+                          <h3>News</h3>
+                          <span><a href="">more</a></span>
+                      </div>
+                      <div class="inbox-body" style="padding:0;">
+                          <table class="table table-inbox table-hover">
+                          <colgroup>
+                          <col style="width:25%;">
+                          <col style="width:50%;">
+                          <col style="width:25%;">
+                          </colgroup>
+                            <tbody>
+                              <tr class="">
+                                  <td class="view-message dont-show">PHPClass</td>
+                                  <td class="view-message">Added a new class: Login Class Fast Site</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">Google Webmaster </td>
+                                  <td class="view-message">Improve the search presence of WebSite</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">JW Player</td>
+                                  <td class="view-message">Last Chance: Upgrade to Pro for </td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">Tim Reid, S P N</td>
+                                  <td class="view-message">Boost Your Website Traffic</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">Freelancer.com</td>
+                                  <td class="view-message">Stop wasting your visitors </td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">WOW Slider </td>
+                                  <td class="view-message">New WOW Slider v7.8 - 67% off</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">LinkedIn Pulse</td>
+                                  <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">Drupal Community</td>
+                                  <td class="view-message view-message">Welcome to the Drupal Community</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">Facebook</td>
+                                  <td class="view-message view-message">Somebody requested a new password </td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="view-message dont-show">Skype</td>
+                                  <td class="view-message view-message">Password successfully changed</td>
+                                  <td class="view-message text-right">2016.10.10 18:09</td>
+                              </tr>
+                          </tbody>
+                          </table>
+                      </div>
+                      </article>
     </section>
+
     <section id="subsection2"> <!-- 작은상자 2-->
-      <article id="article3">SCHEDULE</article>
+      <article id="article3">
+  <div id="calendar" style="margin: 3em 0; font-size: 13px; background-color:white;"></div>
+      </article>
+
+
+
       <article id="article4">
-        <div id="lunch_menu" class="meal">
+<!--         <div id="lunch_menu" class="meal">
           <label>
             <img src="lunch_menu.png" id="menuimg" alt="식단" title="오늘의 메뉴">
             <ul>
@@ -387,19 +481,19 @@
               <li>미역국</li>
             </ul>
           </label>
-        </div>
+        </div> -->
       </article>
       <article id="article5">
-        <fieldset>
+<!--         <fieldset>
           <iframe id="weather" src="http://www.accuweather.com/ko/kr/seoul/226081/current-weather/226081/#detail-now" seamless>
           </iframe>
-        </fieldset>
+        </fieldset> -->
       </article>
     </section>
   </section>
-  <aside id="aside2">
+  <aside id="aside2" style="border:1px solid #000;">
     <!-- chat s_c  -->
-    <div class="chat_window">
+<!--     <div class="chat_window">
       <div class="top_menu">
         <div class="buttons">
           <div class="button close">
@@ -429,7 +523,7 @@
           <div class="text"></div>
         </div>
       </li>
-    </div>
+    </div> -->
 </aside>
 
 

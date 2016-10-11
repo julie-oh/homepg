@@ -17,12 +17,12 @@ html {
 body {
   margin : 0px auto;
   height : 1500px;
-  width : 1100px;
+  width : 1200px;
 }
 
 header {
  height : 180px;
- width : 1100px;
+ width : 1200px;
  margin : 0;
  padding : 0;
  display: flex;
@@ -36,7 +36,7 @@ header div {
 }
 
 #mainbody {
-  width : 1300px;
+  width : 1200px;
   height : 1800px;
   display : flex;
   flex-direction : row;
@@ -45,21 +45,21 @@ header div {
 
 /* right wing */
 #aside1 {
-  width : 180px;
+  width : 185px;
   height : 1800px;
   float : left;
   padding : 0;
 }
 
 #aside2 {
-  width : 600px;
-  height : 1800px;
+  width : 300px;
+/*  height : 1800px;*/
   float : right;
 }
 
 #section1 {
   padding : 0;
-  margin: 0 10px;
+  margin: 0 5px;
   width : 910px;
   height : 1800px;
   display : flex;
@@ -72,23 +72,14 @@ header div {
 
 #subsection2 {
   width : 30%;
-  padding : 5px;
-  border : dotted 1px;
+  margin-left: 5px;
+  border : solid 1px;
 }
 
-#article1 {
-  height : 49%;
-  border-style : dotted;
-}
-
-#article2 {
-  height : 49%;
-  border-style : dotted;
-}
 
 #article3 {
-  height: 12%;
-  border-style : dotted;
+/*  height: 12%;*/
+  border-style : solid 1px;
 }
 
 /*
@@ -493,7 +484,7 @@ body {
             color: #fff;
         }
 .user-head .user-name span a {
-            color: #87e2e7;
+            color: #00a8b3;
             font-size: 12px;
         }
 a.mail-dropdown {
@@ -505,7 +496,7 @@ a.mail-dropdown {
             padding: 3px 5px;
         }
 .inbox-body {
-            padding: 0;
+            padding: 20px;
         }
 .btn-compose {
             background: none repeat scroll 0 0 #ff6c60;
@@ -579,6 +570,7 @@ ul.labels-info li a i {
             margin-bottom: 0;
             padding: 0 22px;
         }
+
 .inbox-head {
             background: none repeat scroll 0 0 #41cac0;
             border-radius: 0 4px 0 0;
@@ -591,7 +583,19 @@ ul.labels-info li a i {
             font-weight: 300;
             margin: 0;
             padding-top: 6px;
+            width:415px;
         }
+.inbox-head span {
+  font-size: 19px;
+}
+.inbox-head span a {
+  color: #fff;
+}
+.inbox-head span a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
  .inbox-head .sr-input {
             border: medium none;
             border-radius: 4px 0 0 4px;
@@ -613,8 +617,13 @@ ul.labels-info li a i {
             border: 1px solid #d3d3d3;
             margin-bottom: 0;
         }
+.table-inbox tr {
+            background: #fff;
+
+        }
 .table-inbox tr td {
             padding: 12px !important;
+
         }
 .table-inbox tr td:hover {
             cursor: pointer;
@@ -629,6 +638,9 @@ ul.labels-info li a i {
             background: none repeat scroll 0 0 #f7f7f7;
             font-weight: 600;
         }
+
+#article2 {margin-top: 5px;} /*161011추가*/
+
 ul.inbox-pagination {
             float: right;
         }
