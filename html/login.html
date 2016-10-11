@@ -9,11 +9,12 @@
   <div id="mainbox">
     <div id="loginbox">
       <p id="login-text">KSC LOGIN</p>
-      <form>
+      <form action="insert.php" method="post">
         <p class="query">your id</p>
-        <input placeholder="id" />
+        <input type="text" name="id" placeholder="id" />
         <p class="query">password</p>
-        <input placeholder="password" />
+        <input type="text" name="passwd" placeholder="password" />
+        <input type="submit" />
       </form>
     </div>
     <div id="button-container">
@@ -27,3 +28,4 @@
   </div>
 </body>
 </html>
+
