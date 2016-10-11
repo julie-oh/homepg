@@ -137,7 +137,7 @@ font-family: "Open Sans",sans-serif;
 
 .menuLink:hover {
 color : gray;
-background-color : $4d4d4d;
+background-color : #4d4d4d;
 text-decoration: none; 
 
 }
