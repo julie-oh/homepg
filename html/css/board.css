@@ -1,0 +1,84 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+h3 {
+  font-size: 3em;
+  text-align: center;
+}
+
+h4 {
+  font-size: 2em;
+  text-align: center;
+}
+
+#table-container {
+  width: 1000px;
+  border: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+table {
+  width: 1000px;
+  border: solid 1px black;
+}
+
+.btnSet {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.button_href {
+  margin: 5px;
+  padding: 2px;
+  width: 50px;
+  font-size: 1em;
+  border: solid 1px black;
+  background-color: skyblue;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+caption {
+  padding: 10px;
+  border: solid 1px black;
+  color: white;
+  background-color: #4C8F11;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+input {
+  width: 300px;
+  border: 1px solid black;
+}
+
+textarea {
+  width: 300px;
+  border: 1px solid black;
+}
+
+#content_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.thread_meta {
+  padding: 5px;
+}
+
+#content_box {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}

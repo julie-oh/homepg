@@ -25,6 +25,8 @@ VALUES ('$id', '$passwd')";
 // see if the data has been inserted properly
 if ($con->query($sql) == TRUE) {
   echo "New record created successfully";
+} else {
+  echo "failed";
 }
 
 $con->close();
