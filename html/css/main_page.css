@@ -10,6 +10,11 @@ input,select,button {vertical-align: middle;}
 img {vertical-align: top;}
 label,button {cursor: pointer;}*/
 
+.padLR20 {
+  padding:0 20px;
+}
+
+
 html {
  width : 100%;
  font-size : 30px;
@@ -32,7 +37,7 @@ header {
 header div {
  position : relative;
  top : 77px;
- right : 15%;
+ right : 11%;
 }
 
 #mainbody {
@@ -53,8 +58,8 @@ header div {
 
 #aside2 {
   width : 300px;
-/*  height : 1800px;*/
   float : right;
+  position: relative;
 }
 
 #section1 {
@@ -63,6 +68,7 @@ header div {
   width : 910px;
   height : 1800px;
   display : flex;
+  position: relative;
 }
 
 #subsection1 {
@@ -80,23 +86,25 @@ header div {
 
 
 #article3 {
-/*  height: 12%;*/
-  border-style : solid 1px;
 }
-
-/*
 #article4 {
-  border-style : dotted;
+  height: 300px;
+  border: 1px solid #000;
+  margin: 5px 0;
 }
-*/
+#article5 {
+  height: 300px;
+  border: 1px solid #000;
+  margin: 5px 0;
+}
 
 #menuimg {
   width: 180px;
   height: auto;
 }
 
-/*
-#article5 {
+
+/*#article5 {
   border-style : dotted;
 }
 */
@@ -249,8 +257,8 @@ body {
 }
 
 .chat_window {
-  position: fixed;
-  width: calc(100% - 20px);
+  position: absolute;
+/*  width: calc(100% - 20px);*/
   max-width: 300px;
   height: 500px;
   border-radius: 10px;
@@ -299,7 +307,8 @@ body {
   padding: 20px 10px 0 10px;
   margin: 0;
   height: 347px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .messages .message {
   clear: both;
@@ -391,7 +400,7 @@ body {
   height: 50px;
   border-radius: 25px;
   border: 1px solid #bcbdc0;
-  width: calc(100% - 160px);
+  width: calc(100% - 75px);
   position: relative;
   padding: 0 20px;
 }
@@ -405,7 +414,7 @@ body {
   color: gray;
 }
 .bottom_wrapper .send_message {
-  width: 140px;
+  width: 70px;
   height: 50px;
   display: inline-block;
   border-radius: 50px;

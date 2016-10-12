@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>Korea Security Company</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main_page.css" />
     <link rel="stylesheet" type="text/css" href="css/main_page2.css" />
 <!-- Script dependencies -->
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
-
 <!-- 달력 -->
+<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
 <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
 <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
 <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
 
 <!-- chat js -->
-<script>
+<script type="text/javascript">
 (function () {
     var Message;
     Message = function (arg) {
@@ -80,7 +80,7 @@
 }.call(this));
 
 // 달력
- $(document).ready(function() {
+  $(document).ready(function() {
 
     var date = new Date();
     var d = date.getDate();
@@ -121,11 +121,6 @@
         end : new Date(y, m, d, 14, 0),
         allDay : false
       }, {
-        title : 'Birthday Party',
-        start : new Date(y, m, d + 1, 19, 0),
-        end : new Date(y, m, d + 1, 22, 30),
-        allDay : false
-      }, {
         title : 'Click for Google',
         start : new Date(y, m, 28),
         end : new Date(y, m, 29),
@@ -135,19 +130,28 @@
 
   });
 
-
+//quick_menu
+//<![CDATA[
+$(function(){
+  $(window).scroll(function(){ //$(window).scroll(function(){실행문}) 윈도우에 스크롤바를 움직일 때 마다 실행문을 실행
+    var topPos=$(window).scrollTop(); //스크롤 내려온 높이값을 구한다. 스크롤 높이값에 50px을 더한다.
+    $("#aside2").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
+  })
+});
+//]]>
 
  </script>
 </head>
 
 <body>
 
+<!-- header -->
 <header>
   <div><a href="main_page.html"><img src="images/logo.png" alt="logo" /></a></div>
 </header>
+<!-- //header -->
 
-  <div class="navbar-wrapper">
-      <div class="container-fluid">
+<!-- 상단 nav -->
           <nav class="navbar navbar-fixed-top">
               <div class="container">
                   <div class="navbar-header">
@@ -160,40 +164,38 @@
                   </div>
                   <div id="navbar" class="navbar-collapse collapse">
                       <ul class="nav navbar-nav">
-                          <li class="active"><a href="menubar_email.html" class="">e-mail</a></li>
-                          <li><a href="#">공지사항</a></li>
-                          <li><a href="#">스케줄 관리</a></li>
-                          <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
+                          <li class="active padLR20"><a href="menubar_email.html" class="">e-mail</a></li>
+                          <li class="padLR20"><a href="#">공지사항</a></li>
+                          <li class="padLR20"><a href="#">스케줄 관리</a></li>
+                          <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                   <li><a href="#">팀회의</a></li>
                                   <li><a href="#">임원직 회의</a></li>
                               </ul>
                           </li>
-                          <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결제문서 <span class="caret"></span></a>
+                          <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결제문서 <span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                   <li><a href="#">제안서</a></li>
                                   <li><a href="#">품의서</a></li>
                                   <li><a href="#">결제완료건</a></li>
                               </ul>
                           </li>
-                          <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">익명게시판<span class="caret"></span></a>
+                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">익명게시판<span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                   <li><a href="#">건의사항</a></li>
                                   <li><a href="#">자유게시판</a></li>
                               </ul>
                           </li>
-              <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cafe<span class="caret"></span></a></li>
-                      </ul>
-                      <ul class="nav navbar-nav pull-right">
-                          <li class=""><a href="#">Logout</a></li>
+                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cafe<span class="caret"></span></a></li>
                       </ul>
                   </div>
               </div>
           </nav>
-      </div>
-  </div>
+<!-- //상단 nav -->
 
 <div id="mainbody">
+
+<!-- 좌측 snb -->
   <div class="container" id="aside1">
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
     <div class="mail-box">
@@ -208,9 +210,7 @@
               </div>
           </div>
           <div class="inbox-body">
-              <a href="#myModal" data-toggle="modal"  title="Compose"    class="btn btn-compose">
-                  Compose
-              </a>
+              <a href=""class="btn btn-compose">Logout</a>
               <!-- Modal -->
               <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
                   <div class="modal-dialog">
@@ -265,7 +265,6 @@
           <ul class="inbox-nav inbox-divider">
               <li class="active">
                   <a href="#"><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">2</span></a>
-
               </li>
               <li>
                   <a href="#"><i class="fa fa-envelope-o"></i> Sent Mail</a>
@@ -319,10 +318,12 @@
     </aside>
   </div>
   </div>
+<!-- //좌측 snb -->
 
-  <section id="section1"> <!-- 큰상자 -->
-    <section id="subsection1"> <!-- 작은상자 1-->
-
+<!-- section -->
+  <section id="section1">
+<!-- 게시판 -->
+    <section id="subsection1">
                       <article id="article1">
                       <div class="inbox-head">
                           <h3>Notice</h3>
@@ -459,15 +460,16 @@
                       </div>
                       </article>
     </section>
+<!-- //게시판 -->
 
-    <section id="subsection2"> <!-- 작은상자 2-->
+<!-- 위젯 -->
+    <section id="subsection2">
       <article id="article3">
-  <div id="calendar" style="margin: 3em 0; font-size: 13px; background-color:white;"></div>
+        <div id="calendar" style="margin: 0; font-size: 13px; background-color:white;"></div>
       </article>
 
-
-
-      <article id="article4">
+      <article id="article4" style="background: #fff;">
+      식단
 <!--         <div id="lunch_menu" class="meal">
           <label>
             <img src="lunch_menu.png" id="menuimg" alt="식단" title="오늘의 메뉴">
@@ -483,7 +485,9 @@
           </label>
         </div> -->
       </article>
-      <article id="article5">
+
+      <article id="article5" style="background: #fff;">
+      날씨
 <!--         <fieldset>
           <iframe id="weather" src="http://www.accuweather.com/ko/kr/seoul/226081/current-weather/226081/#detail-now" seamless>
           </iframe>
@@ -491,9 +495,12 @@
       </article>
     </section>
   </section>
-  <aside id="aside2" style="border:1px solid #000;">
+<!-- //위젯 -->
+
+<!-- 우측 chat -->
+  <aside id="aside2">
     <!-- chat s_c  -->
-<!--     <div class="chat_window">
+    <div class="chat_window">
       <div class="top_menu">
         <div class="buttons">
           <div class="button close">
@@ -523,9 +530,9 @@
           <div class="text"></div>
         </div>
       </li>
-    </div> -->
+    </div>
 </aside>
-
+<!-- //우측 chat -->
 
 </body>
 </html>
