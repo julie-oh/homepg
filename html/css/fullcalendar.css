@@ -13,6 +13,7 @@
 .fc table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	height: 79px;
 	}
 
 html .fc,
@@ -22,17 +23,20 @@ html .fc,
 
 .fc td,
 .fc th {
-	padding: 0;
-	vertical-align: top;
+	padding: 5px 0;
+/*	vertical-align: top;*/
 	}
 
 
 
 /* Header
 ------------------------------------------------------------------------*/
-
+.fc-header tr {
+	background: #d5d7de;
+}
 .fc-header td {
 	white-space: nowrap;
+	padding-top: 24px;
 	}
 
 .fc-header-left {
@@ -57,13 +61,14 @@ html .fc,
 
 .fc-header-title h2 {
 	margin-top: 0;
-	font-size: 18px;
-	letter-spacing: -1px;
+	font-size: 17px;
+	color: #535353;
+	letter-spacing: -0.09em;
 	white-space: nowrap;
 	}
 
 .fc .fc-header-space {
-	padding-left: 10px;
+	padding-left: 3px;
 	}
 
 .fc-header .fc-button {
@@ -178,6 +183,7 @@ html .fc,
 .fc-button-prev .fc-text-arrow,
 .fc-button-next .fc-text-arrow { /* for &lsaquo; &rsaquo; */
 	font-weight: bold;
+	color: #535353;
 	}
 
 /* icon (for jquery ui) */
