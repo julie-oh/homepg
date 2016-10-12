@@ -10,6 +10,11 @@ input,select,button {vertical-align: middle;}
 img {vertical-align: top;}
 label,button {cursor: pointer;}*/
 
+.padLR20 {
+  padding:0 20px;
+}
+
+
 html {
  width : 100%;
  font-size : 30px;
@@ -32,7 +37,7 @@ header {
 header div {
  position : relative;
  top : 77px;
- right : 15%;
+ right : 11%;
 }
 
 #mainbody {
@@ -53,8 +58,8 @@ header div {
 
 #aside2 {
   width : 300px;
-/*  height : 1800px;*/
   float : right;
+  position: relative;
 }
 
 #section1 {
@@ -63,6 +68,7 @@ header div {
   width : 910px;
   height : 1800px;
   display : flex;
+  position: relative;
 }
 
 #subsection1 {

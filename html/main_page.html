@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>Korea Security Company</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main_page.css" />
     <link rel="stylesheet" type="text/css" href="css/main_page2.css" />
@@ -134,22 +134,24 @@
 //<![CDATA[
 $(function(){
   $(window).scroll(function(){ //$(window).scroll(function(){실행문}) 윈도우에 스크롤바를 움직일 때 마다 실행문을 실행
-    var topPos=$(window).scrollTop()+50; //스크롤 내려온 높이값을 구한다. 스크롤 높이값에 50px을 더한다.
-    $(".chat_window").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
+    var topPos=$(window).scrollTop(); //스크롤 내려온 높이값을 구한다. 스크롤 높이값에 50px을 더한다.
+    $("#aside2").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
   })
 });
 //]]>
-
 
  </script>
 </head>
 
 <body>
 
+<!-- header -->
 <header>
   <div><a href="main_page.html"><img src="images/logo.png" alt="logo" /></a></div>
 </header>
+<!-- //header -->
 
+<!-- 상단 nav -->
   <div class="navbar-wrapper">
       <div class="container-fluid">
           <nav class="navbar navbar-fixed-top">
@@ -164,38 +166,36 @@ $(function(){
                   </div>
                   <div id="navbar" class="navbar-collapse collapse">
                       <ul class="nav navbar-nav">
-                          <li class="active"><a href="menubar_email.html" class="">e-mail</a></li>
-                          <li><a href="#">공지사항</a></li>
-                          <li><a href="#">스케줄 관리</a></li>
-                          <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
+                          <li class="active padLR20"><a href="menubar_email.html" class="">e-mail</a></li>
+                          <li class="padLR20"><a href="#">공지사항</a></li>
+                          <li class="padLR20"><a href="#">스케줄 관리</a></li>
+                          <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                   <li><a href="#">팀회의</a></li>
                                   <li><a href="#">임원직 회의</a></li>
                               </ul>
                           </li>
-                          <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결제문서 <span class="caret"></span></a>
+                          <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결제문서 <span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                   <li><a href="#">제안서</a></li>
                                   <li><a href="#">품의서</a></li>
                                   <li><a href="#">결제완료건</a></li>
                               </ul>
                           </li>
-                          <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">익명게시판<span class="caret"></span></a>
+                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">익명게시판<span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                   <li><a href="#">건의사항</a></li>
                                   <li><a href="#">자유게시판</a></li>
                               </ul>
                           </li>
-              <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cafe<span class="caret"></span></a></li>
-                      </ul>
-                      <ul class="nav navbar-nav pull-right">
-                          <li class=""><a href="#">Logout</a></li>
+                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cafe<span class="caret"></span></a></li>
                       </ul>
                   </div>
               </div>
           </nav>
       </div>
   </div>
+<!-- //상단 nav -->
 
 <div id="mainbody">
   <div class="container" id="aside1">
@@ -213,7 +213,7 @@ $(function(){
           </div>
           <div class="inbox-body">
               <a href="#myModal" data-toggle="modal"  title="Compose"    class="btn btn-compose">
-                  Compose
+                  Logout
               </a>
               <!-- Modal -->
               <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
@@ -495,7 +495,7 @@ $(function(){
       </article>
     </section>
   </section>
-  <aside id="aside2" style="border:1px solid #000;">
+  <aside id="aside2">
     <!-- chat s_c  -->
     <div class="chat_window">
       <div class="top_menu">
