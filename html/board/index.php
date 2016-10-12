@@ -53,6 +53,9 @@
         </tbody>
       </table>
     </div>
+    <div class="btnSet">
+      <a class="button_href" href="./write.php">글쓰기</a>
+    </div>
   </article>
 </body>
 </html>
