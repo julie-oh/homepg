@@ -23,7 +23,7 @@ html .fc,
 
 .fc td,
 .fc th {
-	padding: 5px 0;
+	padding: 5px 0 5px 2px;
 /*	vertical-align: top;*/
 	}
 
