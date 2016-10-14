@@ -8,12 +8,10 @@ body {
   background: #8999a8;
   color: #a4a4a4;
 }
-
 #mainbox {
   position: absolute;
   top: 20%;
 }
-
 #login-text {
   font-size: 35px;
   text-align: center;
@@ -21,7 +19,6 @@ body {
   letter-spacing: -1px;
   margin-bottom: 25px;
 }
-
 #loginbox {
   width: 350px;
   height: 420px;
@@ -29,7 +26,6 @@ body {
   border-radius: 3px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3)
 }
-
 h1 {
   font-weight: normal;
   font-size: 30px;
@@ -39,31 +35,25 @@ h1 {
   margin: 0 auto;
   padding: 15px 0;
 }
-
 form {
   width: 290px;
   margin: 0 auto;
 }
-
 .query {
   padding: 35px 0 0 5px;
 }
-
 input {
   width: 97%;
   height: 35px;
   margin-top: 5px;
   border: 5px solid #f4f4f4;
   background: #f7f7f7;
-  font-size: 15px;
 }
-
 #button-container {
   width: 290px;
   margin: 0 auto;
   padding-top: 45px;
 }
-
 .buttons {
   border-radius: 3px;
   width: 140px;
@@ -73,7 +63,6 @@ input {
   border: none;
   margin: 0; padding: 0;
 }
-
 .buttons:hover {
   background: #43a6eb;
 }
