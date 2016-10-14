@@ -19,7 +19,7 @@
           <tr>
             <!-- Header row -->
             <th scope="col" class="no">번호</th>
-            <th scope="col" class="title">제목</th>
+            <th scope="col" class="title"><a href>제목</a></th>
             <th scope="col" class="author">작성자</th>
             <th scope="col" class="date">작성일</th>
             <th scope="col" class="hit">조회</th>
@@ -42,7 +42,15 @@
               ?>
               <tr>
                 <td class="no"><?php echo $row['b_no']?></td>
-                <td class="title"><?php echo $row['b_title']?></td>
+                <td class="title">
+                  <?php
+                  $bno = $row['b_no'];
+                  $view_url = './view.php?bno=' . $bno;
+                  echo '<a href="' . $view_url . '">';
+                  ?>
+                    <?php echo $row['b_title']?>
+                    </a>
+                </td>
                 <td class="author"><?php echo $row['b_id']?></td>
                 <td class="date"><?php echo $row['b_date']?></td>
                 <td class="hit"><?php echo $row['b_hit']?></td>
