@@ -28,7 +28,7 @@
   </article>
   <div class="btnSet">
     <a class="button_href" href="./write.php?bno=<?php echo $bNo?>">modify</a>
-    <a class="button_href" href="./delete.php">delete</a>
+    <a class="button_href" href="./delete.php?bno=<?php echo $bNo?>">delete</a>
     <a class="button_href" href="./">list</a>
   </div>
 </body>
