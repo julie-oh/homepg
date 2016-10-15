@@ -27,33 +27,33 @@
         </thead>
         <tbody>
             <?php
-              $sql = 'select * from board_free order by b_no desc';
+              $sql = 'select * from aboard order by a_no desc';
               $result = $db->query($sql);
               # loop until the end of query result's rows
               while($row = $result->fetch_assoc())
               {
-                $datetime = explode(' ', $row['b_date']);
+                $datetime = explode(' ', $row['a_date']);
                 $date = $datetime[0];
                 $time = $datetime[1];
                 if ($date == Date('Y-m-d'))
-                  $row['b_date'] = $time;
+                  $row['a_date'] = $time;
                 else
-                  $row['b_date'] = $date;
+                  $row['a_date'] = $date;
               ?>
               <tr>
-                <td class="no"><?php echo $row['b_no']?></td>
+                <td class="no"><?php echo $row['a_no']?></td>
                 <td class="title">
                   <?php
-                  $bno = $row['b_no'];
+                  $bno = $row['a_no'];
                   $view_url = './view.php?bno=' . $bno;
                   echo '<a href="' . $view_url . '">';
                   ?>
-                    <?php echo $row['b_title']?>
+                    <?php echo $row['a_title']?>
                     </a>
                 </td>
-                <td class="author"><?php echo $row['b_id']?></td>
-                <td class="date"><?php echo $row['b_date']?></td>
-                <td class="hit"><?php echo $row['b_hit']?></td>
+                <td class="author"><?php echo $row['user_prodID']?></td>
+                <td class="date"><?php echo $row['a_date']?></td>
+                <td class="hit"><?php echo $row['a_hit']?></td>
               </tr>
               <?php
               }

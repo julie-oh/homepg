@@ -2,7 +2,7 @@
   require_once("../dbconfig.php");
   $bNo = $_GET['bno'];
 
-  $sql = 'SELECT b_title, b_content, b_date, b_hit, b_id FROM board_free WHERE b_no = ' . $bNo;
+  $sql = 'SELECT a_title, a_text, a_date, a_hit, a_id FROM aboard WHERE a_no = ' . $bNo;
   $result = $db->query($sql);
   $row = $result->fetch_assoc();
 ?>
@@ -17,13 +17,13 @@
   <article>
   <h3>자유게시판 글쓰기</h3>
   <div>
-    <h4><?php echo $row['b_title']?></h4>
+    <h4><?php echo $row['a_title']?></h4>
     <div id="content_info">
-      <span class="thread_meta">작성자: <?php echo $row['b_id']?></span>
-      <span class="thread_meta">작성일: <?php echo $row['b_date']?></span>
-      <span class="thread_meta">조회: <?php echo $row['b_hit']?></span>
+      <span class="thread_meta">작성자: <?php echo $row['a_id']?></span>
+      <span class="thread_meta">작성일: <?php echo $row['a_date']?></span>
+      <span class="thread_meta">조회: <?php echo $row['a_hit']?></span>
     </div>
-    <div id="content_box"><?php echo $row['b_content']?></div>
+    <div id="content_box"><?php echo $row['a_text']?></div>
   </div>
   </article>
   <div class="btnSet">

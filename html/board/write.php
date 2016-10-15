@@ -7,7 +7,7 @@
   }
 
   if (isset($bNo)) {
-    $sql = 'SELECT b_title, b_content, b_date, b_hit, b_id FROM board_free WHERE b_no = ' . $bNo;
+    $sql = 'SELECT a_title, a_content, a_date, a_hit, a_id FROM aboard WHERE a_no = ' . $bNo;
     $result = $db->query($sql);
     $row = $result->fetch_assoc();
   }
@@ -38,7 +38,7 @@
               <td>
                 <?php
                 if (isset($bNo)) {
-                  echo $row['b_id'];
+                  echo $row['a_id'];
                 } else {
                 ?>
                   <input type="text" name="bID" id="bID">
@@ -55,7 +55,7 @@
               <th scope="row"><label for="bTitle">제목</label></th>
               <?php
               if (isset($bNo)) {
-                echo '<td class="title"><input type="text" name="bTitle" id="bTitle" value="' . $row['b_title'] . '"></td>';
+                echo '<td class="title"><input type="text" name="bTitle" id="bTitle" value="' . $row['a_title'] . '"></td>';
               } else {
                ?>
                 <td class="title"><input type="text" name="bTitle" id="bTitle"></td>
@@ -67,7 +67,7 @@
               <th scope="row"><label for="bContent">내용</label></th>
               <?php
               if (isset($bNo)) {
-                echo '<td class="content"><textarea name="bContent" id="bContent" value="' . $row['b_content'] . '"></textarea></td>';
+                echo '<td class="content"><textarea name="bContent" id="bContent" value="' . $row['a_text'] . '"></textarea></td>';
               } else {
                ?>
                 <td class="content"><textarea name="bContent" id="bContent"></textarea></td>

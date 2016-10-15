@@ -15,14 +15,14 @@
 
   # modifying
   if (isset($bNo)) {
-    $query = 'SELECT count(b_password) AS result FROM board_free WHERE b_password=password("'
-    . $bPassword . '") and b_no = ' . $bNo;
+    $query = 'SELECT count(a_password) AS result FROM aboard WHERE a_password=password("'
+    . $bPassword . '") and a_no = ' . $bNo;
     $result = $db->query($query);
     $row = $result->fetch_assoc();  # get a single row = if any exists!
 
     if ($row['result']) {
-      $query = 'update board_free set b_title="' . $bTitle . '", b_content="'
-      . $bContent . '" where b_no = ' . $bNo;
+      $query = 'update board_free set a_title="' . $bTitle . '", a_text"'
+      . $bContent . '" where a_no = ' . $bNo;
     } else {
       ?>
       <script>
@@ -33,11 +33,11 @@
     exit;
     }
   } else {  # write
-    $sql = 'INSERT INTO board_free
-    (b_no, b_title, b_content, b_date, b_hit, b_id, b_password)
+    $sql = 'INSERT INTO aboard
+    (a_no, a_title, a_text, a_date, a_hit, user_prodID, a_password)
     VALUES
     (null, "' . $bTitle . '", "' . $bContent . '", "'
-     . $date . '", 0, "' . $bID . '", password("' . $bPassword . '"))';
+     . $date . '", 0, ' . $bID . ', password("' . $bPassword . '"))';
 
     # check for results
     $result = $db->query($sql);
@@ -48,7 +48,6 @@
       ?>
       <script>
         alert("post failed");
-        history.back();
       </script>
       <?php
       exit;
