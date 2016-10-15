@@ -13,9 +13,6 @@ $passwd = $_POST['password'];
 
 $sql = "SELECT * FROM user WHERE prodID=" . $id . " AND password=password(" . $passwd . ")";
 $result = $db->query($sql);
-echo $id;
-echo $passwd;
-echo $sql;
 
 if (!$result) {
   echo "<script>alert(\" 로그인 정보가 틀렸습니다 \")</script>";
