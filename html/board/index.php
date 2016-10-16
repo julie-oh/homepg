@@ -1,5 +1,16 @@
 <?php
-  require_once("../dbconfig.php");
+// 로그인 세션이 정상적으로 시작되었는지 체크.
+// 세션 없으면 로그인 페이지로 바로 접속함
+session_start();
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+  echo "<script>alert(\" 어허! 로그인부터 하고오셈. \")</script>";
+  echo "<script>window.location.replace(\" login/login.html \");</script>";
+  exit;
+}
+
+// import database object
+require_once("../dbconfig.php");
 ?>
 <!DOCTYPE html>
 <html>
