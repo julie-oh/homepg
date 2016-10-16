@@ -8,7 +8,9 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
   echo "<script>window.location.replace(\" login/login.html \");</script>";
   exit;
 }
- ?>
+
+header('Content-type: text/html; charset=utf-8');
+?>
 
 <!DOCTYPE html>
 <html>
