@@ -1,3 +1,15 @@
+<?php
+// 로그인 세션이 정상적으로 시작되었는지 체크.
+// 세션 없으면 로그인 페이지로 바로 접속함
+session_start();
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
+  echo "<script>alert(\" 어허! 로그인부터 하고오셈. \")</script>";
+  echo "<script>window.location.replace(\" login/login.html \");</script>";
+  exit;
+}
+ ?>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -147,7 +159,7 @@ $(function(){
 
 <!-- header -->
 <header>
-  <div><a href="main_page.html"><img src="images/logo.png" alt="logo" /></a></div>
+  <div><a href="main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
 </header>
 <!-- //header -->
 
@@ -204,7 +216,13 @@ $(function(){
                   <img  width="64" hieght="60" src="images/ohyeonjoo.jpg" alt="사용자 사진" />
               </a>
               <div class="user-name">
-                  <h5><a href="#">오연주 차장</a></h5>
+                  <h5>
+                    <a href="#">
+                      <?php
+                      echo $_SESSION['user_name'];
+                      ?>
+                    </a>
+                  </h5>
                   <span><a href="#">yj_oh@naver.com</a></span>
               </div>
           </div>
