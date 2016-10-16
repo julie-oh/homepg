@@ -31,8 +31,7 @@ if (!$result) {
   echo "<script>history.back()</script>";
   exit;
 } else {
-  echo "<script>alert(\" 회원가입 성공 \")</script>";
+  echo "<script>alert(\" 회원가입 성공\n 다시 로그인해주세요. \")</script>";
 }
-
 ?>
 <meta http-equiv='refresh' content='0;url=login.html'>
