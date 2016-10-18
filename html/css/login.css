@@ -2,26 +2,34 @@ body,header,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,lege
 
 body {
   font-family: font-family:'돋움',dotum,AppleGothic,sans-serif;
-  display: flex;
+/*  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;*/
   background: #8999a8;
   color: #a4a4a4;
 }
-#mainbox {
-  position: absolute;
-  top: 20%;
+#login_wrap {
+  width: 350px;
+  margin: 0 auto;
+  top: 50%;
+  margin-top: 181px;
 }
-#login-text {
+#sign_up_wrap {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+#text {
   font-size: 35px;
   text-align: center;
   color: #fff;
   letter-spacing: -1px;
   margin-bottom: 25px;
 }
-#loginbox {
+#box {
   width: 350px;
-  height: 420px;
+  height: 100%;
   background-color: #fff;
   border-radius: 3px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3)
@@ -40,7 +48,7 @@ form {
   margin: 0 auto;
 }
 .query {
-  padding: 35px 0 0 5px;
+  padding: 20px 0 0 5px;
 }
 input {
   width: 97%;
@@ -52,7 +60,8 @@ input {
 #button-container {
   width: 290px;
   margin: 0 auto;
-  padding-top: 45px;
+  padding: 30px 0;
+  text-align: center;
 }
 .buttons {
   border-radius: 3px;
