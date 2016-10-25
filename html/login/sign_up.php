@@ -20,7 +20,7 @@ if (!$id || !$password || !$dep || !$position || !$phoneNumber
 
 $sql =
 "INSERT INTO user
-(prodID, name, dep, position, phoneNumber, deskNumber, mail, password)
+(prodID, name, dep, position, phoneNumber, deskNumber, mail, pwd)
 VALUES
 (" . $id . ", '" . $name . "', '" . $dep . "', '" . $position . "', '" . $phoneNumber . "'
 , '" . $deskNumber . "', '" . $mail . "', password(" . $password . "))";
