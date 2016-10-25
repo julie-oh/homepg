@@ -2,7 +2,7 @@
   require_once("../dbconfig.php");
   $bNo = $_GET['bno'];
 
-  $sql = 'SELECT a_title, a_text, a_date, a_hit, a_id FROM aboard WHERE a_no = ' . $bNo;
+  $sql = 'SELECT a_title, a_text, a_date, a_hit, user_prodID FROM aboard WHERE a_no = ' . $bNo;
   $result = $db->query($sql);
   $row = $result->fetch_assoc();
 ?>
@@ -19,7 +19,7 @@
   <div>
     <h4><?php echo $row['a_title']?></h4>
     <div id="content_info">
-      <span class="thread_meta">작성자: <?php echo $row['a_id']?></span>
+      <span class="thread_meta">작성자: <?php echo $row['user_prodID']?></span>
       <span class="thread_meta">작성일: <?php echo $row['a_date']?></span>
       <span class="thread_meta">조회: <?php echo $row['a_hit']?></span>
     </div>

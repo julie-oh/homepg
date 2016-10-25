@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Board</title>
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
           href="../css/board.css" />
 </head>
 

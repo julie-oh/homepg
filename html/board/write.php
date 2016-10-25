@@ -7,7 +7,7 @@
   }
 
   if (isset($bNo)) {
-    $sql = 'SELECT a_title, a_content, a_date, a_hit, a_id FROM aboard WHERE a_no = ' . $bNo;
+    $sql = 'SELECT a_title, a_text, a_date, a_hit FROM aboard WHERE a_no = ' . $bNo;
     $result = $db->query($sql);
     $row = $result->fetch_assoc();
   }
