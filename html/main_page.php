@@ -1,6 +1,7 @@
 <?php
 // 로그인 세션이 정상적으로 시작되었는지 체크.
 // 세션 없으면 로그인 페이지로 바로 접속함
+require_once('dbconfig.php');
 session_start();
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
@@ -8,6 +9,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
   echo "<script>window.location.replace(\" login/login.html \");</script>";
   exit;
 }
+$prodID = $_SESSION['user_id'];
 
 header('Content-type: text/html; charset=utf-8');
 ?>
@@ -217,15 +219,31 @@ $(function(){
               <a class="inbox-avatar" href="javascript:;">
                   <img  width="64" hieght="60" src="images/ohyeonjoo.jpg" alt="사용자 사진" />
               </a>
+              <!-- 로그인된 사원 정보 -->
               <div class="user-name">
-                  <h5>
-                    <a href="#">
-                      <?php
-                      echo $_SESSION['user_name'];
-                      ?>
-                    </a>
-                  </h5>
-                  <span><a href="#">yj_oh@naver.com</a></span>
+                <h5>
+                  <?php
+                  $query = "SELECT * FROM user WHERE prodID=" . $prodID;
+                  $result = $db->query($query);
+                  $row = $result->fetch_assoc();
+                  $user_name = $row['name'];
+                  $user_mail = $row['mail'];
+                  $user_position = $row['position'];
+                  echo $user_name;
+                  ?>
+                </h5>
+                <!-- 직책 -->
+                <span>
+                  <?php
+                  echo $user_position
+                   ?>
+                </span>
+                <!-- 이메일 -->
+                <span>
+                  <?php
+                  echo $user_mail
+                   ?>
+                </span>
               </div>
           </div>
           <div class="inbox-body">
