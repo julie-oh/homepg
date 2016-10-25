@@ -12,7 +12,7 @@ if (!isset($_POST['id']) || !isset($_POST['password'])) {
 $id = $_POST['id'];
 $passwd = $_POST['password'];
 
-$sql = "SELECT * FROM user WHERE prodID=" . $id . " AND pwd=pwd(" . $passwd . ")";
+$sql = "SELECT * FROM user WHERE prodID=" . $id . " AND pwd=password(" . $passwd . ")";
 $result = $db->query($sql);
 
 if (!$result) {
