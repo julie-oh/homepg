@@ -13,9 +13,10 @@ $id = $_POST['id'];
 $passwd = $_POST['password'];
 
 $sql = "SELECT * FROM user WHERE prodID=" . $id . " AND pwd=password(" . $passwd . ")";
+
 $result = $db->query($sql);
 
-if (!$result) {
+if (!$result || mysqli_num_rows($result) == 0) {
   echo "<script>alert(\" 로그인 정보가 틀렸습니다 \")</script>";
   echo "<script>history.back()</script>";
   exit;
@@ -27,5 +28,6 @@ $row = $result->fetch_assoc();
 session_start();
 $_SESSION['user_id'] = $row['prodID'];
 $_SESSION['user_name'] = $row['name'];
+
 ?>
 <meta http-equiv='refresh' content='0;url=./../main_page.php'>
