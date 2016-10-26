@@ -18,5 +18,5 @@ if (!$amount) {
 
 ?>
 <script>
-  location.replace("./cafe_main.php");
+  location.replace("./cafe_main.html");
 </script>
