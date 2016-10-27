@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['user_id']) || isset($_POST['user_pw'])) exit;
+    if(!isset($_POST['user_id']) || !isset($_POST['user_pw'])) exit;
     $user_id = $_POST['user_id'];
     $user_pw = $_POST['user_pw'];
     $members = array('user1' => array('pw'=>'pw1', 'name'=>'한놈'),
@@ -15,10 +15,8 @@
     }
     
     session_start();
-    $_session['user_id'] = $user_id;
-    $_session['user_name']=$members;
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_name']=$members[$user_id]['name'
+];
     ?>
 <meta http-equiv='refresh' content='0;url=main.php'>
-    
-?>
-
