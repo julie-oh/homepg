@@ -226,7 +226,7 @@ $(function(){
               $image_path = $row['image'];
              ?>
               <a class="inbox-avatar" href="javascript:;">
-              <img width="64" height"60" src=
+              <img width="64" height="60" src=
             <?php
               echo "\"images/userImages/" . $image_path . "\""
              ?>
