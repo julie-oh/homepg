@@ -216,20 +216,26 @@ $(function(){
     <div class="mail-box">
       <aside class="sm-side">
           <div class="user-head">
+            <?php
+              $query = "SELECT * FROM user WHERE prodID=" . $prodID;
+              $result = $db->query($query);
+              $row = $result->fetch_assoc();
+              $user_name = $row['name'];
+              $user_mail = $row['mail'];
+              $user_position = $row['position'];
+              $image_path = $row['image'];
+             ?>
               <a class="inbox-avatar" href="javascript:;">
-                  <img  width="64" hieght="60" src="images/ohyeonjoo.jpg" alt="사용자 사진" />
-
+              <img width="64" height"60" src=
+            <?php
+              echo "\"images/userImages/" . $image_path . "\""
+             ?>
+              alt="사용자사진" />
               </a>
               <!-- 로그인된 사원 정보 -->
               <div class="user-name">
                 <h5>
                   <?php
-                  $query = "SELECT * FROM user WHERE prodID=" . $prodID;
-                  $result = $db->query($query);
-                  $row = $result->fetch_assoc();
-                  $user_name = $row['name'];
-                  $user_mail = $row['mail'];
-                  $user_position = $row['position'];
                   echo $user_name;
                   ?>
                 </h5>
