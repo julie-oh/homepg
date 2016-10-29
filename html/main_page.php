@@ -201,7 +201,7 @@ $(function(){
                                   <li><a href="board/index.php">자유게시판</a></li>
                               </ul>
                           </li>
-                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cafe<span class="caret"></span></a></li>
+                          <li class="padLR20"><a href="cafe/cafe_main.html">cafe</a></li>
                       </ul>
                   </div>
               </div>
@@ -218,7 +218,7 @@ $(function(){
           <div class="user-head">
               <a class="inbox-avatar" href="javascript:;">
                   <img  width="64" hieght="60" src="images/ohyeonjoo.jpg" alt="사용자 사진" />
-                  
+
               </a>
               <!-- 로그인된 사원 정보 -->
               <div class="user-name">
