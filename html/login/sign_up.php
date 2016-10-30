@@ -2,9 +2,9 @@
 require_once("../dbconfig.php");
 
 // retreive info
-$id = $_POST['prodID'];
+$prodID = $_POST['prodID'];
 $name = $_POST['name'];
-$password = $_POST['pwd'];
+$pwd = $_POST['pwd'];
 $dep = $_POST['dep'];
 $position = $_POST['position'];
 $phoneNumber = $_POST['phoneNumber'];
