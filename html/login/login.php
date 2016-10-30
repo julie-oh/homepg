@@ -3,7 +3,7 @@ header('Content-type text/html; charset=utf-8');
 // get database
 require_once('../dbconfig.php');
 
-if (!isset($_POST['id']) || !isset($_POST['password'])) {
+if (!isset($_POST['prodID']) || !isset($_POST['password'])) {
   echo "<script>alert(\" ID 와 비밀번호를 모두 입력해주세요 \")</script>";
   echo "<script>history.back()</script>";
   exit;

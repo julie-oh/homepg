@@ -2,16 +2,16 @@
 require_once("../dbconfig.php");
 
 // retreive info
-$id = $_POST['id'];
+$id = $_POST['prodID'];
 $name = $_POST['name'];
-$password = $_POST['password'];
+$password = $_POST['pwd'];
 $dep = $_POST['dep'];
 $position = $_POST['position'];
 $phoneNumber = $_POST['phoneNumber'];
 $mail = $_POST['mail'];
 $deskNumber = $_POST['deskNumber'];
 
-if (!$id || !$password || !$dep || !$position || !$phoneNumber
+if (!$prodID || !$pwd || !$dep || !$position || !$phoneNumber
     || !$mail || !$deskNumber || !$name) {
   echo "<script>alert(\" 회원 정보를 모두 입력해주세요 \")</script>";
   echo "<script>history.back()</script>";
@@ -22,7 +22,7 @@ $sql =
 "INSERT INTO user
 (prodID, name, dep, position, phoneNumber, deskNumber, mail, pwd)
 VALUES
-(" . $id . ", '" . $name . "', '" . $dep . "', '" . $position . "', '" . $phoneNumber . "'
+(" . $prodID . ", '" . $name . "', '" . $dep . "', '" . $position . "', '" . $phoneNumber . "'
 , '" . $deskNumber . "', '" . $mail . "', password(" . $password . "))";
 $result = $db->query($sql);
 
