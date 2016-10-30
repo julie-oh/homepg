@@ -9,8 +9,8 @@ if (!isset($_POST['prodID']) || !isset($_POST['password'])) {
   exit;
 }
 
-$id = $_POST['id'];
-$passwd = $_POST['password'];
+$prodID = $_POST['prodID'];
+$pwd = $_POST['pwd'];
 
 $sql = "SELECT * FROM user WHERE prodID=" . $id . " AND pwd=password(" . $passwd . ")";
 
