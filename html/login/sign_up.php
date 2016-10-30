@@ -23,7 +23,7 @@ $sql =
 (prodID, name, dep, position, phoneNumber, deskNumber, mail, pwd)
 VALUES
 (" . $prodID . ", '" . $name . "', '" . $dep . "', '" . $position . "', '" . $phoneNumber . "'
-, '" . $deskNumber . "', '" . $mail . "', password(" . $password . "))";
+, '" . $deskNumber . "', '" . $mail . "', password(" . $pwd . "))";
 $result = $db->query($sql);
 
 if (!$result) {
