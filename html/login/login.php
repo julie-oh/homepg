@@ -3,7 +3,7 @@ header('Content-type text/html; charset=utf-8');
 // get database
 require_once('../dbconfig.php');
 
-if (!isset($_POST['prodID']) || !isset($_POST['password'])) {
+if (!isset($_POST['prodID']) || !isset($_POST['pwd'])) {
   echo "<script>alert(\" ID 와 비밀번호를 모두 입력해주세요 \")</script>";
   echo "<script>history.back()</script>";
   exit;
@@ -12,7 +12,7 @@ if (!isset($_POST['prodID']) || !isset($_POST['password'])) {
 $prodID = $_POST['prodID'];
 $pwd = $_POST['pwd'];
 
-$sql = "SELECT * FROM user WHERE prodID=" . $id . " AND pwd=password(" . $passwd . ")";
+$sql = "SELECT * FROM user WHERE prodID=" . $prodID . " AND pwd=password(" . $pwd . ")";
 
 $result = $db->query($sql);
 
