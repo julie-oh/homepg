@@ -26,9 +26,9 @@ if (!$amount) {
   echo "<script>history.back()</script>";
   exit;
 }else{
-    $cafePW = "<script>window.prompt(\"사원의 비밀번호를 입력하세요\")";
+    $cafeID = "<script>window.promp(\"사원번호를 입력하세요\")</script>";
     echo $cafePW;
-    $cafequery = "select .$_SESSION[user_id]. from user where password(".$cafePW.")";
+    $cafequery = "select * from user where prodID= ".$cafeID."";
     $caferesult = mysqli_query($db, $cafequery);
 }
 
