@@ -10,9 +10,9 @@
         <form action="cafe_order.php" method="post">
           <!-- This options will be replaced with data from database -->
           <select name="item">
-            <option value="1">Americano</option>
-            <option value="2">Cafe Latte</option>
-            <option value="3">Grapefruit Ade</option>
+            <option value="americano">Americano</option>
+            <option value="latte">Cafe Latte</option>
+            <option value="gfade">Grapefruit Ade</option>
           </select>
           <select name="size">
             <option value="L">Large</option>
@@ -22,23 +22,8 @@
               placeholder="수량"/></br>
           <input type="submit" value="주문하기" />
         </form>
-
-        <!-- This is the previous history of your orders -->
-        <div>
-          <table>
-            <caption>Order History</caption>
-            <thead>
-              <tr>
-                <th scope="col">date</th>
-                <th scope="col">item</th>
-                <th scope="col">size</th>
-                <th scope="col">quantity</th>
-                <th scope="col">price</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
+        <button type="button" onclick="location.href='order_history.php'">
+          주문 내역 보기
+        </button>
     </body>
 </html>
