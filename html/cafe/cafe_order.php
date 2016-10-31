@@ -34,14 +34,14 @@ if (!$amount) {
 
 
 // insert the order information
-$query =
-"INSERT INTO cafe VALUES
-('" . $item . "', '" . $price . "', " . $prodID . ", " . $prodID . ", '" . $date . "')";
 
 if(mysqli_num_rows($caferesult) == 1){
+    $query =
+    "INSERT INTO cafe VALUES
+    ('" . $item . "', '" . $price . "', " . $prodID . ", " . $prodID . ", '" . $date . "')";
     $result = $db->query($query); 
     echo "<script>alert(\"주문이 완료되었습니다 ^^ 소요시간은 10분입니다.\")</script>";    
-} else if(!$result) {
+} else if(mysqli_num_rows($result)==0) {
   echo "<script>alert(\" 주문 실패하셨습니다! 다시 시도해주세요 ^^\")</script>";
 }
 
