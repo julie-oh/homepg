@@ -26,7 +26,7 @@ if (!$amount) {
   echo "<script>history.back()</script>";
   exit;
 }else{
-    $cafeID = "<script>window.promp(\"사원번호를 입력하세요\")</script>";
+    $cafeID = "<script>window.prompt(\"사원번호를 입력하세요\")</script>";
     echo $cafeID;
     $cafequery = "select * from user where prodID= ".$cafeID."";
     $caferesult = mysqli_query($db, $cafequery);
