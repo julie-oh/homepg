@@ -27,7 +27,7 @@ if (!$amount) {
   exit;
 }else{
     $cafeID = "<script>window.promp(\"사원번호를 입력하세요\")</script>";
-    echo $cafePW;
+    echo $cafeID;
     $cafequery = "select * from user where prodID= ".$cafeID."";
     $caferesult = mysqli_query($db, $cafequery);
 }
