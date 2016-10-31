@@ -20,7 +20,7 @@ if (isset($_POST) == true && empty($_POST) == false) {
 $price = 4000;
 
 if (!$amount) {
-  echo "<script>alert(\" 수량을 입력해주세요! \")</script>";
+  echo "<script>alert(\" 수량을 꼭 입력해주세요! \")</script>";
   echo "<script>history.back()</script>";
   exit;
 }

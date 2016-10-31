@@ -3,14 +3,24 @@ header('Content-type text/html; charset=utf-8');
 // get database
 require_once('../dbconfig.php');
 
-if (!isset($_POST['prodID']) || !isset($_POST['pwd'])) {
-  echo "<script>alert(\" ID 와 비밀번호를 모두 입력해주세요 \")</script>";
-  echo "<script>history.back()</script>";
-  exit;
-}
+// if (!isset($_POST['prodID']) || !isset($_POST['pwd'])) {
+//   echo "<script>alert(\" ID 와 비밀번호를 모두 입력해주세요 \")</script>";
+//   echo "<script>history.back()</script>";
+//   exit;
+// }
 
 $prodID = $_POST['prodID'];
 $pwd = $_POST['pwd'];
+
+  if($prodID == ""){
+    echo "<script>alert(\"ID를 입력해주세요\")</script>";
+    echo "<script>history.back()</script>";
+    exit;
+  }else if($pwd == ""){
+    echo "<script>alert(\"Password를 입력해주세요\")</script>";
+    echo "<script>history.back()</script>";
+    exit;
+  }
 
 $sql = "SELECT * FROM user WHERE prodID=" . $prodID . " AND pwd=password(" . $pwd . ")";
 
