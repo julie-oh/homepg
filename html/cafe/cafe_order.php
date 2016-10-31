@@ -23,6 +23,11 @@ if (!$amount) {
   echo "<script>alert(\" 수량을 꼭 입력해주세요! \")</script>";
   echo "<script>history.back()</script>";
   exit;
+}else{
+    $cafePW = "<script>window.prompt(\"사원의 비밀번호를 입력하세요\")";
+    echo $cafePW;
+    $cafequery = "select .$_SESSION[user_id]. from user where password(".$cafePW.")";
+    $caferesult = mysqli_query($db, $cafequery);
 }
 
 
@@ -31,17 +36,10 @@ $query =
 "INSERT INTO cafe VALUES
 ('" . $item . "', '" . $price . "', " . $prodID . ", " . $prodID . ", '" . $date . "')";
 
-
-if($result==true){
-    $cafePW = "<script>window.prompt(\"사원의 비밀번호를 입력하세요\")";
-    echo $cafePW;
-    $cafequery = "select * from user where password(".$cafePW.")";
-    $caferesult = mysqli_query($db, $cafequery);
-        if(mysqli_num_rows($caferesult) == 1){
-            $result = $db->query($query); 
-            echo "<script>alert(\"주문이 완료되었습니다 ^^ 소요시간은 10분입니다.\")</script>";    
-        }
-        } else if(!$result) {
+if(mysqli_num_rows($caferesult) == 1){
+    $result = $db->query($query); 
+    echo "<script>alert(\"주문이 완료되었습니다 ^^ 소요시간은 10분입니다.\")</script>";    
+} else if(!$result) {
   echo "<script>alert(\" 주문 실패하셨습니다! 다시 시도해주세요 ^^\")</script>";
 }
 
