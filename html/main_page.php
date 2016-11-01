@@ -185,7 +185,7 @@ $(function(){
                           <li class="padLR20"><a href="#">스케줄 관리</a></li>
                           <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="#">팀회의</a></li>
+                                  <li><a href="metting.html">팀회의</a></li>
                                   <li><a href="#">임원직 회의</a></li>
                               </ul>
                           </li>
