@@ -408,7 +408,7 @@ table.fc-border-separate {
 
 .fc-grid .fc-day-number {
 	float: right;
-	padding: 0 3px;
+	padding: 0 9px 0 0;
 	}
 
 .fc-grid .fc-other-month .fc-day-number {

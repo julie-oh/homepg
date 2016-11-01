@@ -32,6 +32,9 @@ caption {
 .padLR20 {
   padding:0 20px;
 }
+.delete {
+  margin-left:5px;
+}
 
 /* header */
 header {
@@ -59,6 +62,7 @@ header div {
 #aside2 {
   position: relative;
   width : 250px;
+  height: 500px;
   float : right;
 }
 #section1 {
@@ -525,8 +529,8 @@ ul.inbox-pagination li {
 /*chat csss*/
 .chat_window {
   position: absolute;
-  max-width: 300px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   background-color: #f8f8f8;
@@ -569,7 +573,7 @@ ul.inbox-pagination li {
   list-style: none;
   padding: 20px 10px 0 10px;
   margin: 0;
-  height: 347px;
+  height: 580px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -583,6 +587,10 @@ ul.inbox-pagination li {
 .messages .message.left .avatar {
   background-color: #f5886e;
   float: left;
+  padding: 20px 0 0 10px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
 .messages .message.left .text_wrapper {
   background-color: #ffe6cb;
@@ -598,6 +606,10 @@ ul.inbox-pagination li {
 .messages .message.right .avatar {
   background-color: #fdbf68;
   float: right;
+  padding: 20px 0 0 10px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
 .messages .message.right .text_wrapper {
   background-color: #c7eafc;
@@ -624,8 +636,7 @@ ul.inbox-pagination li {
   display: inline-block;
   padding: 20px;
   border-radius: 6px;
-  width: calc(100% - 85px);
-  min-width: 100px;
+  width: 60%;
   position: relative;
 }
 .messages .message .text_wrapper::after, .messages .message .text_wrapper:before {
@@ -646,7 +657,7 @@ ul.inbox-pagination li {
   margin-top: -2px;
 }
 .messages .message .text_wrapper .text {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 300;
 }
 .bottom_wrapper {
@@ -734,7 +745,7 @@ ul.inbox-pagination li {
   color: #41cac0;
   display: block;
 }
-.document_form table  .title {
+.document_form table .title {
   width: 100%;
   border: none;
 }
@@ -772,6 +783,9 @@ ul.inbox-pagination li {
   float: right;
   font-size: 18px;
 }
+.notice .delete {
+  margin-left:5px;
+}
 .notice .inbox-body tr td:first-child {
   text-align: center;
 }
@@ -793,3 +807,24 @@ ul.inbox-pagination li {
   color: #fff;
 }
 
+/*공지사항 게시판 글쓰기*/
+.notice table .head {
+  background: #eee;
+  text-align: center;
+}
+
+/*공지사항 게시판 글보기*/
+.notice table .text_contents {
+  width: 100%;
+  height: 500px;
+  margin: 7px 0;
+  border: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  vertical-align: top;
+}
+
+/*회의실 채팅창*/
+.meeting {
+  height: 750px;
+}
