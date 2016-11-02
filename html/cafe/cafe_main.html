@@ -8,17 +8,50 @@
     <body>
       <div id="cafe_wrap">
         <p id="text">KSC Cafe</p>
+        <div id="menu">
+          <table id="menu-table">
+            <thea>
+              <tr class="menu-row menu-header">
+                <th>메뉴</th>
+                <th>가격</th>
+              </tr>
+            </thea>
+            <tbo>
+              <tr class="menu-row">
+                <td>아메리카노</td>
+                <td>2000</td>
+              </tr>
+              <tr class="menu-row">
+                <td>라떼</td>
+                <td>3000</td>
+              </tr>
+              <tr class="menu-row">
+                <td>자몽에이드</td>
+                <td>50000</td>
+              </tr>
+              <tr class="menu-row">
+                <td>기라델리퐁당쇼콜라</td>
+                <td>680000</td>
+              </tr>
+            </tbo>
+          </table>
+        </div>
         <div id="box">
           <form action="cafe_order.php" method="post">
             <!-- This options will be replaced with data from database -->
             <select name="item">
-              <option value="americano">Americano</option>
-              <option value="latte">Cafe Latte</option>
-              <option value="gfade">Grapefruit Ade</option>
+              <option value="americano">아메리카노</option>
+              <option value="latte">라떼</option>
+              <option value="gfade">자몽에이드</option>
+              <option value="ghirardeli">기라델리</option>
             </select>
             <select name="size">
-              <option value="L">Large</option>
-              <option value="R">Regular</option>
+              <option value="R">크게</option>
+              <option value="L">좀더크게</option>
+            </select>
+            <select name="temp">
+              <option value="hot">따뜻하게</option>
+              <option value="cold">차갑게</option>
             </select>
             <input type="text" name="ID" placeholder="아이디를 입력해주세요">
             <input type="number" name="quantity" min="0" max="100"

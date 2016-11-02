@@ -16,6 +16,38 @@ body{
 
 body,header,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select {margin: 0; padding: 0;}
 
+table {
+  border-collapse: collapse;
+}
+
+#menu-table {
+  width: 410px;
+  color: #8999a8;
+  margin: 10px;
+  background: white;
+  border-radius: 3px;
+  border: 0;
+}
+
+.menu-header {
+  color: black;
+  background: #a4a4a4;
+}
+
+.menu-row {
+  height: 35px;
+  text-align: center;
+}
+
+th {
+  vertical-align: middle;
+}
+
+tr:hover {
+  background: #a4a4a4;
+  color: white;
+}
+
 body {
   font-family: font-family:'돋움',dotum,AppleGothic,sans-serif;
 /*  display: flex;
@@ -72,7 +104,6 @@ form {
 }
 
 input {
-  width: 97%;
   height: 35px;
   margin-top: 5px;
   border: 5px solid #f4f4f4;
