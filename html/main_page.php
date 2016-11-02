@@ -17,87 +17,44 @@ header('Content-type: text/html; charset=utf-8');
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Korea Security Company</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/main_page.css" />
-    <link rel="stylesheet" type="text/css" href="css/board.css" />
-<!-- Script dependencies -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+  <title>Korea Security Company</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/main_page.css" />
+  <link rel="stylesheet" type="text/css" href="css/board.css" />
+  <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
 
-<!-- 달력 -->
-<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
-<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
-<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
-<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
+  <!-- Script dependencies -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<!-- chat js -->
-<script type="text/javascript">
-(function () {
-    var Message;
-    Message = function (arg) {
-        this.text = arg.text, this.message_side = arg.message_side;
-        this.draw = function (_this) {
-            return function () {
-                var $message;
-                $message = $($('.message_template').clone().html());
-                $message.addClass(_this.message_side).find('.text').html(_this.text);
-                $('.messages').append($message);
-                return setTimeout(function () {
-                    return $message.addClass('appeared');
-                }, 0);
-            };
-        }(this);
-        return this;
-    };
-    $(function () {
-        var getMessageText, message_side, sendMessage;
-        message_side = 'right';
-        getMessageText = function () {
-            var $message_input;
-            $message_input = $('.message_input');
-            return $message_input.val();
-        };
-        sendMessage = function (text) {
-            var $messages, message;
-            if (text.trim() === '') {
-                return;
-            }
-            $('.message_input').val('');
-            $messages = $('.messages');
-            message_side = message_side === 'left' ? 'right' : 'left';
-            message = new Message({
-                text: text,
-                message_side: message_side
-            });
-            message.draw();
-            return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-        };
-        $('.send_message').click(function (e) {
-            return sendMessage(getMessageText());
-        });
-        $('.message_input').keyup(function (e) {
-            if (e.which === 13) {
-                return sendMessage(getMessageText());
-            }
-        });
-        sendMessage('Hello Philip! :)');
-        setTimeout(function () {
-            return sendMessage('Hi Sandy! How are you?');
-        }, 1000);
-        return setTimeout(function () {
-            return sendMessage('I\'m fine, thank you!');
-        }, 2000);
-    });
-}.call(this));
-
-// 달력
+  <!-- 달력 -->
+  <link rel='stylesheet' type='text/css' href='../css/fullcalendar.css' />
+  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
+  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
+  <script type='text/javascript'>
   $(document).ready(function() {
+    // 날씨
+    $.ajax({
+      url: "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=1fb9f83dc1c028afb491baa04f84cb71",
+      type: "GET",
+      error: function (jqXHR, errorStatus, result) {
+        alert("날씨 정보를 가져오는데 실패했습니다");
+      },
+      success: function (result, textStatus, jqXHR) {
+        // 상태
+        $("#weather_main").html(result.weather[0].main);
+        // 온도
+        $("#weather_temp").html(result.main.temp);
+        // 습도
+        $("#weather_humidity").html(result.main.humidity);
+      }
+    });
 
+    // 달력
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -143,24 +100,77 @@ header('Content-type: text/html; charset=utf-8');
         url : 'http://google.com/'
       } ]
     });
-
   });
 
-//quick_menu
-//<![CDATA[
-$(function(){
-  $(window).scroll(function(){ //$(window).scroll(function(){실행문}) 윈도우에 스크롤바를 움직일 때 마다 실행문을 실행
-    var topPos=$(window).scrollTop(); //스크롤 내려온 높이값을 구한다. 스크롤 높이값에 50px을 더한다.
-    $("#aside2").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
-  })
-});
-//]]>
+  //quick_menu
+  $(function(){
+    $(window).scroll(function(){ //$(window).scroll(function(){실행문}) 윈도우에 스크롤바를 움직일 때 마다 실행문을 실행
+      var topPos=$(window).scrollTop(); //스크롤 내려온 높이값을 구한다. 스크롤 높이값에 50px을 더한다.
+      $("#aside2").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
+    })
+  });
 
- </script>
+  (function () {
+      var Message;
+      Message = function (arg) {
+          this.text = arg.text, this.message_side = arg.message_side;
+          this.draw = function (_this) {
+              return function () {
+                  var $message;
+                  $message = $($('.message_template').clone().html());
+                  $message.addClass(_this.message_side).find('.text').html(_this.text);
+                  $('.messages').append($message);
+                  return setTimeout(function () {
+                      return $message.addClass('appeared');
+                  }, 0);
+              };
+          }(this);
+          return this;
+      };
+      $(function () {
+          var getMessageText, message_side, sendMessage;
+          message_side = 'right';
+          getMessageText = function () {
+              var $message_input;
+              $message_input = $('.message_input');
+              return $message_input.val();
+          };
+          sendMessage = function (text) {
+              var $messages, message;
+              if (text.trim() === '') {
+                  return;
+              }
+              $('.message_input').val('');
+              $messages = $('.messages');
+              message_side = message_side === 'left' ? 'right' : 'left';
+              message = new Message({
+                  text: text,
+                  message_side: message_side
+              });
+              message.draw();
+              return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+          };
+          $('.send_message').click(function (e) {
+              return sendMessage(getMessageText());
+          });
+          $('.message_input').keyup(function (e) {
+              if (e.which === 13) {
+                  return sendMessage(getMessageText());
+              }
+          });
+          sendMessage('Hello Philip! :)');
+          setTimeout(function () {
+              return sendMessage('Hi Sandy! How are you?');
+          }, 1000);
+          return setTimeout(function () {
+              return sendMessage('I\'m fine, thank you!');
+          }, 2000);
+      });
+  }.call(this));
+  </script>
 </head>
 
 <body>
-
 <!-- header -->
 <header>
   <div><a href="main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
@@ -526,11 +536,28 @@ $(function(){
       </article>
 
       <article id="article5" style="background: #fff;">
-      날씨
-<!--         <fieldset>
-          <iframe id="weather" src="http://www.accuweather.com/ko/kr/seoul/226081/current-weather/226081/#detail-now" seamless>
-          </iframe>
-        </fieldset> -->
+        <div class="weather_header">
+          현재 날씨
+        </div>
+        <div class="weather_box">
+          <span id="weather_main">
+            <!-- 기상청 정보로 채워짐 -->
+          </span>
+        </div>
+        <div class="weather_box">
+          <span>기온</span>
+          <span id="weather_temp">
+            <!-- 기상청 정보로 채워짐 -->
+          </span>
+          <span>도</span>
+        </div>
+        <div class="weather_box">
+          <span>습도</span>
+          <span id="weather_humidity">
+            <!-- 기상청 정보로 채워짐 -->
+          </span>
+          <span>%</span>
+        </div>
       </article>
     </section>
   </section>
