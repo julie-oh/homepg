@@ -181,7 +181,7 @@ $(function(){
                   <div id="navbar" class="navbar-collapse collapse">
                       <ul class="nav navbar-nav">
                           <li class="active padLR20"><a href="menubar_email.html" class="">e-mail</a></li>
-                          <li class="padLR20"><a href="aboard/index.php">공지사항</a></li>
+                          <li class="padLR20"><a href="notice.html">공지사항</a></li>
                           <li class="padLR20"><a href="#">스케줄 관리</a></li>
                           <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
                               <ul class="dropdown-menu">
