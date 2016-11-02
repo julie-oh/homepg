@@ -186,7 +186,7 @@ $(function(){
                           <li class="padLR20"><a href="meeting.html" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
                           <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결재문서 <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="document_form.html">품의/제안서</a></li>
+                                  <li><a href="document/document_form.html">품의/제안서</a></li>
                                   <li><a href="#">결재진행/완료건</a></li>
                               </ul>
                           </li>
