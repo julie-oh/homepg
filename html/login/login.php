@@ -12,18 +12,17 @@ require_once('../dbconfig.php');
 $prodID = $_POST['prodID'];
 $pwd = $_POST['pwd'];
 
-  if($prodID == ""){
-    echo "<script>alert(\"ID를 입력해주세요\")</script>";
+  if ($prodID == "") {
+    echo "<script>alert(\"아이디를 입력해주세요\")</script>";
     echo "<script>history.back()</script>";
     exit;
-  }else if($pwd == ""){
-    echo "<script>alert(\"Password를 입력해주세요\")</script>";
+  } else if ($pwd == "") {
+    echo "<script>alert(\"비밀번호를 입력해주세요\")</script>";
     echo "<script>history.back()</script>";
     exit;
   }
 
 $sql = "SELECT * FROM user WHERE prodID=" . $prodID . " AND pwd=password(" . $pwd . ")";
-
 $result = $db->query($sql);
 
 if (!$result || mysqli_num_rows($result) == 0) {
