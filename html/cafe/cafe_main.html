@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>KSC Cafe</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/cafe-mainpage.css" />
     </head>
     <body>
-        <p>Order</p>
-        <form action="cafe_order.php" method="post">
-          <!-- This options will be replaced with data from database -->
-          <select name="item">
-            <option value="americano">Americano</option>
-            <option value="latte">Cafe Latte</option>
-            <option value="gfade">Grapefruit Ade</option>
-          </select>
-          <select name="size">
-            <option value="L">Large</option>
-            <option value="R">Regular</option>
-          </select>
-          <input type="text" name="ID" placeholder="아이디를 입력해주세요">
-          <input type="number" name="quantity" min="0" max="100"
-              placeholder="수량"/></br>
-          <input type="submit" value="주문하기" />
-        </form>
-        <button type="button" onclick="location.href='order_history.php'">
+      <div id="cafe_wrap">
+        <p id="text">KSC Cafe</p>
+        <div id="box">
+          <form action="cafe_order.php" method="post">
+            <!-- This options will be replaced with data from database -->
+            <select name="item">
+              <option value="americano">Americano</option>
+              <option value="latte">Cafe Latte</option>
+              <option value="gfade">Grapefruit Ade</option>
+            </select>
+            <select name="size">
+              <option value="L">Large</option>
+              <option value="R">Regular</option>
+            </select>
+            <input type="text" name="ID" placeholder="아이디를 입력해주세요">
+            <input type="number" name="quantity" min="0" max="100"
+                placeholder="수량"/></br>
+          </form>
+        </div>
+      </div>
+      <div class="button-container">
+        <input class="buttons" type="submit" value="주문하기" />
+        <button class="buttons" type="button" onclick="location.href='order_history.php'">
           주문 내역 보기
         </button>
+      </div>
     </body>
 </html>

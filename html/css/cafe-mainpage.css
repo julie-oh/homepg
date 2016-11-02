@@ -13,3 +13,88 @@ body{
     background-color: gray;
     padding : 20px;
 }
+
+body,header,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select {margin: 0; padding: 0;}
+
+body {
+  font-family: font-family:'돋움',dotum,AppleGothic,sans-serif;
+/*  display: flex;
+  flex-direction: column;
+  align-items: center;*/
+  background: #8999a8;
+  color: #a4a4a4;
+}
+#cafe_wrap {
+  width: 410px;
+  margin: 0 auto;
+  top: 50%;
+  margin-top: 181px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#text {
+  font-size: 35px;
+  text-align: center;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 25px;
+}
+
+#box {
+  width: 350px;
+  height: 100%;
+  padding: 30px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  width: 290px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+form {
+  width: 290px;
+  margin: 0 auto;
+}
+
+.query {
+  padding: 20px 0 0 5px;
+}
+
+input {
+  width: 97%;
+  height: 35px;
+  margin-top: 5px;
+  border: 5px solid #f4f4f4;
+  background: #f7f7f7;
+}
+
+#button-container {
+  width: 290px;
+  margin: 0 auto;
+  padding: 30px 0;
+  text-align: center;
+}
+.buttons {
+  border-radius: 3px;
+  width: 140px;
+  height: 50px;
+  background: #5bc0de;
+  color: white;
+  border: none;
+  margin: 0; padding: 0;
+}
+
+.buttons:hover {
+  background: #43a6eb;
+}
