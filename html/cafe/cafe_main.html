@@ -4,6 +4,7 @@
         <title>KSC Cafe</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/cafe-mainpage.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
     </head>
     <body>
       <div id="cafe_wrap">
@@ -37,7 +38,7 @@
           </table>
         </div>
         <div id="box">
-          <form action="cafe_order.php" method="post">
+          <form id="order_form" action="cafe_order.php" method="post">
             <!-- This options will be replaced with data from database -->
             <select name="item">
               <option value="americano">아메리카노</option>
@@ -53,11 +54,11 @@
               <option value="hot">따뜻하게</option>
               <option value="cold">차갑게</option>
             </select>
-            <input type="text" name="ID" placeholder="아이디를 입력해주세요">
+            <input type="hidden" id="userid_input" name="ID" placeholder="아이디를 입력해주세요">
             <input type="number" name="quantity" min="0" max="100"
                 placeholder="수량"/></br>
             <div class="button-container">
-              <input class="buttons" type="submit" value="주문하기" />
+              <input id="order" class="buttons" type="submit" value="주문하기" />
               <button class="buttons" type="button" onclick="location.href='order_history.php'">
                 주문 내역 보기
               </button>
@@ -65,5 +66,12 @@
           </form>
         </div>
       </div>
+      <script type="text/javascript">
+      var form = document.getElementById("order_form");
+      form.addEventListener('submit', function() {
+        var orderer_id = prompt("아이디를 입력하세요");
+        document.getElementById("userid_input").value = orderer_id;
+      });
+      </script>
     </body>
 </html>
