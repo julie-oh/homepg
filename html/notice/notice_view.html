@@ -330,8 +330,9 @@ $(function(){
   <div class="notice">
                       <div class="inbox-head">
                           <h3>Notice_view</h3>
-                          <button class="buttons delete" type="button" onclick="">delete</button>
-                          <button class="buttons modify" type="button" onclick="">modify</button>
+                          <form action="notice_delete.php" method="POST">
+                          <button class="buttons delete" type="button">delete</button></form>
+                          <button class="buttons modify" type="button" onclick="location.href='notice_modify.html'">modify</button>
                       </div>
     <div class="document_form">
       <table>
