@@ -40,4 +40,4 @@ $_SESSION['user_id'] = $row['prodID'];
 $_SESSION['user_name'] = $row['name'];
 
 ?>
-<meta http-equiv='refresh' content='0;url=./../main_page.php'>
+<meta http-equiv='refresh' content='0;url=../main_page.php'>
