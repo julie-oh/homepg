@@ -320,7 +320,7 @@ $(function(){
 
 <!-- section -->
   <section id="section1">
-
+        <form action="view.php" method="post">
   <div class="document_form">
     <div><img src="../images/form_logo.png" alt="KSC" /></div>
       <table>
@@ -328,14 +328,14 @@ $(function(){
         <tbody>
           <tr><td colspan="5">
             <select class="" name="" id="">
-              <option value="">품의서</option>
-              <option value="">제안서</option>
+              <option value="documentPoom">품의서</option>
+              <option value="documentJe">제안서</option>
             </select>
           </td></tr>
-          <tr><td class="head">문서번호</td><td>5</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
+          <tr><td class="head"><?=$ez?></td><td>5</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
           <tr><td class="head">작성일자</td><td>2016.10.14</td><td rowspan="3"><span>최수진</span></td><td rowspan="3"><span>최수진</span></td><td rowspan="3"><span>최수진</span></td></tr>
           <tr><td class="head">작성부서</td><td>데이터사업실</td></tr>
-          <tr><td class="head">작성자</td><td>오연주</td></tr>
+          <tr><td class="head">작성자</td><td>오연주 </td></tr>
           <tr><td class="head">제목</td><td colspan="4"><input type="text" class="title"/></td></tr>
           <tr><td class="head">첨부파일</td><td colspan="4"><input type="file" /></td></tr>
           <tr><td colspan="5" class="head">내용</td></tr>
@@ -345,6 +345,7 @@ $(function(){
     <div class="register">
       <button class="button" type="button" onclick="location.href='sign_up.html'">Sign Up</button>
     </div>
+</form>
   </div>
   </section>
 
