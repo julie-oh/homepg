@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<?php include '../session.php'; ?>
 <html>
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Korea Security Company | 공지사항</title>
+    <title>Korea Security Company | 자유게시판</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/main_page.css" />
@@ -329,12 +330,13 @@ $(function(){
   <!-- 공지사항 게시판 -->
   <div class="notice">
                       <div class="inbox-head">
-                          <h3>Notice</h3>
-                          <button class="buttons" type="button" onclick="location.href='notice_write.html'">write</button>
+                          <h3>자유게시판</h3>
+                          <button class="buttons" type="button" onclick="location.href='board_write.html'">write</button>
                       </div>
                       <div class="inbox-body" style="padding:0;">
                           <table class="table table-inbox table-hover">
-                          <caption>공지사항 게시판</caption>
+
+                          <caption>자유 게시판</caption>
                           <colgroup>
                           <col style="width:10%;">
                           <col style="width:50%;">
@@ -353,75 +355,40 @@ $(function(){
                           </thead>
                             <tbody>
                               <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">Added a new class: Login Class Fast Site</td>
-                                  <td class="view-message dont-show">PHPClass</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">Improve the search presence of WebSite</td>
-                                  <td class="view-message dont-show">Google Webmaster </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                                  <td class="view-message dont-show">JW Player</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">Boost Your Website Traffic</td>
-                                  <td class="view-message dont-show">Tim Reid, S P N</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">Stop wasting your visitors </td>
-                                  <td class="view-message dont-show">Freelancer.com</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                                  <td class="view-message dont-show">WOW Slider </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                                  <td class="view-message dont-show">LinkedIn Pulse</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message view-message">Welcome to the Drupal Community</td>
-                                  <td class="view-message dont-show">Drupal Community</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message view-message">Somebody requested a new password </td>
-                                  <td class="view-message dont-show">Facebook</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="">1</td>
-                                  <td class="view-message view-message">Password successfully changed</td>
-                                  <td class="view-message dont-show">Skype</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                                  <td class="">1</td>
-                              </tr>
+                                  
+<?php
+    include '../dbconfig.php';
+    $sql = 'select * from board order by b_no desc';
+    $result = mysqli_query($db, $sql);
+    
+    while($row = $result->fetch_assoc()){
+        $datetime = explode(" ", $row['b_date']);
+        $date = $datetime[0];
+        $time = $datetime[1];
+        if($date == Date('Y-m-d')){
+            $row['b_date'] = $time;
+        }else{
+            $row['b_date'] = $date;
+        }
+?>
+                              <tr>
+                                  <td class=""><?php echo $row['b_no']?></td>
+                                  <td class="view-massage">
+                                      <?php
+                                      $nno = $row['b_no'];
+                                      $view_url = './view.php?bno='.$bno;
+                                      echo '<a href="'.$view_url.'">';
+                                      ?>
+                                      <?php echo $row['b_title']?>
+                                      </a>
+                                  </td>
+                                  <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
+                                  <td class="view-message text-right"><?php echo $row['b_date']?></td>
+                                  <td class=""><?php echo $row['b_hit']?></td>
+                              </tr>    
+                                <?php
+                                }
+                                ?>
                           </tbody>
                           </table>
                       </div>

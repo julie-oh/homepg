@@ -17,7 +17,7 @@ require_once("../dbconfig.php");
 <head>
     <meta charset="utf-8" />
     <title>Board</title>
-    <link rel="stylesheet" href="../css/board.css" />
+    <link rel="stylesheet" href="../css/main_page.css" />
 </head>
 
 <body>
