@@ -164,7 +164,6 @@
     // 채팅방 생성
     $('#make_chat_btn').click(function (e) {
       createChatRoom($('.input_receiver').val());
-      getChatList();
     });
   });
 }.call(this));
