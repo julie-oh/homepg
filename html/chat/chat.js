@@ -69,7 +69,7 @@
   // Begin the timer to refresh the conversation regularly.
   startChat = function() {
     setInterval(function() {
-      getChatText($('#chatroom_num').val());
+      getChatText($('#chatroom_num').text());
     }, 2000); // 2 seconds
   };
 
