@@ -25,6 +25,7 @@ header('Content-type: text/html; charset=utf-8');
   <link rel="stylesheet" type="text/css" href="css/main_page.css" />
   <link rel="stylesheet" type="text/css" href="css/board.css" />
   <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
+  <link rel='stylesheet' type='text/css' href='css/chat.css' />
 
   <!-- Script dependencies -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
@@ -35,6 +36,7 @@ header('Content-type: text/html; charset=utf-8');
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
+  <script type='text/javascript' src='chat/chat.js'></script>
   <script type='text/javascript'>
   $(document).ready(function() {
     // 날씨
@@ -109,64 +111,6 @@ header('Content-type: text/html; charset=utf-8');
       $("#aside2").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
     })
   });
-
-  (function () {
-      var Message;
-      Message = function (arg) {
-          this.text = arg.text, this.message_side = arg.message_side;
-          this.draw = function (_this) {
-              return function () {
-                  var $message;
-                  $message = $($('.message_template').clone().html());
-                  $message.addClass(_this.message_side).find('.text').html(_this.text);
-                  $('.messages').append($message);
-                  return setTimeout(function () {
-                      return $message.addClass('appeared');
-                  }, 0);
-              };
-          }(this);
-          return this;
-      };
-      $(function () {
-          var getMessageText, message_side, sendMessage;
-          message_side = 'right';
-          getMessageText = function () {
-              var $message_input;
-              $message_input = $('.message_input');
-              return $message_input.val();
-          };
-          sendMessage = function (text) {
-              var $messages, message;
-              if (text.trim() === '') {
-                  return;
-              }
-              $('.message_input').val('');
-              $messages = $('.messages');
-              message_side = message_side === 'left' ? 'right' : 'left';
-              message = new Message({
-                  text: text,
-                  message_side: message_side
-              });
-              message.draw();
-              return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-          };
-          $('.send_message').click(function (e) {
-              return sendMessage(getMessageText());
-          });
-          $('.message_input').keyup(function (e) {
-              if (e.which === 13) {
-                  return sendMessage(getMessageText());
-              }
-          });
-          sendMessage('Hello Philip! :)');
-          setTimeout(function () {
-              return sendMessage('Hi Sandy! How are you?');
-          }, 1000);
-          return setTimeout(function () {
-              return sendMessage('I\'m fine, thank you!');
-          }, 2000);
-      });
-  }.call(this));
   </script>
 </head>
 
@@ -568,27 +512,44 @@ header('Content-type: text/html; charset=utf-8');
     <!-- chat s_c  -->
     <div class="chat_window">
       <div class="top_menu">
-        <div class="buttons">
-          <div class="button close">
+        <div class="goback">목록보기</div>
+        <div class="chat_title">채팅목록</div>
+        <!-- 채팅 제목 -->
+        <div id="chatroom_num"></div>
+      </div>
+      <div class="chat_main" id="chat_main">
+        <!-- 채팅방 목록이 진열됨 -->
+        <div id="chat_list" class="chatroom_list">
+          <!-- 채팅방으로 유저 초대 후 채팅방 생성 -->
+          <input type="text" class="input_receiver" name="receiver" placeholder="invite user">
+          <button class="create_chat_btn" id="make_chat_btn" name="make_chat_btn">
+            채팅방 만들기
+          </button>
+          <div id="chatlist_list">
           </div>
-          <div class="button minimize">
-          </div>
-          <div class="button maximize">
+          <!-- 채팅방 목록 템플릿 - 표시되지 않음 -->
+          <div class="chatlist_template">
+            <div class="chatlist_elem">
+              <span id="chatlist_number"></span>
+              <span id="chatlist_lastActive"></span>
+            </div>
           </div>
         </div>
-        <div class="title">Chat</div>
+        <!-- 대화 내용이 표시됨 -->
+        <ul class="messages"></ul>
       </div>
-      <ul class="messages"></ul>
+      <!-- 채팅 입력창 및 보내기 버튼 -->
       <div class="bottom_wrapper clearfix">
         <div class="message_input_wrapper">
-          <input class="message_input" placeholder="Type your message here..." />
+          <input id="message_input" class="message_input" placeholder="Type your message here..." />
         </div>
-        <div class="send_message">
+        <div id="send_message_btn" class="send_message">
           <div class="icon"></div>
           <div class="text">Send</div>
         </div>
       </div>
     </div>
+    <!-- 메세지 템플릿 - 숨겨져있음 -->
     <div class="message_template">
       <li class="message">
         <div class="avatar"></div>
@@ -598,7 +559,7 @@ header('Content-type: text/html; charset=utf-8');
       </li>
     </div>
 </aside>
-<!-- //우측 chat -->
+<!-- 우측 채팅창 끝 -->
 
 </body>
 </html>

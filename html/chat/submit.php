@@ -3,7 +3,7 @@
   require_once("chatClass.php");
 
   $chattext = htmlspecialchars( $_GET['chattext'] );
-  $senderID = $_GET['userID'];
+  $senderID = $_SESSION['user_id'];
   $chatroomID = $_GET['chatroomID'];
   chatClass::setChatLines($chattext, $senderID, $chatroomID);
 ?>
