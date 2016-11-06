@@ -165,5 +165,18 @@
     $('#make_chat_btn').click(function (e) {
       createChatRoom($('.input_receiver').val());
     });
+
+    // 스크롤시 채팅창 위치 변경
+    $(window).scroll(function () {
+      var topPos = $(window).scrollTop();
+      // 180px과 바교하는 이유는 헤더 사이즈가 180이기 때문.
+      if (topPos < 180) {
+        $("#aside2").stop().animate({top: 0}, 500);
+      } else {
+        $("#aside2").stop().animate({
+          top: (topPos - 130) + "px",
+        }, 500);
+      }
+    })
   });
 }.call(this));

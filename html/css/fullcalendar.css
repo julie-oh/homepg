@@ -31,22 +31,25 @@ html .fc,
 
 /* Header
 ------------------------------------------------------------------------*/
+
 .fc-header tr {
-	background: #d5d7de;
+  background-color: #62C2E4;
 }
+
 .fc-header td {
 	white-space: nowrap;
-	padding-top: 24px;
-	}
+	padding-top: 12px;
+}
 
 .fc-header-left {
+  font-size: 10px;
 	width: 25%;
 	text-align: left;
-	}
+}
 
 .fc-header-center {
-	text-align: center;
-	}
+	text-align: left;
+}
 
 .fc-header-right {
 	width: 25%;
@@ -61,7 +64,7 @@ html .fc,
 
 .fc-header-title h2 {
 	margin-top: 0;
-	font-size: 18px;
+  font-size: 15px;
 	letter-spacing: -1px;
 	white-space: nowrap;
 	}
@@ -597,5 +600,3 @@ table.fc-border-separate {
 .fc-agenda .ui-resizable-resizing { /* TODO: better selector */
 	_overflow: hidden;
 	}
-
-

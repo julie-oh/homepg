@@ -1,0 +1,32 @@
+#article4 {
+  margin-top: 10px;
+  margin-botton: 10px;
+  border-radius: 5px;
+  border: 0;
+}
+
+#menu_header {
+  padding: 10px;
+  font-size: 30px;
+  background-color: skyblue;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 3px solid black;
+  text-align: center;
+}
+
+#lunch_menu label {
+  width: 100%;
+}
+
+#lunch_menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lunch_menu li {
+  padding: 5px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+}

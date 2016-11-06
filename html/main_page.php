@@ -26,92 +26,19 @@ header('Content-type: text/html; charset=utf-8');
   <link rel="stylesheet" type="text/css" href="css/board.css" />
   <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
   <link rel='stylesheet' type='text/css' href='css/chat.css' />
+  <link rel='stylesheet' type='text/css' href='css/food.css' />
 
   <!-- Script dependencies -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
   <!-- 달력 -->
-  <link rel='stylesheet' type='text/css' href='../css/fullcalendar.css' />
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
   <script type='text/javascript' src='chat/chat.js'></script>
-  <script type='text/javascript'>
-  $(document).ready(function() {
-    // 날씨
-    $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=1fb9f83dc1c028afb491baa04f84cb71",
-      type: "GET",
-      error: function (jqXHR, errorStatus, result) {
-        alert("날씨 정보를 가져오는데 실패했습니다");
-      },
-      success: function (result, textStatus, jqXHR) {
-        // 상태
-        $("#weather_main").html(result.weather[0].main);
-        // 온도
-        $("#weather_temp").html(result.main.temp);
-        // 습도
-        $("#weather_humidity").html(result.main.humidity);
-      }
-    });
-
-    // 달력
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-
-    $('#calendar').fullCalendar({
-      header : {
-        left : 'prev,next today',
-        center : 'title',
-        right : 'month,agendaWeek,agendaDay'
-      },
-      editable : true,
-      events : [ {
-        title : 'All Day Event',
-        start : new Date(y, m, 1)
-      }, {
-        title : 'Long Event',
-        start : new Date(y, m, d - 5),
-        end : new Date(y, m, d - 2)
-      }, {
-        id : 999,
-        title : 'Repeating Event',
-        start : new Date(y, m, d - 3, 16, 0),
-        allDay : false
-      }, {
-        id : 999,
-        title : 'Repeating Event',
-        start : new Date(y, m, d + 4, 16, 0),
-        allDay : false
-      }, {
-        title : 'Meeting',
-        start : new Date(y, m, d, 10, 30),
-        allDay : false
-      }, {
-        title : 'Lunch',
-        start : new Date(y, m, d, 12, 0),
-        end : new Date(y, m, d, 14, 0),
-        allDay : false
-      }, {
-        title : 'Click for Google',
-        start : new Date(y, m, 28),
-        end : new Date(y, m, 29),
-        url : 'http://google.com/'
-      } ]
-    });
-  });
-
-  //quick_menu
-  $(function(){
-    $(window).scroll(function(){ //$(window).scroll(function(){실행문}) 윈도우에 스크롤바를 움직일 때 마다 실행문을 실행
-      var topPos=$(window).scrollTop(); //스크롤 내려온 높이값을 구한다. 스크롤 높이값에 50px을 더한다.
-      $("#aside2").stop().animate({top:topPos+"px"},1000); //id="quick"가 움직일 수 있도록 애니메이션 적용
-    })
-  });
-  </script>
+  <script type='text/javascript' src='weather.js'></script>
+  <script type='text/javascript' src='calendar.js'></script>
 </head>
 
 <body>
@@ -462,10 +389,11 @@ header('Content-type: text/html; charset=utf-8');
       </article>
 
       <article id="article4" style="background: #fff;">
-      식단
-<!--         <div id="lunch_menu" class="meal">
+        <div id="menu_header">
+          식단
+        </div>
+         <div id="lunch_menu" class="meal">
           <label>
-            <img src="lunch_menu.png" id="menuimg" alt="식단" title="오늘의 메뉴">
             <ul>
               <li>현미밥</li>
               <li>양념게장</li>
@@ -476,7 +404,7 @@ header('Content-type: text/html; charset=utf-8');
               <li>미역국</li>
             </ul>
           </label>
-        </div> -->
+        </div>
       </article>
 
       <article id="article5" style="background: #fff;">
