@@ -1,3 +1,4 @@
+// 채팅방 모듈
 (function () {
   var lastTimeID = 0;
   var Message;

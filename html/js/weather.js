@@ -1,3 +1,4 @@
+// 날씨 모듈
 (function() {
   $(function() {
     // 날씨

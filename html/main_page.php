@@ -13,14 +13,14 @@ $prodID = $_SESSION['user_id'];
 
 header('Content-type: text/html; charset=utf-8');
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
   <title>Korea Security Company</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main_page.css" />
   <link rel="stylesheet" type="text/css" href="css/board.css" />
@@ -28,17 +28,19 @@ header('Content-type: text/html; charset=utf-8');
   <link rel='stylesheet' type='text/css' href='css/chat.css' />
   <link rel='stylesheet' type='text/css' href='css/food.css' />
 
-  <!-- Script dependencies -->
+  <!-- Script dependencies - jquery & bootstrap -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
+  <!-- 채팅창 -->
+  <script type='text/javascript' src='chat/chat.js'></script>
+  <!-- 날씨 -->
+  <script type='text/javascript' src='js/weather.js'></script>
   <!-- 달력 -->
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
-  <script type='text/javascript' src='chat/chat.js'></script>
-  <script type='text/javascript' src='weather.js'></script>
-  <script type='text/javascript' src='calendar.js'></script>
+  <script type='text/javascript' src='js/calendar.js'></script>
 </head>
 
 <body>
@@ -49,39 +51,39 @@ header('Content-type: text/html; charset=utf-8');
 <!-- //header -->
 
 <!-- 상단 nav -->
-          <nav class="navbar navbar-fixed-top">
-              <div class="container">
-                  <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      </button>
-                  </div>
-                  <div id="navbar" class="navbar-collapse collapse">
-                      <ul class="nav navbar-nav">
-                          <li class="active padLR20"><a href="menubar_email.php" class="">e-mail</a></li>
-                          <li class="padLR20"><a href="notice/notice.php">공지사항</a></li>
-                          <li class="padLR20"><a href="schedule.php">스케줄 관리</a></li>
-                          <li class="padLR20"><a href="meeting.php" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
-                          <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결재문서 <span class="caret"></span></a>
-                              <ul class="dropdown-menu">
-                                  <li><a href="document/document_form.php">품의/제안서</a></li>
-                                  <li><a href="document/document_board.php">결재진행/완료건</a></li>
-                              </ul>
-                          </li>
-                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시판<span class="caret"></span></a>
-                              <ul class="dropdown-menu">
-                                  <li><a href="aboard/index.php">건의사항</a></li>
-                                  <li><a href="board/index.php">자유게시판</a></li>
-                              </ul>
-                          </li>
-                          <li class="padLR20"><a href="cafe/cafe_main.html">cafe</a></li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active padLR20"><a href="menubar_email.php" class="">e-mail</a></li>
+        <li class="padLR20"><a href="notice/notice.php">공지사항</a></li>
+        <li class="padLR20"><a href="schedule.php">스케줄 관리</a></li>
+        <li class="padLR20"><a href="meeting.php" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
+        <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결재문서 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="document/document_form.php">품의/제안서</a></li>
+            <li><a href="document/document_board.php">결재진행/완료건</a></li>
+          </ul>
+        </li>
+        <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시판<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="aboard/index.php">건의사항</a></li>
+            <li><a href="board/index.php">자유게시판</a></li>
+          </ul>
+        </li>
+        <li class="padLR20"><a href="cafe/cafe_main.html">cafe</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- //상단 nav -->
 
 <div id="mainbody">
@@ -241,198 +243,198 @@ header('Content-type: text/html; charset=utf-8');
 <!-- //좌측 snb -->
 
 <!-- section -->
-  <section id="section1">
+<section id="section1">
 <!-- 게시판 -->
-    <section id="subsection1">
-                      <article id="article1">
-                      <div class="inbox-head">
-                          <h3>Notice</h3>
-                          <span><a href="notice/notice.html">more</a></span>
-                      </div>
-                      <div class="inbox-body" style="padding:0;">
-                          <table class="table table-inbox table-hover">
-                          <colgroup>
-                          <col style="width:25%;">
-                          <col style="width:50%;">
-                          <col style="width:25%;">
-                          </colgroup>
-                            <tbody>
-                              <tr class="">
-                                  <td class="view-message dont-show">PHPClass</td>
-                                  <td class="view-message">Added a new class: Login Class Fast Site</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Google Webmaster </td>
-                                  <td class="view-message">Improve the search presence of WebSite</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">JW Player</td>
-                                  <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Tim Reid, S P N</td>
-                                  <td class="view-message">Boost Your Website Traffic</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Freelancer.com</td>
-                                  <td class="view-message">Stop wasting your visitors </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">WOW Slider </td>
-                                  <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">LinkedIn Pulse</td>
-                                  <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Drupal Community</td>
-                                  <td class="view-message view-message">Welcome to the Drupal Community</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Facebook</td>
-                                  <td class="view-message view-message">Somebody requested a new password </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Skype</td>
-                                  <td class="view-message view-message">Password successfully changed</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                          </tbody>
-                          </table>
-                      </div>
-                      </article>
+  <section id="subsection1">
+    <article id="article1">
+    <div class="inbox-head">
+        <h3>Notice</h3>
+        <span><a href="notice/notice.html">more</a></span>
+    </div>
+    <div class="inbox-body" style="padding:0;">
+        <table class="table table-inbox table-hover">
+        <colgroup>
+        <col style="width:25%;">
+        <col style="width:50%;">
+        <col style="width:25%;">
+        </colgroup>
+          <tbody>
+            <tr class="">
+                <td class="view-message dont-show">PHPClass</td>
+                <td class="view-message">Added a new class: Login Class Fast Site</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Google Webmaster </td>
+                <td class="view-message">Improve the search presence of WebSite</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">JW Player</td>
+                <td class="view-message">Last Chance: Upgrade to Pro for </td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Tim Reid, S P N</td>
+                <td class="view-message">Boost Your Website Traffic</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Freelancer.com</td>
+                <td class="view-message">Stop wasting your visitors </td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">WOW Slider </td>
+                <td class="view-message">New WOW Slider v7.8 - 67% off</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">LinkedIn Pulse</td>
+                <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Drupal Community</td>
+                <td class="view-message view-message">Welcome to the Drupal Community</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Facebook</td>
+                <td class="view-message view-message">Somebody requested a new password </td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Skype</td>
+                <td class="view-message view-message">Password successfully changed</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    </article>
 
-                      <article id="article2">
-                      <div class="inbox-head" style="background:#5bc0de;">
-                          <h3>News</h3>
-                          <span><a href="">more</a></span>
-                      </div>
-                      <div class="inbox-body" style="padding:0;">
-                          <table class="table table-inbox table-hover">
-                          <colgroup>
-                          <col style="width:25%;">
-                          <col style="width:50%;">
-                          <col style="width:25%;">
-                          </colgroup>
-                            <tbody>
-                              <tr class="">
-                                  <td class="view-message dont-show">PHPClass</td>
-                                  <td class="view-message">Added a new class: Login Class Fast Site</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Google Webmaster </td>
-                                  <td class="view-message">Improve the search presence of WebSite</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">JW Player</td>
-                                  <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Tim Reid, S P N</td>
-                                  <td class="view-message">Boost Your Website Traffic</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Freelancer.com</td>
-                                  <td class="view-message">Stop wasting your visitors </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">WOW Slider </td>
-                                  <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">LinkedIn Pulse</td>
-                                  <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Drupal Community</td>
-                                  <td class="view-message view-message">Welcome to the Drupal Community</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Facebook</td>
-                                  <td class="view-message view-message">Somebody requested a new password </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="view-message dont-show">Skype</td>
-                                  <td class="view-message view-message">Password successfully changed</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                          </tbody>
-                          </table>
-                      </div>
-                      </article>
-    </section>
+    <article id="article2">
+    <div class="inbox-head" style="background:#5bc0de;">
+        <h3>News</h3>
+        <span><a href="">more</a></span>
+    </div>
+    <div class="inbox-body" style="padding:0;">
+        <table class="table table-inbox table-hover">
+        <colgroup>
+        <col style="width:25%;">
+        <col style="width:50%;">
+        <col style="width:25%;">
+        </colgroup>
+          <tbody>
+            <tr class="">
+                <td class="view-message dont-show">PHPClass</td>
+                <td class="view-message">Added a new class: Login Class Fast Site</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Google Webmaster </td>
+                <td class="view-message">Improve the search presence of WebSite</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">JW Player</td>
+                <td class="view-message">Last Chance: Upgrade to Pro for </td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Tim Reid, S P N</td>
+                <td class="view-message">Boost Your Website Traffic</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Freelancer.com</td>
+                <td class="view-message">Stop wasting your visitors </td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">WOW Slider </td>
+                <td class="view-message">New WOW Slider v7.8 - 67% off</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">LinkedIn Pulse</td>
+                <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Drupal Community</td>
+                <td class="view-message view-message">Welcome to the Drupal Community</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Facebook</td>
+                <td class="view-message view-message">Somebody requested a new password </td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+            <tr class="">
+                <td class="view-message dont-show">Skype</td>
+                <td class="view-message view-message">Password successfully changed</td>
+                <td class="view-message text-right">2016.10.10 18:09</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    </article>
+  </section>
 <!-- //게시판 -->
 
 <!-- 위젯 -->
-    <section id="subsection2">
-      <article id="article3">
-        <div id="calendar" style="margin: 0; font-size: 13px; background-color:white;"></div>
-      </article>
+  <section id="subsection2">
+    <article id="article3">
+      <div id="calendar" style="margin: 0; font-size: 13px; background-color:white;"></div>
+    </article>
 
-      <article id="article4" style="background: #fff;">
-        <div id="menu_header">
-          식단
-        </div>
-         <div id="lunch_menu" class="meal">
-          <label>
-            <ul>
-              <li>현미밥</li>
-              <li>양념게장</li>
-              <li>감자채볶음</li>
-              <li>햄구이</li>
-              <li>깻잎절임</li>
-              <li>총각무김치</li>
-              <li>미역국</li>
-            </ul>
-          </label>
-        </div>
-      </article>
+    <article id="article4" style="background: #fff;">
+      <div id="menu_header">
+        식단
+      </div>
+       <div id="lunch_menu" class="meal">
+        <label>
+          <ul>
+            <li>현미밥</li>
+            <li>양념게장</li>
+            <li>감자채볶음</li>
+            <li>햄구이</li>
+            <li>깻잎절임</li>
+            <li>총각무김치</li>
+            <li>미역국</li>
+          </ul>
+        </label>
+      </div>
+    </article>
 
-      <article id="article5" style="background: #fff;">
-        <div class="weather_header">
-          현재 날씨
-        </div>
-        <div class="weather_box">
-          <span id="weather_main">
-            <!-- 기상청 정보로 채워짐 -->
-          </span>
-        </div>
-        <div class="weather_box">
-          <span>기온</span>
-          <span id="weather_temp">
-            <!-- 기상청 정보로 채워짐 -->
-          </span>
-          <span>도</span>
-        </div>
-        <div class="weather_box">
-          <span>습도</span>
-          <span id="weather_humidity">
-            <!-- 기상청 정보로 채워짐 -->
-          </span>
-          <span>%</span>
-        </div>
-      </article>
-    </section>
+    <article id="article5" style="background: #fff;">
+      <div class="weather_header">
+        현재 날씨
+      </div>
+      <div class="weather_box">
+        <span id="weather_main">
+          <!-- 기상청 정보로 채워짐 -->
+        </span>
+      </div>
+      <div class="weather_box">
+        <span>기온</span>
+        <span id="weather_temp">
+          <!-- 기상청 정보로 채워짐 -->
+        </span>
+        <span>도</span>
+      </div>
+      <div class="weather_box">
+        <span>습도</span>
+        <span id="weather_humidity">
+          <!-- 기상청 정보로 채워짐 -->
+        </span>
+        <span>%</span>
+      </div>
+    </article>
   </section>
+</section>
 <!-- //위젯 -->
 
 <!-- 우측 chat -->
