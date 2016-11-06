@@ -38,6 +38,7 @@ $row = $result->fetch_assoc();
 session_start();
 $_SESSION['user_id'] = $row['prodID'];
 $_SESSION['user_name'] = $row['name'];
+$_SESSION['user_pw'] = $row['pw'];
 
 ?>
 <meta http-equiv='refresh' content='0;url=../main_page.php'>

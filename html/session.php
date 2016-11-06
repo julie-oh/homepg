@@ -7,6 +7,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
   exit;
 }
 $prodID = $_SESSION['user_id'];
+$name = $_SESSION['user_name'];
+$pw = $_SESSION['user_pw'];
 
 header('Content-type: text/html; charset=utf-8');
 ?>
