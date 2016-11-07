@@ -35,6 +35,9 @@ caption {
 .delete {
   margin-left:5px;
 }
+input[type="text"] {
+  border: none;
+        }
 
 /* header */
 header {
@@ -571,7 +574,6 @@ ul.inbox-pagination li {
 }
 .document_form table .title {
   width: 100%;
-  border: none;
 }
 .document_form table textarea {
   width: 100%;
@@ -655,3 +657,4 @@ ul.inbox-pagination li {
 .meeting {
   height: 750px;
 }
+
