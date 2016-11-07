@@ -636,6 +636,9 @@ ul.inbox-pagination li {
   background: #eee;
   text-align: center;
 }
+.notice input[name="writePW"] {
+  width: 200px;
+}
 
 /*공지사항 게시판 글보기*/
 .notice table .text_contents {
