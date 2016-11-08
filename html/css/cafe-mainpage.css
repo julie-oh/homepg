@@ -1,11 +1,12 @@
-body{
+/*body{
     font-family: "Helvetica Neue", sans-serif;
     display : flex;
     flex-direction: column;
     align-items: center;
 }
+*/
 
-#cafemain {
+/*#cafemain {
     position: absolute;
     top : 25%;
     height : 400px;
@@ -13,7 +14,7 @@ body{
     background-color: gray;
     padding : 20px;
 }
-
+*/
 body,header,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select {margin: 0; padding: 0;}
 
 table {
@@ -48,14 +49,14 @@ tr:hover {
   color: white;
 }
 
-body {
-  font-family: font-f'돋움',dotum,AppleGothic,sans-serif;
+/*body {
+  font-family: font-f'돋움',dotum,AppleGothic,sans-serif;*/
 /*  display: flex;
   flex-direction: column;
   align-items: center;*/
-  background: #8999a8;
+/*  background: #8999a8;
   color: #a4a4a4;
-}
+}*/
 #cafe_wrap {
   width: 410px;
   margin: 0 auto;

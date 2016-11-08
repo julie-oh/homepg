@@ -658,3 +658,12 @@ ul.inbox-pagination li {
   height: 750px;
 }
 
+#cafe_wrap {
+  width: 410px;
+  margin: 0 auto;
+  top: 30%;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
