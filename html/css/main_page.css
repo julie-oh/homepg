@@ -677,6 +677,7 @@ ul.inbox-pagination li {
   height: 295px;
   border-radius: 4px;
   font-weight: bold;
+  cursor: default;
 }
 
 .cafe_menu .area {
