@@ -1,6 +1,7 @@
 <?php
 header('Content-type text/html; charset=utf-8');
-session_destroy();
+// session_start();
+// session_destroy();
 // get database
 require_once('../dbconfig.php');
 
@@ -23,7 +24,7 @@ $pwd = $_POST['pwd'];
     exit;
   }
 
-$sql = "SELECT * FROM user WHERE prodID=" . $prodID . " AND pwd=password(" . $pwd . ")";
+$sql = "SELECT * FROM user WHERE prodID=" . $prodID . " AND pwd=" .$pwd. "";
 $result = $db->query($sql);
 
 if (!$result || mysqli_num_rows($result) == 0) {
@@ -38,7 +39,7 @@ $row = $result->fetch_assoc();
 session_start();
 $_SESSION['user_id'] = $row['prodID'];
 $_SESSION['user_name'] = $row['name'];
-$_SESSION['user_pw'] = $row['pw'];
+$_SESSION['user_pw'] = $row['pwd'];
 
 ?>
 <meta http-equiv='refresh' content='0;url=../main_page.php'>

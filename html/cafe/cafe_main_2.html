@@ -319,43 +319,39 @@ $(function(){
 <!-- section -->
   <section id="section1">
 
-      <div id="cafe_wrap">
-        <p id="text">KSC Cafe</p>
-        <div id="menu">
-          <table id="menu-table">
-            <thea>
-              <tr class="menu-row menu-header">
-                <th>메뉴</th>
-                <th>가격</th>
-              </tr>
-            </thea>
-            <tbo>
-              <tr class="menu-row">
-                <td>아메리카노</td>
-                <td>2000</td>
-              </tr>
-              <tr class="menu-row">
-                <td>카페라떼</td>
-                <td>3000</td>
-              </tr>
-              <tr class="menu-row">
-                <td>허브티</td>
-                <td>3500</td>
-              </tr>
-              <tr class="menu-row">
-                <td>자몽에이드</td>
-                <td>5000</td>
-              </tr>
-              <tr class="menu-row">
-                <td>기라델리퐁당쇼콜라</td>
-                <td>6800</td>
-              </tr>
-            </tbo>
-          </table>
+    <div class="cafe_menu">
+        <div class="cafe_header">
+            <h1>Cafe_menu</h1>
         </div>
-        <div id="box">
+        <div class="cafe_body">
+          <div class="area">
+            <ul>
+            <li>아메리카노</li>
+            <li>카페라떼</li>
+            <li>허브티</li>
+            <li>자몽에이드</li>
+            <li>퐁당쇼콜라</li>
+            </ul>
+            <ul>
+            <li>2,000</li>
+            <li>2,000</li>
+            <li>2,000</li>
+            <li>2,000</li>
+            <li>2,000</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+
+    <div class="cafe_order">
+        <div class="cafe_header">
+            <h1>Cafe_order</h1>
+        </div>
+        <div class="cafe_body">
+
+        <div class="area">
           <form id="order_form" action="cafe_order.php" method="post">
-            This options will be replaced with data from database
+            <!-- This options will be replaced with data from database -->
             <select name="item">
               <option value="americano">아메리카노</option>
               <option value="latte">라떼</option>
@@ -370,18 +366,23 @@ $(function(){
               <option value="hot">따뜻하게</option>
               <option value="cold">차갑게</option>
             </select>
-            <input type="hidden" id="userid_input" name="ID" placeholder="아이디를 입력해주세요">
+            <!-- <input type="hidden" id="userid_input" name="ID" placeholder="아이디를 입력해주세요"> -->
             <input type="number" name="quantity" min="0" max="100"
-                placeholder="수량"/></br>
+                placeholder="수량"/>
+
             <div class="button-container">
               <input id="order" class="buttons" type="submit" value="주문하기" />
               <button class="buttons" type="button" onclick="location.href='order_history.php'">
                 주문 내역 보기
               </button>
             </div>
+
           </form>
         </div>
-      </div>
+
+
+        </div>
+    </div>
 
   </section>
 <!-- // section -->

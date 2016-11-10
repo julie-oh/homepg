@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<?php
-    include '../session.php';
-?>
 <html>
+              <?php include '../session.php';?>
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
@@ -145,7 +143,7 @@ $(function(){
  </script>
 </head>
 
-<body>
+
 
 <!-- header -->
 <header>
@@ -329,64 +327,45 @@ $(function(){
 
 <!-- section -->
   <section id="section1">
-  <!-- 공지사항 게시판 글쓰기 -->
-  <div class="notice">
-                      <div class="inbox-head">
-                          <form action="notice_write.php" method="post">
-                          <h3>Notice_write</h3>
-                          <input class="buttons" type="submit" name="notice_b" value="register"></input>
-                      </div>
-    <div class="document_form">
-      <table>
-      <caption>공지사항 게시판 글쓰기</caption>
-                          <colgroup>
-                          <col style="width:25%;">
-                          <col style="width:75%;">
-                          </colgroup>
-        <tbody>
-          <tr><td class="head">사원 이름</td><td><?php echo $_SESSION['user_id']?></td></tr>
-          <tr><td class="head">Password</td><td><input type="password" name="writePW" placeholder="사원의 비밀번호를 입력하세요"/></td></tr>
-          <tr><td class="head">제목</td><td><input type="text" class="title" placeholder="제목을 입력하세요" name="<?php$row['n_title']?>"/></td></tr>
-          <tr><td class="head">첨부파일</td><td><input type="file" /></td></tr>
-          <tr><td colspan="2" class="head" >내용</td></tr>
-          <tr><td colspan="2"><textarea name="notice_text" placeholder="내용을 입력하세요" name="<?php?$row['n_text']?>" ></textarea></td></tr>
-          
-          </form>
-          <?php
-          
-                                if(isset($_POST["notice_b"])){
-                                    if($writePW==$_SESSION['user_pw']){
-                                        $write = TRUE;
-                                        ?>
-                                        "<script>alert("성공")</script>"
-                                        <meta http-equiv="refresh" content="0;url=notice.php">
-                                        <?php
-                                    }else{
-                                        ?> "<script>alert("실패")</script>" <?php
-                                    }
-                                } 
-                                
-                                
-                                  if (isset($_GET['nno'])) {
-                                    $nNo = $_GET['nno'];
-                                  }
-
-                                  if (isset($nNo)) {
-                                    $sql = 'insert into n_title, n_text, n_date, n_hit FROM notice WHERE n_no = ' . $nNo;
-                                    $result = $db->query($sql);
-                                    $row = $result->fetch_assoc();
-                                  }
-                                
-          ?>
-  
- <!--          <meta http-equiv="refresh" content="0;url=notice.php">  -->
-          
-          
-        </tbody>
-      </table>
-  </div>
-  </div>
-  <!-- / /공지사항 게시판 -->
+    <!-- 공지사항 게시판 글쓰기 -->
+    <div class="notice">
+      <div class="inbox-head">
+        <h3>Notice_write</h3>
+      </div>
+      <div class="document_form">
+        <table>
+        <caption>공지사항 게시판 글쓰기</caption>
+        <colgroup>
+          <col style="width:25%;">
+          <col style="width:75%;">
+        </colgroup>
+          <tbody>
+            <form action="notice_write2.php" method="POST">
+              <tr>
+                <td class="head">사원 이름</td><td><?php echo $_SESSION['user_name']?></td>
+              </tr>
+              <tr>
+                <td class="head">Password</td><td><input type="password" name="writePW" placeholder="사원의 비밀번호를 입력하세요"/></td>
+              </tr>
+              <tr>
+                <td class="head">제목</td><td><input type="text" class="title" placeholder="제목을 입력하세요" name="n_title" /></td>
+              </tr>
+              <tr>
+                <td class="head">첨부파일</td><td><input type="file" /></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="head" >내용</td>
+              </tr>
+              <tr>
+                <td colspan="2"><textarea placeholder="내용을 입력하세요" name="n_text" ></textarea></td>
+              </tr>
+              <input class="buttons" type="submit" name="notice_b" value="register"></input>
+            </form>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- / /공지사항 게시판 -->
   </section>
 <!-- // section -->
 
