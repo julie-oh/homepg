@@ -87,26 +87,20 @@ header div {
   float: left;
 }
 
-#article5 {
-  border: 0px solid #000;
+#article2 {
+  margin-top: 5px;
+}
+
+#article4 {
+  height: 300px;
+  border: 1px solid #000;
   margin: 5px 0;
-  border-radius: 5px;
-  font-size: 30px;
 }
 
-.weather_header {
-  padding: 10px;
-  border-radius: 5px 5px 0 0;
-  background: #db9dbe;
-  border-bottom: 3px solid #3f1259;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.weather_box {
-  padding: 15px;
-  text-align: center;
+#article5 {
+  height: 300px;
+  border: 1px solid #000;
+  margin: 5px 0;
 }
 
 /* 상단 nav */
