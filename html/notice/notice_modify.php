@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <?php
+    require '../session.php';
+    require '../dbconfig.php';
+    ?>
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>Korea Security Company | 공지사항 글수정하기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/main_page.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main_page.css" />
 <!-- Script dependencies -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
@@ -340,13 +344,15 @@ $(function(){
                           <col style="width:75%;">
                           </colgroup>
         <tbody>
-          <tr><td class="head">ID</td><td>sessj92</td></tr>
-          <tr><td class="head">Password</td><td>******</td></tr>
-          <tr><td class="head">제목</td><td><input type="text" class="title"/></td></tr>
+        <form action="notice_write2.php" method="POST">
+          <tr><td class="head">ID</td><td><?=$prodID?></td></tr>
+          <tr><td class="head" name="writePW">Password</td><td></td></tr>
+          <tr><td class="head" name="n_title">제목</td><td><input type="text" class="title"/></td></tr>
           <tr><td class="head">첨부파일</td><td><input type="file" /></td></tr>
           <tr><td colspan="2" class="head">내용</td></tr>
-          <tr><td colspan="2"><textarea>이야이야오</textarea></td></tr>
+          <tr><td colspan="2" name="n_text"><textarea></textarea></td></tr>
         </tbody>
+        </form>
       </table>
   </div>
   </div>

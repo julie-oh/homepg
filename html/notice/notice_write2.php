@@ -68,7 +68,7 @@
     // 또 바로 뒤에 홑따옴표를 붙이게 하는 거임. 따라서 저거 대입 결과는 "(null, '제목', ...)" 이렇게 됨 ($n_title = 제목).
     $sql = "insert into notice values (null, '" . $n_title . "', '" . $n_text . "', '" . $n_date . "', 0, " . $prodID . ", " . $prodID . ")";
     $result = $db->query($sql);  // 쿼리 날리고
-
+  }
     // 결과가 성공적으로 저장되었다면 $result값이 false나 null이 아닌 값을 돌려주기 때문에
     // 밑에 방법으로 if문을 작성하면 완성.
     if ($result) {
@@ -80,7 +80,7 @@
       echo "<script>history.back()</script>";
       exit;
     }
-  }
+  
 
 /*
   if (isset($nNo)) {

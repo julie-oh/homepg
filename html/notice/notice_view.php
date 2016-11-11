@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+    <?php require '../session.php';?>
+    
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>Korea Security Company | 공지사항 글보기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/main_page.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main_page.css" />
 <!-- Script dependencies -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
@@ -331,10 +333,22 @@ $(function(){
                       <div class="inbox-head">
                           <h3>Notice_view</h3>
                           <form action="notice_delete.php" method="POST">
-                          <button class="buttons delete" type="button">delete</button></form>
-                          <button class="buttons modify" type="button" onclick="location.href='notice_modify.html'">modify</button>
+                          <button class="buttons delete" type="button" onclick="location.href='notice_delete.php'">삭제</button></form>
+                          <button class="buttons modify" type="button" onclick="location.href='notice_modify.php'">수정</button>
                       </div>
     <div class="document_form">
+        
+        <?php
+        require_once("../dbconfig.php");
+        $nNo = $_GET['nno'];
+        
+            $sql = 'select n_title, n_text, n_date, n_hit, prodID from notice where n_no = ' . $nNo;
+            $result = mysqli_query($db, $sql);
+            $row = $result->fetch_assoc();
+        
+        
+        ?>
+        
       <table>
       <caption>공지사항 게시판 글보기</caption>
                           <colgroup>
@@ -342,11 +356,11 @@ $(function(){
                           <col style="width:75%;">
                           </colgroup>
         <tbody>
-          <tr><td class="head">ID</td><td>sessj92</td></tr>
-          <tr><td class="head">제목</td><td>최수진짱</td></tr>
+          <tr><td class="head">ID</td><td><?php echo $row["prodID"]?></td></tr>
+          <tr><td class="head">제목</td><td><?php echo $row["n_title"]?></td></tr>
           <tr><td class="head">첨부파일</td><td></td></tr>
           <tr><td colspan="2" class="head">내용</td></tr>
-          <tr><td colspan="2" class="text_contents">여기는 공지사항 게시판 글의 내용 확인하는 곳입니당. 등록한 글의 내용을 가져오세요!!!!!!</td></tr>
+          <tr><td colspan="2" class="text_contents"><?php echo $row["n_text"]?></td></tr>
         </tbody>
       </table>
   </div>

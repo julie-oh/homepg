@@ -371,17 +371,18 @@ $(function(){
             $row['n_date'] = $date;
         }
 ?>
+                            <form action="notice_view.php" method="GET">     
                               <tr>
                                   <td class=""><?php echo $row['n_no']?></td>
                                   <td class="view-massage">
                                       <?php
-                                      $nno = $row['n_no'];
-                                      $view_url = './view.php?nno='.$nno;
+                                      $nNo = $row['n_no'];
+                                      $view_url = './notice_view.php?nno='.$nNo;
                                       echo '<a href="'.$view_url.'">';
                                       ?>
                                       <?php echo $row['n_title']?>
-                                      </a>
                                   </td>
+                                  </a>
                                   <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
                                   <td class="view-message text-right"><?php echo $row['n_date']?></td>
                                   <td class=""><?php echo $row['n_hit']?></td>
@@ -389,6 +390,7 @@ $(function(){
                                 <?php
                                 }
                                 ?>
+                            </form>
                           </tbody>
                           </table>
                       </div>
