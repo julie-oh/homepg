@@ -674,35 +674,19 @@ ul.inbox-pagination li {
 .cafe_body {
   background: #f4f3ee;
   color: #666;
-  height: 295px;
   border-radius: 4px;
   font-weight: bold;
   cursor: default;
 }
 
 .cafe_menu .area {
-  width: 440px;
+  width: 460px;
   margin: auto;
-}
-
-.cafe_menu ul {
-  float: left;
-  width: 200px;
-  text-align: center;
-  margin: 60px 10px;
-}
-
-.cafe_menu ul li {
-  border-bottom: 1px dotted #b6a58b;
-  margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .cafe_order {
   margin-top: 5px;
-}
-
-.cafe_order .cafe_body {
-  height: 273px;
 }
 
 .cafe_order .area {
@@ -711,7 +695,8 @@ ul.inbox-pagination li {
 }
 
 .cafe_order form {
-  padding: 60px 0;
+  padding-top: 70px;
+  overflow: hidden;
 }
 
 .cafe_order select {
@@ -725,22 +710,42 @@ ul.inbox-pagination li {
   height: 35px;
 }
 
-.cafe_order .button-container {
+.cafe_menu .button-container, .cafe_order .button-container {
   text-align: center;
   font-weight: normal;
+  margin: 50px 0 50px 0;
 }
 
-.cafe_order .buttons {
+.cafe_menu .buttons, .cafe_order .buttons {
   border-radius: 3px;
   width: 140px;
   height: 50px;
   background: #7f643b;
   color: white;
   border: none;
-  margin-top: 40px;
   letter-spacing: -1px;
 }
 
-.cafe_order .buttons:hover {
+.cafe_menu .buttons:hover, .cafe_order .buttons:hover {
   background: #b6a58b;
+}
+
+.cafe_menu table {
+  text-align: center;
+  margin: 60px 0 70px 0;
+  width: 100%;
+}
+.cafe_menu table th {
+  border-bottom: 1px solid #b6a58b;
+  text-align: center;
+  padding: 4px 0;
+  background: #b6a58b;
+  color: #fff;
+}
+
+.cafe_menu table td {
+  border-bottom: 1px solid #CCB99C;
+  padding: 20px 0 2px 0;
+  font-weight: normal;
+  letter-spacing: -0.05em;
 }
