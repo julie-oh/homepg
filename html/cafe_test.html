@@ -1,0 +1,86 @@
+
+<section id="cafe_section">
+  <div id="cafe_wrapper" class="cafe_menu">
+      <div class="cafe_header">
+          <h1>Cafe_menu</h1>
+      </div>
+      <div class="cafe_body">
+        <div class="area">
+
+        <table>
+          <caption>Cafe_menu</caption>
+          <!-- table header -->
+          <thead>
+            <tr>
+              <th scope="col">menu</th>
+              <th scope="col">price</th>
+            </tr>
+          </thead>
+          <!-- table body -->
+          <tbody>
+            <!-- insert table rows -->
+            <tr>
+              <td>아메리카노</td>
+              <td>2,000</td>
+            </tr>
+            <tr>
+              <td>카페라떼</td>
+              <td>2,000</td>
+            </tr>
+            <tr>
+              <td>허브티</td>
+              <td>2,000</td>
+            </tr>
+            <tr>
+              <td>자몽에이드</td>
+              <td>2,000</td>
+            </tr>
+            <tr>
+              <td>퐁당쇼콜라</td>
+              <td>2,000</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+  </div>
+
+  <div class="cafe_order">
+      <div class="cafe_header">
+          <h1>Cafe_order</h1>
+      </div>
+      <div class="cafe_body">
+
+      <div class="area">
+        <form id="order_form" action="cafe_order.php" method="post">
+          <!-- This options will be replaced with data from database -->
+          <select name="item">
+            <option value="americano">아메리카노</option>
+            <option value="latte">라떼</option>
+            <option value="gfade">자몽에이드</option>
+            <option value="ghirardeli">기라델리</option>
+          </select>
+          <select name="size">
+            <option value="R">크게</option>
+            <option value="L">좀더크게</option>
+          </select>
+          <select name="temp">
+            <option value="hot">따뜻하게</option>
+            <option value="cold">차갑게</option>
+          </select>
+          <!-- <input type="hidden" id="userid_input" name="ID" placeholder="아이디를 입력해주세요"> -->
+          <input type="number" name="quantity" min="0" max="100"
+              placeholder="수량"/>
+
+          <div class="button-container">
+            <input id="order" class="buttons" type="submit" value="주문하기" />
+            <button class="buttons" type="button" onclick="location.href='order_history.php'">
+              주문 내역 보기
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
