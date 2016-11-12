@@ -22,17 +22,20 @@ $sql =
 "INSERT INTO user
 (prodID, name, dep, position, phoneNumber, deskNumber, mail, pwd)
 VALUES
-(" . $prodID . ", '" . $name . "', '" . $dep . "', '" . $position . "', '" . $phoneNumber . "'
-, '" . $deskNumber . "', '" . $mail . "', " . $pwd . ")";
+(". $prodID .", '". $name ."', '" . $dep . "', '" . $position . "', '" . $phoneNumber . "'
+, '" . $deskNumber . "', '" . $mail . "', '" . $pwd . "')";
+
 $result = $db->query($sql);
+echo "<script>alert(\" selhflsehf \")</script>";
+echo $sql;
 
 if (!$result) {
   echo "<script>alert(\" 회원가입 실패 \")</script>";
-  echo "<script>history.back()</script>";
-  exit;
+  //echo "<script>history.back()</script>";
+  //exit;
 } else {
   echo "<script>alert(\" 회원가입 성공\n 다시 로그인해주세요. \")</script>";
 }
 
 ?>
-<meta http-equiv='refresh' content='0;url=login.html'>
+<!-- meta http-equiv='refresh' content='0;url=login.html' -->

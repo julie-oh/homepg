@@ -357,7 +357,8 @@ $(function(){
                 <td colspan="2" class="head" >내용</td>
               </tr>
               <tr>
-                <td colspan="2"><textarea placeholder="내용을 입력하세요" name="n_text" ></textarea></td>
+                <td colspan="2"><textarea placeholder="내용을 입력하세요" name="n_text" >
+              </textarea></td>
               </tr>
               <input class="buttons" type="submit" name="notice_b" value="register"></input>
             </form>

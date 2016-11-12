@@ -2,7 +2,6 @@
 <html>
     <?php
     require '../session.php';
-    require '../dbconfig.php';
     ?>
 <head>
     <meta charset="utf-8">
@@ -334,25 +333,69 @@ $(function(){
   <div class="notice">
                       <div class="inbox-head">
                           <h3>Notice_modify</h3>
-                          <button class="buttons" type="button" onclick="">register</button>
+                          <form action="notice_modify.php" method="post">
+                          <input class="buttons modify" type="submit" name="modifyB2" value="수정하기">
+                          <input type="hidden" name="nno" value="<?= $_GET["nno"] ?>">
+                          <input type="hidden" name="modifyB1" value="">
                       </div>
     <div class="document_form">
       <table>
-      <caption>공지사항 게시판 글수정</caption>
+      <caption>공지사항 게시판 글수정</caption><input type="hidden" name="nno" value="<?= $_GET["nno"] ?>">
                           <colgroup>
                           <col style="width:25%;">
                           <col style="width:75%;">
                           </colgroup>
+
+                          <?php
+                          if(isset($_GET["modifyB1"]) || isset($_POST["modifyB2"])){
+                            require_once("../dbconfig.php");
+
+                            if(isset($_GET['nno'])) {
+                                $nNo = $_GET['nno'];
+                            } else if(isset($_POST['nno'])) {
+                              $nNo = $_POST['nno'];
+                            }
+                            $sql = 'select n_title, n_text, n_date, n_hit, prodID from notice where n_no =' . $nNo ;
+                            $result = mysqli_query($db, $sql);
+                            $row = $result->fetch_assoc();
+                          }
+                          ?>
+
         <tbody>
-        <form action="notice_write2.php" method="POST">
           <tr><td class="head">ID</td><td><?=$prodID?></td></tr>
-          <tr><td class="head" name="writePW">Password</td><td></td></tr>
-          <tr><td class="head" name="n_title">제목</td><td><input type="text" class="title"/></td></tr>
+          <tr><td class="head">Password</td><td><input type="password" name="writePW" placeholder="사원의 비밀번호를 입력하세요"/></td></tr>
+          <tr><td class="head" name="n_title">제목</td><td><input type="text" name=ntitle class="title" value="<?=$row['n_title']?>"/></td></tr>
           <tr><td class="head">첨부파일</td><td><input type="file" /></td></tr>
           <tr><td colspan="2" class="head">내용</td></tr>
-          <tr><td colspan="2" name="n_text"><textarea></textarea></td></tr>
-        </tbody>
+          <tr><td colspan="2" ><textarea name="ntext"><?=$row["n_text"]?></textarea></td></tr>
         </form>
+        </tbody>
+
+        <?php
+
+        if(isset($_POST["modifyB2"])){
+          if($_POST["writePW"]==$_SESSION["user_pw"]){
+            $write=true;
+          }else {
+            die("안맞음");
+          }
+
+          if($write==true){
+            $ntitle = $_POST["ntitle"];
+            $ntext = $_POST["ntext"];
+
+            require_once '../dbconfig.php';
+            $sql = 'update notice set n_title='.$ntitle.', n_text='.$ntext.' where n_no='.$nNo ;
+            $result = mysqli_query($db,$sql);
+            echo "<script>alert(\"게시물 수정에 성공하였습니다\")</script>";
+            echo "<meta http-equiv='refresh' content='0; url=notice.php'>";
+          }
+        }
+
+
+         ?>
+
+
       </table>
   </div>
   </div>

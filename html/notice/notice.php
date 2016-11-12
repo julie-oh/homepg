@@ -355,12 +355,12 @@ $(function(){
                           </thead>
                             <tbody>
                               <tr class="">
-                                  
+
 <?php
     include '../dbconfig.php';
     $sql = 'select * from notice order by n_no desc';
     $result = mysqli_query($db, $sql);
-    
+
     while($row = $result->fetch_assoc()){
         $datetime = explode(" ", $row['n_date']);
         $date = $datetime[0];
@@ -371,7 +371,8 @@ $(function(){
             $row['n_date'] = $date;
         }
 ?>
-                            <form action="notice_view.php" method="GET">     
+                            <form action="notice_view.php" method="GET">
+                            <form action="notice_modify.php" method="GET">
                               <tr>
                                   <td class=""><?php echo $row['n_no']?></td>
                                   <td class="view-massage">
@@ -386,11 +387,12 @@ $(function(){
                                   <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
                                   <td class="view-message text-right"><?php echo $row['n_date']?></td>
                                   <td class=""><?php echo $row['n_hit']?></td>
-                              </tr>    
+                              </tr>
                                 <?php
                                 }
                                 ?>
                             </form>
+                          </form>
                           </tbody>
                           </table>
                       </div>

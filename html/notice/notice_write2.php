@@ -35,7 +35,7 @@
     */
 
     // 하지만 일단 이 코드를 살려두기로 하고
-    if ($_POST["writePW"] == $_SESSION['user_pw']) {
+    if ($_POST["writePW"] == $_SESSION["user_pw"]) {
       $write = TRUE;
     } else {
       echo "<script>alert(\"실패\")</script>";
@@ -43,6 +43,7 @@
       exit;  // 이 파일을 종료해줘야 뒷부분이 실행되지 않고 안전하게 종료됨
     }
   }
+
   // 위 코드에서 비밀번호를 제대로 입력했다면 $write가 TRUE일 것이므로 이것을 활용함.
   // $write == TRUE라고 쓰는 것은 불필요함.
   if ($write) {
@@ -80,7 +81,7 @@
       echo "<script>history.back()</script>";
       exit;
     }
-  
+
 
 /*
   if (isset($nNo)) {
