@@ -348,7 +348,7 @@ $(function(){
 
                           <?php
                           if(isset($_GET["modifyB1"]) || isset($_POST["modifyB2"])){
-                            require_once("../dbconfig.php");
+                            require '../dbconfig.php';
 
                             if(isset($_GET['nno'])) {
                                 $nNo = $_GET['nno'];
@@ -383,12 +383,17 @@ $(function(){
           if($write==true){
             $ntitle = $_POST["ntitle"];
             $ntext = $_POST["ntext"];
+            require '../dbconfig.php';
 
-            require_once '../dbconfig.php';
             $sql = 'update notice set n_title='.$ntitle.', n_text='.$ntext.' where n_no='.$nNo ;
             $result = mysqli_query($db,$sql);
-            echo "<script>alert(\"게시물 수정에 성공하였습니다\")</script>";
-            echo "<meta http-equiv='refresh' content='0; url=notice.php'>";
+
+            if($result){
+              echo "<script>alert(\"게시물 수정에 성공하였습니다\")</script>";
+              echo "<meta http-equiv='refresh' content='0; url=notice.php'>";
+            }else{
+              print $result;
+            }
           }
         }
 
