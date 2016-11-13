@@ -624,11 +624,20 @@ ul.inbox-pagination li {
   margin: 0 5px;
 }
 .notice .page a:link, a:visited, a:hover, a:active {
-  color: #666;
+  color: #fff;
 }
 .notice .page a {
+  color: #fff;
+}
+.notice .view-massage a:link, a:visited, a:hover, a:activ
+{
   color: #666;
 }
+.notice .view-massage a {
+  color: #666;
+}
+
+
 
 
 /*공지사항 게시판 글쓰기*/
