@@ -23,8 +23,9 @@
         </li>
         <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시판<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="aboard/index.php">건의사항</a></li>
-            <li><a href="board/index.php">자유게시판</a></li>
+            <li><a href="aboard/aboard
+              .php">건의사항</a></li>
+            <li><a href="board/board.php">자유게시판</a></li>
           </ul>
         </li>
         <li class="padLR20" id='cafe_enter'>cafe</li>
