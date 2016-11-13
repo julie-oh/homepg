@@ -25,11 +25,11 @@
     <div class="inbox-head">
       <h3>Notice_view</h3>
       <form action="notice_view.php" method="GET">
-        <input class="buttons delete" type="submit" name="deleteB" value="삭제">
+        <input class="buttons delete" type="submit" name="deleteB" value="delete">
         <input type="hidden" name="nno" value="<?= $_GET["nno"] ?>">
       </form>
       <form action="notice_modify.php" method="GET">
-        <input class="buttons modify" type="submit" name="modifyB1" value="수정">
+        <input class="buttons modify" type="submit" name="modifyB1" value="modify">
         <input type="hidden" name="nno" value="<?= $_GET["nno"] ?>">
       </form>
     </div>

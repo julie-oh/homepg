@@ -592,6 +592,9 @@ ul.inbox-pagination li {
   width: 755px;
   float: left;
 }
+.notice .inbox-head form {
+  float: right;
+}
 .notice .buttons {
   border-radius: 4px;
   width: 110px;
@@ -629,15 +632,13 @@ ul.inbox-pagination li {
 .notice .page a {
   color: #fff;
 }
-.notice .view-massage a:link, a:visited, a:hover, a:activ
+.notice .view-massage a:link, a:visited, a:hover, a:active
 {
   color: #666;
 }
 .notice .view-massage a {
   color: #666;
 }
-
-
 
 
 /*공지사항 게시판 글쓰기*/
