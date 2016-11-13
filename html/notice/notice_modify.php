@@ -22,8 +22,10 @@
 <section id="section1">
   <!-- 공지사항 게시판 글수정하기 -->
   <div class="notice">
+   <form action="notice_modify.php" method="post">
     <div class="inbox-head">
       <h3>Notice_modify</h3>
+      <input class="buttons modify" type="submit" name="modifyB2" value="modify">      
     </div>
     <div class="document_form">
       <table>
@@ -47,8 +49,6 @@
           }
           ?>
         <tbody>
-          <form action="notice_modify.php" method="post">
-            <input class="buttons modify" type="submit" name="modifyB2" value="수정하기">
             <input type="hidden" name="nno" value="<?= $_GET["nno"] ?>">
             <input type="hidden" name="modifyB1" value="">
             <tr><td class="head">ID</td><td><?=$prodID?></td></tr>
@@ -56,8 +56,7 @@
             <tr><td class="head" name="n_title">제목</td><td><input type="text" name=ntitle class="title" value="<?=$row['n_title']?>"/></td></tr>
             <tr><td class="head">첨부파일</td><td><input type="file" /></td></tr>
             <tr><td colspan="2" class="head">내용</td></tr>
-            <tr><td colspan="2" ><textarea name="ntext"><?=$row["n_text"]?></textarea></td></tr>
-          </form>
+            <tr><td colspan="2" ><textarea name="ntext"><?=$row["n_text"]?></textarea></td></tr>          
         </tbody>
         <?php
         if(isset($_POST["modifyB2"])) {
@@ -85,6 +84,7 @@
         ?>
       </table>
     </div>
+   </form>    
   </div>
   <!-- / /공지사항 게시판 -->
 </section>

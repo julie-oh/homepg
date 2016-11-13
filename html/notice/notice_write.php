@@ -20,8 +20,10 @@
 <section id="section1">
   <!-- 공지사항 게시판 글쓰기 -->
   <div class="notice">
+  <form action="notice_write2.php" method="POST">  
     <div class="inbox-head">
       <h3>Notice_write</h3>
+      <input class="buttons" type="submit" name="notice_b" value="register" />      
     </div>
     <div class="document_form">
       <table>
@@ -31,7 +33,6 @@
           <col style="width:75%;">
         </colgroup>
         <tbody>
-          <form action="notice_write2.php" method="POST">
             <tr>
               <td class="head">사원 이름</td><td><?php echo $_SESSION['user_name']?></td>
             </tr>
@@ -50,11 +51,12 @@
             <tr>
               <td colspan="2"><textarea placeholder="내용을 입력하세요" name="n_text" ></textarea></td>
             </tr>
-            <input class="buttons" type="submit" name="notice_b" value="register"></input>
+
           </form>
         </tbody>
       </table>
     </div>
+    </form>
   </div>
   <!-- / /공지사항 게시판 -->
 </section>
