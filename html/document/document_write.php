@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Korea Security Company</title>
+    <title>Korea Security Company|품의/제안서</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
@@ -332,7 +332,7 @@ $(function(){
               <option value="documentJe">제안서</option>
             </select>
           </td></tr>
-          <tr><td class="head"><?=$ez?></td><td>5</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
+          <tr><td class="head">문서번호</td><td>5</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
           <tr><td class="head">작성일자</td><td>2016.10.14</td><td rowspan="3"><span>최수진</span></td><td rowspan="3"><span>최수진</span></td><td rowspan="3"><span>최수진</span></td></tr>
           <tr><td class="head">작성부서</td><td>데이터사업실</td></tr>
           <tr><td class="head">작성자</td><td>오연주 </td></tr>

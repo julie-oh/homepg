@@ -673,7 +673,7 @@ ul.inbox-pagination li {
 }
 
 /*공지사항 게시판 글보기*/
-.notice table .text_contents {
+.text_contents {
   width: 100%;
   height: 500px;
   margin: 7px 0;

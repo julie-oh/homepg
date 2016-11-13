@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Korea Security Company | document_board</title>
+    <title>Korea Security Company|품의/제안서 확인하기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
@@ -14,7 +14,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <!-- 달력 -->
-<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
+<link rel='stylesheet' type='text/css' href='../css/fullcalendar.css' />
 <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
 <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
 <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
@@ -147,7 +147,7 @@ $(function(){
 
 <!-- header -->
 <header>
-  <div><a href="main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
+  <div><a href="main_page.php"><img src="../images/logo.png" alt="logo" /></a></div>
 </header>
 <!-- //header -->
 
@@ -179,9 +179,9 @@ $(function(){
                                   <li><a href="#">결재완료건</a></li>
                               </ul>
                           </li>
-                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시판<span class="caret"></span></a>
+                          <li class=" down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">익명게시판<span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="aboard/index.php">익명/건의사항</a></li>
+                                  <li><a href="#">건의사항</a></li>
                                   <li><a href="#">자유게시판</a></li>
                               </ul>
                           </li>
@@ -320,146 +320,28 @@ $(function(){
 
 <!-- section -->
   <section id="section1">
-  <!-- 결재완료 게시판 -->
-  <div class="notice">
-                      <div class="document_inbox_head">
-                          <h3>document_board</h3>
-                          <button class="buttons" type="button" onclick="">write</button>
-                      </div>
-                      <div class="inbox-body" style="padding:0;">
-                          <table class="table table-inbox table-hover">
-                          <caption>공지사항 게시판</caption>
-                          <colgroup>
-                          <col style="width:15%;">
-                          <col style="width:10%;">
-                          <col style="width:50%;">
-                          <col style="width:15%;">
-                          <col style="width:10%;">
-                          </colgroup>
-                          <thead>
-                            <tr>
-                            <th>상태</th>
-                            <th>문서번호</th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                            <th>작성일</th>
-                            </tr>
-                          </thead>
-                            <tbody>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">Added a new class: Login Class Fast Site</td>
-                                  <td class="view-message dont-show">PHPClass</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">Improve the search presence of WebSite</td>
-                                  <td class="view-message dont-show">Google Webmaster </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                                  <td class="view-message dont-show">JW Player</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">Boost Your Website Traffic</td>
-                                  <td class="view-message dont-show">Tim Reid, S P N</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">Stop wasting your visitors </td>
-                                  <td class="view-message dont-show">Freelancer.com</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                                  <td class="view-message dont-show">WOW Slider </td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                                  <td class="view-message dont-show">LinkedIn Pulse</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message view-message">Welcome to the Drupal Community</td>
-                                  <td class="view-message dont-show">Drupal Community</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message view-message">Somebody requested a new password </td>
-                                  <td class="view-message dont-show">Facebook</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="color">결재대기</td>
-                                  <td class="">1</td>
-                                  <td class="view-message view-message">Password successfully changed</td>
-                                  <td class="view-message dont-show">Skype</td>
-                                  <td class="view-message text-right">2016.10.10 18:09</td>
-                              </tr>
-                          </tbody>
-                          </table>
-                      </div>
-                      <div class="page">
-                        <ol>
-                          <li><a href="">◀</a></li>
-                          <li><a href="">1</a></li>
-                          <li><a href="">2</a></li>
-                          <li><a href="">3</a></li>
-                          <li><a href="">4</a></li>
-                          <li><a href="">5</a></li>
-                          <li><a href="">▶</a></li>
-                        </ol>
-                      </div>
-  </div>
-  <!-- / /공지사항 게시판 -->
-<!--   <div class="document_form">
-    <div><img src="images/form_logo.png" alt="KSC" /></div>
+        <form action="view.php" method="post">
+  <div class="document_form">
+    <div><img src="../images/form_logo.png" alt="KSC" /></div>
       <table>
-      <caption>품의/제안서 표</caption>
+      <caption>품의/제안서 문서 확인하기</caption>
         <tbody>
-          <tr><td colspan="5">
-            <select class="" name="" id="">
-              <option value="">품의서</option>
-              <option value="">제안서</option>
-            </select>
-          </td></tr>
-          <tr><td class="head">문서번호</td><td>5</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
-          <tr><td class="head">작성일자</td><td>2016.10.14</td><td rowspan="3"><span>최수진</span></td><td rowspan="3"><span>최수진</span></td><td rowspan="3"><span>최수진</span></td></tr>
+          <tr><td class="head">문서상태</td><td class="color">결재대기</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
+          <tr><td class="head">문서번호</td><td>5</td><td rowspan="4"><span>최수진</span></td><td rowspan="4"><span>최수진</span></td><td rowspan="4"><span>최수진</span></td></tr>
+          <tr><td class="head">작성일자</td><td>2016.10.14</td></tr>
           <tr><td class="head">작성부서</td><td>데이터사업실</td></tr>
-          <tr><td class="head">작성자</td><td>오연주</td></tr>
-          <tr><td class="head">제목</td><td colspan="4"><input type="text" class="title"/></td></tr>
+          <tr><td class="head">작성자</td><td>오연주 </td></tr>
+          <tr><td class="head">제목</td><td colspan="4">문서 제목 가져오장</td></tr>
           <tr><td class="head">첨부파일</td><td colspan="4"><input type="file" /></td></tr>
           <tr><td colspan="5" class="head">내용</td></tr>
-          <tr><td colspan="5"><textarea>이야이야오</textarea></td></tr>
+          <tr><td colspan="5" class="text_contents">문서내용 결재를 하랏</td></tr>
         </tbody>
       </table>
     <div class="register">
-      <button class="button" type="button" onclick="location.href='sign_up.html'">Sign Up</button>
+      <button class="button" type="button" onclick="location.href=''">List</button>
     </div>
-  </div> -->
+</form>
+  </div>
   </section>
 
 <!-- 우측 chat -->
