@@ -376,16 +376,18 @@ $(function(){
         if(isset($_POST["modifyB2"])){
           if($_POST["writePW"]==$_SESSION["user_pw"]){
             $write=true;
-          }else {
+          } else {
             die("안맞음");
           }
 
           if($write==true){
+            echo "<script>alert(\"들어옴\")</script>";
             $ntitle = $_POST["ntitle"];
             $ntext = $_POST["ntext"];
             require '../dbconfig.php';
 
-            $sql = 'update notice set n_title='.$ntitle.', n_text='.$ntext.' where n_no='.$nNo ;
+            $sql = 'update notice set n_title="'.$ntitle.'", n_text="'.$ntext.'" where n_no='.$nNo;
+            echo $sql;
             $result = mysqli_query($db,$sql);
 
             if($result){

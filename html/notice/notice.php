@@ -357,6 +357,8 @@ $(function(){
                               <tr class="">
 
 <?php
+    date_default_timezone_set('Asia/Seoul');
+    
     include '../dbconfig.php';
     $sql = 'select * from notice order by n_no desc';
     $result = mysqli_query($db, $sql);
