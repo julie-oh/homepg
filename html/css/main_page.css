@@ -586,6 +586,28 @@ ul.inbox-pagination li {
   width: 70px;
   height: 50px;
 }
+.document_inbox_head {
+  background: none repeat scroll 0 0 #41cac0;
+  border-radius: 0 4px 0 0;
+  color: #535353;
+  min-height: 80px;
+  padding: 20px;  
+}
+.document_inbox_head h3 {
+  display: inline-block;
+  font-weight: 300;
+  margin: 0;
+  padding-top: 6px;
+  width:415px;
+}
+.document_inbox_head .buttons {
+  background: #f5f4d8 !important;
+  color: #666 !important;
+}
+.color {
+  color:#41cac0; 
+  font-size:13px;
+} /*document_board 결재상태 글색상*/
 
 /*공지사항 게시판*/
 .notice {
