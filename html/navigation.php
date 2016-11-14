@@ -17,8 +17,8 @@
         <li class="padLR20"><a href="/meeting.php" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회의실<span class="caret"></span></a>
         <li class=" dropdown padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">결재문서 <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/document/document_form.php">품의/제안서</a></li>
-            <li><a href="/document/document_board.php">결재진행/완료건</a></li>
+            <li><a href="/document/document_view.php">품의/제안서</a></li>
+            <li><a href="/document/index.php">결재진행/완료건</a></li>
           </ul>
         </li>
         <li class="down padLR20"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게시판<span class="caret"></span></a>

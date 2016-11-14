@@ -1,22 +1,16 @@
 <?php
 header('Content-type text/html; charset=utf-8');
 // connect to database
-require_once("../dbconfig.php");
-session_start();
+require_once '../dbconfig.php';
+require_once '../session.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
-  echo "<script>alert(\" 세션이 없슴다. \")</script>";
-  echo "<script>window.location.replace(\" login/login.html \");</script>";
-  exit;
-}
-$prodID = $_SESSION['user_id'];
+date_default_timezone_set('Asia/Seoul');
 
 // retreive info
 if (isset($_POST) == true && empty($_POST) == false) {
   $item = $_POST['item'];
   $size = $_POST['size'];
   $amount = $_POST['quantity'];
-  $id = $_POST['ID'];
   $date = date('Y-m-d H:i:s');  # get current datetime
 }
 $price = 4000;
@@ -26,15 +20,11 @@ if (!$amount) {
   echo "<script>history.back()</script>";
   exit;
 } else {
-  // $cafeID = "<script>window.prompt(\"사원번호를 입력하세요\")</script>";
-  // echo $cafeID;
-  $cafequery = "select * from user where prodID=" . $id;
+  $cafequery = "select * from user where prodID=" . $prodID;
   $caferesult = mysqli_query($db, $cafequery);
 }
-echo $cafequery;
 
 // insert the order information
-
 if(mysqli_num_rows($caferesult) == 1){
   $query =
   "INSERT INTO cafe VALUES

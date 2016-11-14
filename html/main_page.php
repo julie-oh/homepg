@@ -27,29 +27,29 @@ header('Content-type: text/html; charset=utf-8');
 
   <script type='text/javascript'>
   $(function () {
-    $('#nav_bar').load("navigation.php #navigation_container");
-    $('#left_side').load("left_side.php #aside1");
-    $('#article5').load("weather.html #weather_section");
-    $('#article4').load("food.php #food_menu_template");
+    $('#nav_bar').load("/navigation.php #navigation_container");
+    $('#left_side').load("/left_side.php #aside1");
+    $('#article5').load("/weather.html #weather_section");
+    $('#article4').load("/food.php #food_menu_template");
   });
   </script>
 
   <!-- 채팅창 -->
-  <script type='text/javascript' src='chat/chat.js'></script>
+  <script type='text/javascript' src='/chat/chat.js'></script>
   <!-- 날씨 -->
-  <script type='text/javascript' src='js/weather.js'></script>
+  <script type='text/javascript' src='/js/weather.js'></script>
   <!-- 달력 -->
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
-  <script type='text/javascript' src='js/calendar.js'></script>
+  <script type='text/javascript' src='/js/calendar.js'></script>
 
 </head>
 
 <body>
 <!-- header -->
 <header>
-  <div><a href="/main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
+  <div><a href="/main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
 </header>
 
 <!-- navigation bar -->

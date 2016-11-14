@@ -1,47 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>KSC Cafe</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="../css/cafe-mainpage.css" />
-        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
-    </head>
-    <body>
-      <div id="cafe_wrap">
-        <p id="text">KSC Cafe</p>
-        <div id="menu">
-          <table id="menu-table">
-            <thea>
-              <tr class="menu-row menu-header">
-                <th>메뉴</th>
-                <th>가격</th>
+<head>
+  <meta charset="utf-8">
+  <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+  <title>Korea Security Company | 카페</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS 파일들 -->
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/main_page.css" />
+  <link rel='stylesheet' type='text/css' href='/css/fullcalendar.css' />
+  <link rel='stylesheet' type='text/css' href='/css/chat.css' />
+
+  <!-- Script dependencies - jquery & bootstrap -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  <!-- 채팅창 -->
+  <script type='text/javascript' src='/chat/chat.js'></script>
+  <!-- 달력 -->
+  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
+  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
+  <script type='text/javascript' src='/js/calendar.js'></script>
+
+  <script type='text/javascript'>
+  $(function () {
+    $('#nav_bar').load("/navigation.php #navigation_container");
+    $('#left_side').load("/left_side.php #aside1");
+    $('#article5').load("/weather.html #weather_section");
+    $('#article4').load("/food.php #food_menu_template");
+  });
+  </script>
+</head>
+<body>
+<!-- header -->
+<header>
+  <div><a href="/main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
+</header>
+
+<!-- navigation bar -->
+<nav id="nav_bar" class="navbar navbar-fixed-top"></nav>
+
+<!-- left side bar -->
+<div id="left_side"></div>
+
+<!-- section -->
+  <section id="section1">
+    <div class="cafe_menu">
+      <div class="cafe_header">
+        <h1>Cafe_menu</h1>
+      </div>
+      <div class="cafe_body">
+        <div class="area">
+          <table>
+            <caption>Cafe_menu</caption>
+            <!-- table header -->
+            <thead>
+              <tr>
+                <th scope="col">menu</th>
+                <th scope="col">price</th>
               </tr>
-            </thea>
-            <tbo>
-              <tr class="menu-row">
+            </thead>
+            <!-- table body -->
+            <tbody>
+              <!-- insert table rows -->
+              <tr>
                 <td>아메리카노</td>
-                <td>2000</td>
+                <td>2,000</td>
               </tr>
-              <tr class="menu-row">
+              <tr>
                 <td>카페라떼</td>
-                <td>3000</td>
+                <td>2,000</td>
               </tr>
-              <tr class="menu-row">
+              <tr>
                 <td>허브티</td>
-                <td>3500</td>
+                <td>2,000</td>
               </tr>
-              <tr class="menu-row">
+              <tr>
                 <td>자몽에이드</td>
-                <td>5000</td>
+                <td>2,000</td>
               </tr>
-              <tr class="menu-row">
-                <td>기라델리퐁당쇼콜라</td>
-                <td>6800</td>
+              <tr>
+                <td>퐁당쇼콜라</td>
+                <td>2,000</td>
               </tr>
-            </tbo>
+            </tbody>
           </table>
         </div>
-        <div id="box">
+      </div>
+    </div>
+
+    <div class="cafe_order">
+      <div class="cafe_header">
+        <h1>Cafe_order</h1>
+      </div>
+      <div class="cafe_body">
+        <div class="area">
           <form id="order_form" action="cafe_order.php" method="post">
             <!-- This options will be replaced with data from database -->
             <select name="item">
@@ -58,24 +113,24 @@
               <option value="hot">따뜻하게</option>
               <option value="cold">차갑게</option>
             </select>
-            <input type="hidden" id="userid_input" name="ID" placeholder="아이디를 입력해주세요">
+            <!-- <input type="hidden" id="userid_input" name="ID" placeholder="아이디를 입력해주세요"> -->
             <input type="number" name="quantity" min="0" max="100"
-                placeholder="수량"/></br>
+                placeholder="수량"/>
             <div class="button-container">
               <input id="order" class="buttons" type="submit" value="주문하기" />
-              <button class="buttons" type="button" onclick="location.href='order_history.php'">
+              <button class="buttons" type="button" onclick="location.href='/cafe/order_history.php'">
                 주문 내역 보기
               </button>
             </div>
           </form>
         </div>
       </div>
-      <script type="text/javascript">
-      var form = document.getElementById("order_form");
-      form.addEventListener('submit', function() {
-        var orderer_id = prompt("아이디를 입력하세요");
-        document.getElementById("userid_input").value = orderer_id;
-      });
-      </script>
-    </body>
+    </div>
+  </section>
+<!-- // section -->
+
+<!-- 우측 chat -->
+<aside id="aside2"></aside>
+<!-- // 우측 chat -->
+</body>
 </html>
