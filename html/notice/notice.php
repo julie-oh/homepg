@@ -18,14 +18,6 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-  <!-- 모듈화된 네비게이션바 / 날씨 등등 로딩 -->
-  <script type='text/javascript'>
-  $(function () {
-    $('#nav_bar').load("/navigation.php #navigation_container");
-    $('#left_side').load("/left_side.php #aside1");
-  });
-  </script>
-
   <!-- 채팅창 -->
   <script type='text/javascript' src='/chat/chat.js'></script>
   <!-- 날씨 -->
@@ -35,6 +27,13 @@
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
   <script type='text/javascript' src='/js/calendar.js'></script>
+  <!-- 모듈화된 네비게이션바 / 날씨 등등 로딩 -->
+  <script type='text/javascript'>
+  $(function () {
+    $('#nav_bar').load("/navigation.php #navigation_container");
+    $('#left_side').load("/left_side.php #aside1");
+  });
+  </script>
 
 </head>
 <body>
