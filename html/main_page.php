@@ -37,7 +37,6 @@ header('Content-type: text/html; charset=utf-8');
   $(function () {
     $('#nav_bar').load("navigation.php #navigation_container");
     $('#left_side').load("left_side.php #aside1");
-    $('#aside2').load("chat/chatform.php #chat_side");
     $('#article5').load("weather.html #weather_section");
     $('#article4').load("food.php #food_menu_template");
 
