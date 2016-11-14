@@ -20,9 +20,6 @@ header('Content-type: text/html; charset=utf-8');
   <title>Korea Security Company</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- html 모듈들 -->
-  <link rel="import" id="navigation_import" href="navigation.php" />
-
   <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main_page.css" />
@@ -42,6 +39,7 @@ header('Content-type: text/html; charset=utf-8');
     $('#left_side').load("left_side.php #aside1");
     $('#aside2').load("chat/chatform.php #chat_side");
     $('#article5').load("weather.html #weather_section");
+    $('#article4').load("food.php #food_menu_template");
 
     /*
     $('#cafe_enter').click(function (e) {
@@ -223,24 +221,8 @@ header('Content-type: text/html; charset=utf-8');
       <div id="calendar" style="margin: 0; font-size: 13px; background-color:white;"></div>
     </article>
 
-    <article id="article4" style="background: #fff;">
-      <div id="menu_header">
-        식단
-      </div>
-       <div id="lunch_menu" class="meal">
-        <label>
-          <ul>
-            <li>현미밥</li>
-            <li>양념게장</li>
-            <li>감자채볶음</li>
-            <li>햄구이</li>
-            <li>깻잎절임</li>
-            <li>총각무김치</li>
-            <li>미역국</li>
-          </ul>
-        </label>
-      </div>
-    </article>
+    <!-- 식단표 -->
+    <article id="article4" style="background: #fff;"></article>
 
     <!-- 날씨 -->
     <article id="article5"></arctile>
