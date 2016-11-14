@@ -93,14 +93,18 @@ header div {
 
 #article4 {
   height: 300px;
-  border: 1px solid #000;
   margin: 5px 0;
+  border-radius: 3px;
+  background: #fff;
+  overflow: hidden;
 }
 
 #article5 {
-  height: 300px;
-  border: 1px solid #000;
+   height: 300px;
   margin: 5px 0;
+  border-radius: 3px;
+  background: #fff;
+  overflow: hidden;
 }
 
 /* 상단 nav */
@@ -591,7 +595,7 @@ ul.inbox-pagination li {
   border-radius: 0 4px 0 0;
   color: #535353;
   min-height: 80px;
-  padding: 20px;  
+  padding: 20px;
 }
 .document_inbox_head h3 {
   display: inline-block;
@@ -605,7 +609,7 @@ ul.inbox-pagination li {
   color: #666 !important;
 }
 .color {
-  color:#41cac0; 
+  color:#41cac0;
   font-size:13px;
 } /*document_board 결재상태 글색상*/
 
@@ -778,4 +782,43 @@ ul.inbox-pagination li {
   padding: 20px 0 2px 0;
   font-weight: normal;
   letter-spacing: -0.05em;
+}
+
+/*식단*/
+#article4 .menu_header {
+  height: 80px;
+  background: #d5d7de;
+  border-radius: 3px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #555;
+}
+#article4 .menu_meal {
+  text-align: center;
+}
+#article4 .menu_meal ul {
+  padding: 0 13px;
+}
+#article4 .menu_meal ul li {
+  border-bottom: 1px dotted #ddd;
+  padding-top: 10px;
+  letter-spacing: -1px;
+  color: #555;
+}
+#article4 .menu_meal ul li:last-child {
+  border-bottom: none;
+}
+
+/*날씨*/
+#article5 .weather_header {
+  height: 80px;
+  background: #d5d7de;
+  border-radius: 3px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #555;
 }

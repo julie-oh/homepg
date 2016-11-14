@@ -1,9 +1,8 @@
 <div id="food_menu_template">
-  <div id="menu_header">
-    식단
+  <div class="menu_header">
+    Today's Lunch menu
   </div>
-   <div id="lunch_menu" class="meal">
-    <label>
+   <div class="menu_meal">
       <ul>
         <li>현미밥</li>
         <li>양념게장</li>
@@ -13,6 +12,6 @@
         <li>총각무김치</li>
         <li>미역국</li>
       </ul>
-    </label>
   </div>
 </div>
+

@@ -1,34 +1,16 @@
-<?php
-// 로그인 세션이 정상적으로 시작되었는지 체크.
-// 세션 없으면 로그인 페이지로 바로 접속함
-require_once('dbconfig.php');
-session_start();
-
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
-  echo "<script>alert(\" 어허! 로그인부터 하고오셈. \")</script>";
-  echo "<script>window.location.replace(\" login/login.html \");</script>";
-  exit;
-}
-$prodID = $_SESSION['user_id'];
-
-header('Content-type: text/html; charset=utf-8');
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Korea Security Company</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- html 모듈들 -->
-  <link rel="import" id="navigation_import" href="navigation.php" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main_page.css" />
 <!--   <link rel="stylesheet" type="text/css" href="css/board.css" /> -->
-  <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
-  <link rel='stylesheet' type='text/css' href='css/chat.css' />
+  <link rel='stylesheet' type='text/css' href='http://52.78.186.215/css/fullcalendar.css' />
+  <link rel='stylesheet' type='text/css' href='http://52.78.186.215/css/chat.css' />
 <!--   <link rel='stylesheet' type='text/css' href='css/food.css' /> -->
 
   <!-- Script dependencies - jquery & bootstrap -->
@@ -36,37 +18,30 @@ header('Content-type: text/html; charset=utf-8');
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
   <script type='text/javascript'>
-  // on document ready - insert cafe
   $(function () {
-    $('#nav_bar').load("navigation.php #navigation_container");
-    $('#left_side').load("left_side.php #aside1");
-    $('#aside2').load("chat/chatform.php #chat_side");
-    $('#article5').load("weather.html #weather_section");
-
-    /*
-    $('#cafe_enter').click(function (e) {
-      $('#section1').load("cafe/cafe_main(폼완료).html #cafe_wrapper");
-    });
-    */
+    $('#nav_bar').load("http://52.78.186.215/navigation.php #navigation_container");
+    $('#left_side').load("http://52.78.186.215/left_side.php #aside1");
+    $('#article5').load("http://52.78.186.215/weather.html #weather_section");
+    $('#article4').load("http://52.78.186.215/food.php #food_menu_template");
   });
   </script>
 
   <!-- 채팅창 -->
-  <script type='text/javascript' src='chat/chat.js'></script>
+  <script type='text/javascript' src='http://52.78.186.215/chat/chat.js'></script>
   <!-- 날씨 -->
-  <script type='text/javascript' src='js/weather.js'></script>
+  <script type='text/javascript' src='http://52.78.186.215/js/weather.js'></script>
   <!-- 달력 -->
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
-  <script type='text/javascript' src='js/calendar.js'></script>
+  <script type='text/javascript' src='http://52.78.186.215/js/calendar.js'></script>
 
 </head>
 
 <body>
 <!-- header -->
 <header>
-  <div><a href="main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
+  <div><a href="http://52.78.186.215/main_page.php"><img src="http://52.78.186.215/images/logo.png" alt="logo" /></a></div>
 </header>
 
 <!-- navigation bar -->
@@ -77,73 +52,83 @@ header('Content-type: text/html; charset=utf-8');
 
 <!-- section -->
 <section id="section1">
-<!-- 게시판 -->
+  <!-- 공지사항 subsection 버전 -->
   <section id="subsection1">
     <article id="article1">
     <div class="inbox-head">
-        <h3>Notice</h3>
-        <span><a href="notice/notice.html">more</a></span>
+      <h3>Notice</h3>
+      <span><a href="http://52.78.186.215/notice/notice.php">more</a></span>
     </div>
     <div class="inbox-body" style="padding:0;">
-        <table class="table table-inbox table-hover">
+      <table class="table table-inbox table-hover">
         <colgroup>
-        <col style="width:25%;">
-        <col style="width:50%;">
-        <col style="width:25%;">
+          <col style="width:25%;">
+          <col style="width:50%;">
+          <col style="width:25%;">
         </colgroup>
-          <tbody>
-            <tr class="">
-                <td class="view-message dont-show">PHPClass</td>
-                <td class="view-message">Added a new class: Login Class Fast Site</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+        <tbody>
+                      <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=12">ㅋㅋㅋ</a>              </td>
+              <td class="view-message text-right">2016-11-13</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Google Webmaster </td>
-                <td class="view-message">Improve the search presence of WebSite</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=11">fggg</a>              </td>
+              <td class="view-message text-right">2016-11-13</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">JW Player</td>
-                <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=10">dd</a>              </td>
+              <td class="view-message text-right">2016-11-13</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Tim Reid, S P N</td>
-                <td class="view-message">Boost Your Website Traffic</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=9">된다</a>              </td>
+              <td class="view-message text-right">2016-11-13</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Freelancer.com</td>
-                <td class="view-message">Stop wasting your visitors </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=6"></a>              </td>
+              <td class="view-message text-right">2016-11-12</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">WOW Slider </td>
-                <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">12211</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=5">짜증나네</a>              </td>
+              <td class="view-message text-right">2016-11-12</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">LinkedIn Pulse</td>
-                <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=4">ㅇ</a>              </td>
+              <td class="view-message text-right">2016-11-12</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Drupal Community</td>
-                <td class="view-message view-message">Welcome to the Drupal Community</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=3">ㅇㅇㅇ</a>              </td>
+              <td class="view-message text-right">2016-11-11</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Facebook</td>
-                <td class="view-message view-message">Somebody requested a new password </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1221</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=2">dd</a>              </td>
+              <td class="view-message text-right">2016-11-09</td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Skype</td>
-                <td class="view-message view-message">Password successfully changed</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+                        <tr>
+              <td class="view-message dont-show">1</td>
+              <td class="view-massage">
+                <a href="http://52.78.186.215/notice/notice_view.php?nno=1">안녕</a>              </td>
+              <td class="view-message text-right">0000-00-00</td>
             </tr>
-        </tbody>
-        </table>
+                    </tbody>
+      </table>
     </div>
     </article>
 
@@ -223,12 +208,14 @@ header('Content-type: text/html; charset=utf-8');
       <div id="calendar" style="margin: 0; font-size: 13px; background-color:white;"></div>
     </article>
 
+    <!-- 식단표 -->
     <article id="article4" style="background: #fff;">
-      <div id="menu_header">
-        식단
+
+    <div id="food_menu_template">
+      <div class="menu_header">
+        Today's Lunch menu
       </div>
-       <div id="lunch_menu" class="meal">
-        <label>
+       <div class="menu_meal">
           <ul>
             <li>현미밥</li>
             <li>양념게장</li>
@@ -238,8 +225,9 @@ header('Content-type: text/html; charset=utf-8');
             <li>총각무김치</li>
             <li>미역국</li>
           </ul>
-        </label>
       </div>
+    </div>
+
     </article>
 
     <!-- 날씨 -->
