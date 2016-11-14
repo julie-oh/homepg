@@ -2,14 +2,7 @@
 // 로그인 세션이 정상적으로 시작되었는지 체크.
 // 세션 없으면 로그인 페이지로 바로 접속함
 require_once('dbconfig.php');
-session_start();
-
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_name'])) {
-  echo "<script>alert(\" 어허! 로그인부터 하고오셈. \")</script>";
-  echo "<script>window.location.replace(\" login/login.html \");</script>";
-  exit;
-}
-$prodID = $_SESSION['user_id'];
+require_once('session.php');
 
 header('Content-type: text/html; charset=utf-8');
 ?>
@@ -18,7 +11,7 @@ header('Content-type: text/html; charset=utf-8');
 <head>
   <meta charset="utf-8">
   <title>Korea Security Company</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -33,18 +26,11 @@ header('Content-type: text/html; charset=utf-8');
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
   <script type='text/javascript'>
-  // on document ready - insert cafe
   $(function () {
     $('#nav_bar').load("navigation.php #navigation_container");
     $('#left_side').load("left_side.php #aside1");
     $('#article5').load("weather.html #weather_section");
     $('#article4').load("food.php #food_menu_template");
-
-    /*
-    $('#cafe_enter').click(function (e) {
-      $('#section1').load("cafe/cafe_main(폼완료).html #cafe_wrapper");
-    });
-    */
   });
   </script>
 

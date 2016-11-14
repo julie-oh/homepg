@@ -21,7 +21,7 @@ require_once('session.php');
               <a class="inbox-avatar" href="javascript:;">
               <img width="64" height="60" src=
             <?php
-              echo "\"images/userImages/" . $image_path . "\""
+              echo "\"/images/userImages/" . $image_path . "\""
              ?>
               alt="사용자사진" />
               </a>

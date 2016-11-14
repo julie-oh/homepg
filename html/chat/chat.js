@@ -127,7 +127,7 @@
 
   // ON DOCUMENT READY
   $(function () {
-    $('#aside2').load("chat/chatform.php #chat_side", function () {
+    $('#aside2').load("/chat/chatform.php #chat_side", function () {
       // after loading this part into main screen
       $('.messages').hide(); // hide the message box for now
       getChatList();
