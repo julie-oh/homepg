@@ -189,7 +189,7 @@ header('Content-type: text/html; charset=utf-8');
     </article>
 
     <!-- 식단표 -->
-    <article id="article4" style="background: #fff;"></article>
+    <article id="article4"></article>
 
     <!-- 날씨 -->
     <article id="article5"></arctile>
