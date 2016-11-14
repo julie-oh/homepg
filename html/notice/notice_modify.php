@@ -10,14 +10,37 @@
   <title>Korea Security Company | 공지사항 글수정하기</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../css/main_page.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main_page.css" />
+  <link rel='stylesheet' type='text/css' href='/css/fullcalendar.css' />
+  <link rel='stylesheet' type='text/css' href='/css/chat.css' />
   <!-- Script dependencies -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  <!-- 채팅창 -->
+  <script type='text/javascript' src='/chat/chat.js'></script>
+  <!-- 모듈화된 네비게이션바 / 날씨 등등 로딩 -->
+  <script type='text/javascript'>
+  $(function () {
+    $('#nav_bar').load("/navigation.php #navigation_container");
+    $('#left_side').load("/left_side.php #aside1");
+  });
+  </script>
 </head>
 
 <body>
+<!-- header -->
+<header>
+  <div><a href="/main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
+</header>
+
+<!-- navigation bar -->
+<nav id="nav_bar" class="navbar navbar-fixed-top"></nav>
+
+<!-- left side bar -->
+<div id="left_side"></div>
+
 <!-- section -->
 <section id="section1">
   <!-- 공지사항 게시판 글수정하기 -->
@@ -25,7 +48,7 @@
    <form action="notice_modify.php" method="post">
     <div class="inbox-head">
       <h3>Notice_modify</h3>
-      <input class="buttons modify" type="submit" name="modifyB2" value="modify">      
+      <input class="buttons modify" type="submit" name="modifyB2" value="modify">
     </div>
     <div class="document_form">
       <table>
@@ -56,7 +79,7 @@
             <tr><td class="head" name="n_title">제목</td><td><input type="text" name=ntitle class="title" value="<?=$row['n_title']?>"/></td></tr>
             <tr><td class="head">첨부파일</td><td><input type="file" /></td></tr>
             <tr><td colspan="2" class="head">내용</td></tr>
-            <tr><td colspan="2" ><textarea name="ntext"><?=$row["n_text"]?></textarea></td></tr>          
+            <tr><td colspan="2" ><textarea name="ntext"><?=$row["n_text"]?></textarea></td></tr>
         </tbody>
         <?php
         if(isset($_POST["modifyB2"])) {
@@ -84,10 +107,14 @@
         ?>
       </table>
     </div>
-   </form>    
+   </form>
   </div>
   <!-- / /공지사항 게시판 -->
 </section>
 <!-- // section -->
+
+<!-- 우측 chat -->
+<aside id="aside2"></aside>
+<!-- // chat -->
 </body>
 </html>

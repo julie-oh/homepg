@@ -39,7 +39,7 @@
 <body>
 <!-- header -->
 <header>
-  <div><a href="main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
+  <div><a href="/main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
 </header>
 
 <!-- navigation bar -->
@@ -128,7 +128,6 @@
   </div>
 </section>
 <!-- / /공지사항 게시판 -->
-
 
 <!-- 우측 chat -->
 <aside id="aside2"></aside>

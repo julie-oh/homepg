@@ -15,10 +15,10 @@ header('Content-type: text/html; charset=utf-8');
 
   <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/main_page.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main_page.css" />
 <!--   <link rel="stylesheet" type="text/css" href="css/board.css" /> -->
-  <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
-  <link rel='stylesheet' type='text/css' href='css/chat.css' />
+  <link rel='stylesheet' type='text/css' href='/css/fullcalendar.css' />
+  <link rel='stylesheet' type='text/css' href='/css/chat.css' />
 <!--   <link rel='stylesheet' type='text/css' href='css/food.css' /> -->
 
   <!-- Script dependencies - jquery & bootstrap -->
@@ -49,7 +49,7 @@ header('Content-type: text/html; charset=utf-8');
 <body>
 <!-- header -->
 <header>
-  <div><a href="main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
+  <div><a href="/main_page.php"><img src="images/logo.png" alt="logo" /></a></div>
 </header>
 
 <!-- navigation bar -->
