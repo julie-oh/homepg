@@ -1,24 +1,20 @@
-<article id="weather_section" style="background: #fff;">
+<article id="weather_section">
   <div class="weather_header">
-    현재 날씨
+    <img src="http://52.78.186.215/images/weather1.png" alt="sun" />
+    <img src="http://52.78.186.215/images/weather2.png" alt="rain" />
+    <img src="http://52.78.186.215/images/weather3.png" alt="snow" />
+    <ul>
+      <li id="weather_temp"><!-- 기상청 정보로 채워짐 --></li>
+      <li>˚ </li>
+      <li> 현재 기온</li>
+    </ul>
   </div>
-  <div class="weather_box">
-    <span id="weather_main">
-      <!-- 기상청 정보로 채워짐 -->
-    </span>
-  </div>
-  <div class="weather_box">
-    <span>기온</span>
-    <span id="weather_temp">
-      <!-- 기상청 정보로 채워짐 -->
-    </span>
-    <span>도</span>
-  </div>
-  <div class="weather_box">
-    <span>습도</span>
-    <span id="weather_humidity">
-      <!-- 기상청 정보로 채워짐 -->
-    </span>
-    <span>%</span>
-  </div>
+  <div class="weather_sub">
+    <ul class="weather_current">
+      <li>현재 날씨</li>
+      <li id="weather_main"><!-- 기상청 정보로 채워짐 --></li>
+      <li>습도</li>
+      <li id="weather_humidity"><!-- 기상청 정보로 채워짐 --><span>%</span></li>
+   </ul>
+ </div>
 </article>

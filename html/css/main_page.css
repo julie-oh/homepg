@@ -100,7 +100,7 @@ header div {
 }
 
 #article5 {
-   height: 300px;
+  height: 225px;
   margin: 5px 0;
   border-radius: 3px;
   background: #fff;
@@ -812,13 +812,49 @@ ul.inbox-pagination li {
 }
 
 /*날씨*/
-#article5 .weather_header {
-  height: 80px;
-  background: #d5d7de;
+#weather_section {
+  height: 100%;
   border-radius: 3px;
-  line-height: 80px;
+  background:url('http://52.78.186.215/images/weather_back.jpg') -81px -24px no-repeat;
+  color: #fff;
+  letter-spacing: -0.05em;
+}
+#weather_section ul li {
+  float: left;
+}
+.weather_header {
   text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-  color: #555;
+  padding: 20px 0 10px 0;
+  overflow: hidden;
+}
+.weather_header img {
+  padding: 0 2px;
+}
+#weather_temp {
+  font-size: 35px;
+}
+.weather_header ul {
+  padding: 8px 0;
+  left: 50%;
+  margin-left: 53px;
+}
+.weather_header ul li:nth-child(2) {
+  font-size: 35px;
+}
+.weather_header ul li:nth-child(3) {
+  line-height: 50px;
+}
+.weather_sub {
+  margin: 0 15px;
+}
+.weather_sub ul {
+  width: 100%;
+}
+.weather_sub ul li {
+  border-top: 1px solid #b8b2b2;
+  width: 50%;
+  padding-top: 7px;
+}
+#weather_main, #weather_humidity {
+  font-size: 16px;
 }
