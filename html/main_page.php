@@ -4,6 +4,7 @@
 require_once('dbconfig.php');
 require_once('session.php');
 
+date_default_timezone_set('Asia/Seoul');
 header('Content-type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html>
@@ -60,73 +61,54 @@ header('Content-type: text/html; charset=utf-8');
 
 <!-- section -->
 <section id="section1">
-<!-- 게시판 -->
+  <!-- 공지사항 subsection 버전 -->
   <section id="subsection1">
     <article id="article1">
     <div class="inbox-head">
-        <h3>Notice</h3>
-        <span><a href="notice/notice.html">more</a></span>
+      <h3>Notice</h3>
+      <span><a href="/notice/notice.php">more</a></span>
     </div>
     <div class="inbox-body" style="padding:0;">
-        <table class="table table-inbox table-hover">
+      <table class="table table-inbox table-hover">
         <colgroup>
-        <col style="width:25%;">
-        <col style="width:50%;">
-        <col style="width:25%;">
+          <col style="width:25%;">
+          <col style="width:50%;">
+          <col style="width:25%;">
         </colgroup>
-          <tbody>
-            <tr class="">
-                <td class="view-message dont-show">PHPClass</td>
-                <td class="view-message">Added a new class: Login Class Fast Site</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+        <tbody>
+          <?php
+          $sql = 'select * from notice order by n_no desc';
+          $result = mysqli_query($db, $sql);
+
+          while ($row = $result->fetch_assoc()) {
+            $datetime = explode(" ", $row['n_date']);
+            $date = $datetime[0];
+            $time = $datetime[1];
+
+            if ($date == Date('Y-m-d')) {
+              $row['n_date'] = $time;
+            } else {
+              $row['n_date'] = $date;
+            }
+            ?>
+            <tr>
+              <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
+              <td class="view-massage">
+                <?php
+                $nNo = $row['n_no'];
+                $view_url = '/notice/notice_view.php?nno='.$nNo;
+                echo '<a href="'. $view_url . '">';
+                echo $row['n_title'];
+                echo '</a>';
+                ?>
+              </td>
+              <td class="view-message text-right"><?php echo $row['n_date']?></td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Google Webmaster </td>
-                <td class="view-message">Improve the search presence of WebSite</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">JW Player</td>
-                <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Tim Reid, S P N</td>
-                <td class="view-message">Boost Your Website Traffic</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Freelancer.com</td>
-                <td class="view-message">Stop wasting your visitors </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">WOW Slider </td>
-                <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">LinkedIn Pulse</td>
-                <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Drupal Community</td>
-                <td class="view-message view-message">Welcome to the Drupal Community</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Facebook</td>
-                <td class="view-message view-message">Somebody requested a new password </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Skype</td>
-                <td class="view-message view-message">Password successfully changed</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
+            <?php
+          }
+          ?>
         </tbody>
-        </table>
+      </table>
     </div>
     </article>
 

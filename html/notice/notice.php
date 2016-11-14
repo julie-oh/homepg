@@ -97,7 +97,7 @@
               <td class="view-massage">
                 <?php
                 $nNo = $row['n_no'];
-                $view_url = './notice_view.php?nno='.$nNo;
+                $view_url = '/notice/notice_view.php?nno='.$nNo;
                 echo '<a href="'. $view_url . '">';
                 echo $row['n_title'];
                 echo '</a>';
