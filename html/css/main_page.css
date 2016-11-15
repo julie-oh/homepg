@@ -80,6 +80,10 @@ header div {
   padding : 0;
   margin: 0;
   float: left;
+  font-family:'맑은 고딕',Malgun Gothic,'돋움',dotum,AppleGothic,sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.07em;
+}
 }
 #subsection2 {
   width: 225px;
@@ -663,7 +667,7 @@ ul.inbox-pagination li {
   color: #666;
 }
 .notice .view-massage a {
-  color: #666;
+  color: #666 !important;
 }
 
 
