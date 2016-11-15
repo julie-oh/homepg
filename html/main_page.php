@@ -39,8 +39,6 @@ header('Content-type: text/html; charset=utf-8');
   <script type='text/javascript' src='/chat/chat.js'></script>
   <!-- 날씨 -->
   <script type='text/javascript' src='/js/weather.js'></script>
-  <!-- 뉴스 -->
-  <script type='text/javascript' src='/news.js'></script>
   <!-- 달력 -->
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
@@ -113,76 +111,90 @@ header('Content-type: text/html; charset=utf-8');
       </table>
     </div>
     </article>
+    <!-- // 공지사항 subsection 버전 -->
 
+    <!-- 뉴스 (네이버 뉴스 api) -->
     <article id="article2">
-    <div class="inbox-head" style="background:#5bc0de;">
+      <div class="inbox-head" style="background:#5bc0de;">
         <h3>News</h3>
-        <span><a href="">more</a></span>
-    </div>
-    <div class="inbox-body" style="padding:0;">
+        <span><a href="http://news.naver.com/">more</a></span>
+      </div>
+      <div class="inbox-body" style="padding:0;">
         <table class="table table-inbox table-hover">
         <colgroup>
-        <col style="width:25%;">
-        <col style="width:50%;">
-        <col style="width:25%;">
+          <col style="width:75%;">
+          <col style="width:25%;">
         </colgroup>
           <tbody>
+            <?php
+            $client_id = "Nc5_d1WjNf8PzHCxyCqm";
+            $client_secret = "D1arqHt0tf";
+            $encText = urlencode("보안 기술");  // encodes this in utf-8
+            $url = "https://openapi.naver.com/v1/search/news.xml?query=";
+            $url .= $encText;
+            $url .= "&sort=sim";
+            $url .= "&display=15";
+            $is_post = false;  // we are using GET request
+
+            // cURL
+            $ch = curl_init();
+            // set options
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_POST, $is_post);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            // add custom request headers
+            $headers = array();
+            $headers[] = "X-Naver-Client-Id: " .$client_id;
+            $headers[] = "X-Naver-Client-Secret: " .$client_secret;
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            // execute curl
+            $response = curl_exec ($ch);
+            $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close ($ch);
+
+            // HTTP 요청 코드가 OK(200)가 아닐 경우 처리
+            if ($status_code =! 200) {
+              echo "<script>alert(\"뉴스 정보 불러오기 오류 : " .$status_code ."\")</script>";
+            }
+
+            // parse XML into separate items
+            // channel은 결과를 포함하는 컨테이너, item은 개별 검색 결과
+            $xml = simplexml_load_string($response) or die("xml Parse Error");
+            $items = $xml->channel->item;
+            if (!empty($items)) {
+              foreach ($items as $item) {
+                // 1: 날짜 2: 월 3: 연도 4: 시간
+                $datetime = explode(' ', $item->pubDate);
+                // 0: 시간 1: 분 2: 초
+                $hour_min = explode(':', $datetime[4]);
+                ?>
+            <!-- foreach문 내부 -->
             <tr class="">
-                <td class="view-message dont-show">PHPClass</td>
-                <td class="view-message">Added a new class: Login Class Fast Site</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
+              <!-- 제목과 링크  -->
+              <td class="view-message">
+                <a href="<?= $item->link ?>">
+                <?= $item->title ?>
+                </a>
+              </td>
+              <!-- 날짜와 시간 -->
+              <td class="view-message text-right">
+                <?= $datetime[2] ." " .$datetime[1] .", " .$hour_min[0] .":" .$hour_min[1] ?>
+              </td>
             </tr>
-            <tr class="">
-                <td class="view-message dont-show">Google Webmaster </td>
-                <td class="view-message">Improve the search presence of WebSite</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">JW Player</td>
-                <td class="view-message">Last Chance: Upgrade to Pro for </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Tim Reid, S P N</td>
-                <td class="view-message">Boost Your Website Traffic</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Freelancer.com</td>
-                <td class="view-message">Stop wasting your visitors </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">WOW Slider </td>
-                <td class="view-message">New WOW Slider v7.8 - 67% off</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">LinkedIn Pulse</td>
-                <td class="view-message">The One Sign Your Co-Worker Will Stab</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Drupal Community</td>
-                <td class="view-message view-message">Welcome to the Drupal Community</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Facebook</td>
-                <td class="view-message view-message">Somebody requested a new password </td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-            <tr class="">
-                <td class="view-message dont-show">Skype</td>
-                <td class="view-message view-message">Password successfully changed</td>
-                <td class="view-message text-right">2016.10.10 18:09</td>
-            </tr>
-        </tbody>
+            <!-- foreach문 끝 -->
+                <?php
+              }
+            }
+             ?>
+          </tbody>
         </table>
-    </div>
+      </div>
     </article>
+    <!-- // 뉴스 -->
   </section>
-<!-- //게시판 -->
+<!-- // 게시판 -->
 
 <!-- 위젯 -->
   <section id="subsection2">
