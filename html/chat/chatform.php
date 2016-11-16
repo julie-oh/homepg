@@ -2,8 +2,8 @@
   <!-- chat s_c  -->
   <div class="chat_window">
     <div class="top_menu">
-      <div class="goback">목록보기</div>
-      <div class="chat_title">채팅목록</div>
+      <div class="goback">List</div>
+      <div class="chat_title">Chat</div>
       <!-- 채팅 제목 -->
       <div id="chatroom_num"></div>
     </div>
@@ -13,7 +13,7 @@
         <!-- 채팅방으로 유저 초대 후 채팅방 생성 -->
         <input type="text" class="input_receiver" name="receiver" placeholder="invite user">
         <button class="create_chat_btn" id="make_chat_btn" name="make_chat_btn">
-          채팅방 만들기
+          Create
         </button>
         <div id="chatlist_list">
         </div>

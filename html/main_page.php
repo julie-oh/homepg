@@ -17,10 +17,8 @@ header('Content-type: text/html; charset=utf-8');
   <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/main_page.css" />
-<!--   <link rel="stylesheet" type="text/css" href="css/board.css" /> -->
   <link rel='stylesheet' type='text/css' href='/css/fullcalendar.css' />
   <link rel='stylesheet' type='text/css' href='/css/chat.css' />
-<!--   <link rel='stylesheet' type='text/css' href='css/food.css' /> -->
 
   <!-- Script dependencies - jquery & bootstrap -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
@@ -71,9 +69,9 @@ header('Content-type: text/html; charset=utf-8');
     <div class="inbox-body" style="padding:0;">
       <table class="table table-inbox table-hover">
         <colgroup>
-          <col style="width:25%;">
-          <col style="width:50%;">
-          <col style="width:25%;">
+          <col style="width:15%;">
+          <col style="width:65%;">
+          <col style="width:20%;">
         </colgroup>
         <tbody>
           <?php

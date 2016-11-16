@@ -19,16 +19,15 @@
 }
 .top_menu .goback {
   background-color: #f5886e;
-  color: black;
+  color: #fff;
   height: 25px;
   width: 50px;
-  padding-top: 5px;
   border-radius: 50px;
   margin-left: 10px;
   display: inline-block;
   text-align: center;
   font-size: 10px;
-  border: 1px solid #bcbdc0;
+  line-height: 23px;
   transition: all 0.1s linear;
 }
 .goback:hover {
@@ -41,7 +40,7 @@
   display: inline-block;
   text-align: center;
   color: #bcbdc0;
-  font-size: 20px;
+  font-size: 30px;
 }
 .messages {
   position: relative;
@@ -153,10 +152,13 @@
   width: 40%;
   margin: 0 10px 5% 10px;
   text-align: center;
-  border: 1px solid #bcbdc0;
+  border: 2px solid #a3d063;
   border-radius: 52px;
   background-color: #a3d063;
   transition: all 0.2s linear;
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
 }
 .create_chat_btn:hover {
   color: #a3d063;
@@ -166,9 +168,9 @@
   display: none;
 }
 #chat_list .chatlist_elem {
-  font-size: 20px;
+  font-size: 16px;
   height: 30px;
-  border: 1px solid #bcbdc0;
+  border-bottom: 1px solid #ddd;
   border-radius: 5px;
   margin: 5px;
   color: gray;

@@ -661,12 +661,12 @@ ul.inbox-pagination li {
 .notice .page a {
   color: #fff;
 }
-.notice .view-massage a:link, a:visited, a:hover, a:active
+.view-message a:link, a:visited, a:hover, a:active
 {
   color: #666;
 }
-.notice .view-massage a {
-  color: #666 !important;
+.view-message a {
+  color: #333;
 }
 
 

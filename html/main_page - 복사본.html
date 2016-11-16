@@ -17,10 +17,8 @@ header('Content-type: text/html; charset=utf-8');
   <!-- CSS 파일들 -->
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main_page.css" />
-<!--   <link rel="stylesheet" type="text/css" href="css/board.css" /> -->
   <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
   <link rel='stylesheet' type='text/css' href='css/chat.css' />
-<!--   <link rel='stylesheet' type='text/css' href='css/food.css' /> -->
 
   <!-- Script dependencies - jquery & bootstrap -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
@@ -36,21 +34,21 @@ header('Content-type: text/html; charset=utf-8');
   </script>
 
   <!-- 채팅창 -->
-  <script type='text/javascript' src='/chat/chat.js'></script>
+  <script type='text/javascript' src='http://52.78.186.215/chat/chat.js'></script>
   <!-- 날씨 -->
-  <script type='text/javascript' src='/js/weather.js'></script>
+  <script type='text/javascript' src='js/weather.js'></script>
   <!-- 달력 -->
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
   <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
-  <script type='text/javascript' src='js/calendar.js'></script>
+  <script type='text/javascript' src='http://52.78.186.215/js/calendar.js'></script>
 
 </head>
 
 <body>
 <!-- header -->
 <header>
-  <div><a href="/main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
+  <div><a href="http://52.78.186.215//main_page.php"><img src="/images/logo.png" alt="logo" /></a></div>
 </header>
 
 <!-- navigation bar -->
@@ -71,9 +69,9 @@ header('Content-type: text/html; charset=utf-8');
     <div class="inbox-body" style="padding:0;">
       <table class="table table-inbox table-hover">
         <colgroup>
-          <col style="width:25%;">
-          <col style="width:50%;">
-          <col style="width:25%;">
+          <col style="width:15%;">
+          <col style="width:65%;">
+          <col style="width:20%;">
         </colgroup>
         <tbody>
           <?php
@@ -93,7 +91,7 @@ header('Content-type: text/html; charset=utf-8');
             ?>
             <tr>
               <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
-              <td class="view-massage">
+              <td class="view-message">
                 <?php
                 $nNo = $row['n_no'];
                 $view_url = '/notice/notice_view.php?nno='.$nNo;
