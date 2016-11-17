@@ -1,4 +1,11 @@
 <?php
+
+  if(isset($_POST["submitFinsh"])){
+      if (isset($_POST["dTitle"])=="" || isset($_POST["dText"])==""){
+        echo "<script>alert(\"작성칸 모두 작성해 주세요\n 결재는 장난이 아닙니다\")</script>";
+      }
+  }
+die();
   require_once("../dbconfig.php");
   $bNo = $_GET['bno'];
 

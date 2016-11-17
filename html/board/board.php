@@ -331,7 +331,7 @@ $(function(){
   <div class="notice">
                       <div class="inbox-head">
                           <h3>Notice</h3>
-                          <button class="buttons" type="button" onclick="location.href='notice_write.php'">write</button>
+                          <button class="buttons" type="button" onclick="location.href='board_write.php'">write</button>
                       </div>
                       <div class="inbox-body" style="padding:0;">
                           <table class="table table-inbox table-hover">
@@ -362,13 +362,13 @@ $(function(){
     $result = mysqli_query($db, $sql);
 
     while($row = $result->fetch_assoc()){
-        $datetime = explode(" ", $row['n_date']);
+        $datetime = explode(" ", $row['b_date']);
         $date = $datetime[0];
         $time = $datetime[1];
         if($date == Date('Y-m-d')){
-            $row['n_date'] = $time;
+            $row['b_date'] = $time;
         }else{
-            $row['n_date'] = $date;
+            $row['b_date'] = $date;
         }
 ?>
                             <form action="board_view.php" method="GET">
@@ -377,14 +377,14 @@ $(function(){
                                   <td class=""><?php echo $row['b_no']?></td>
                                   <td class="view-massage">
                                       <?php
-                                      $nNo = $row['b_no'];
-                                      $view_url = './notice_view.php?bno='.$bNo;
+                                      $bNo = $row['b_no'];
+                                      $view_url = './board_view.php?bno='.$bNo;
                                       echo '<a href="'.$view_url.'">';
                                       ?>
                                       <?php echo $row['b_title']?>
                                   </td>
                                   </a>
-                                  <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
+                                  <td class="view-message dont-show"><?php echo $row['prodID']?></td>
                                   <td class="view-message text-right"><?php echo $row['b_date']?></td>
                                   <td class=""><?php echo $row['b_hit']?></td>
                               </tr>

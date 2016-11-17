@@ -15,7 +15,7 @@
   // include '../session.php';
   // include '../dbconfig.php';
 
-  if (isset($_POST["notice_b"])) {
+  if (isset($_POST["board_b"])) {
     // 비밀번호를 세션에 저장해서 직접 비교하는거보단
     // 데이터베이스에서 결과를 가져와서 직접 검사하는게 맞을듯.
     // 이걸 위해 login.php에서 비밀번호 저장하는 방식을 바꾸는 것은 너무 큰 희생임
@@ -47,9 +47,9 @@
   // 위 코드에서 비밀번호를 제대로 입력했다면 $write가 TRUE일 것이므로 이것을 활용함.
   // $write == TRUE라고 쓰는 것은 불필요함.
   if ($write) {
-    $n_title = $_POST["n_title"];
-    $n_text = $_POST["n_text"];
-    $n_date = Date('Y-m-d H:i:s');
+    $b_title = $_POST["b_title"];
+    $b_text = $_POST["b_text"];
+    $b_date = Date('Y-m-d H:i:s');
     // $n_no 를 따로 정의하지 말고 그냥 밑에 쿼리에 null을 입력해주면 됨
     // mysql에서 'alter table notice modify column n_no int(10) not null primary key auto_increment;' 를 실행해서
     // 반드시 n_no 항목에 auto_increment 특성이 포함되게 해야지 정상작동됨.
@@ -67,18 +67,18 @@
     // 만일 홑따옴표로 감쌌다면 쿼리 문자열 내부에 홑따옴표를 포함시킬 수 없기 때문이다. (escape 처리하는 쓸모없는 개고생을 할수도 있긴 함)
     // 따라서 "(null, '" . $n_title . "', ...)" 이렇게 생긴건  (null , '  까지는 문자열이고, $n_title = 제목을 그 뒤에 바로 붙인 뒤,
     // 또 바로 뒤에 홑따옴표를 붙이게 하는 거임. 따라서 저거 대입 결과는 "(null, '제목', ...)" 이렇게 됨 ($n_title = 제목).
-    $sql = "insert into notice values (null, '" . $n_title . "', '" . $n_text . "', '" . $n_date . "', 0, " . $prodID . ", " . $prodID . ")";
+    $sql = "insert into board values (null, '" . $b_title . "', '" . $b_text . "', '" . $b_date . "', 0, " . $prodID . ")";
     $result = $db->query($sql);  // 쿼리 날리고
   }
-    // 결과가 성공적으로 저장되었다면 $result값이 false나 null이 아닌 값을 돌려주기 때문에
+    // 결과가 성공적으로 저장되었다면 $result값이 false나 null이 아닌 값을 돌려주기
     // 밑에 방법으로 if문을 작성하면 완성.
     if ($result) {
       echo "<script>alert(\"게시물 작성에 성공하였습니다\")</script>";
-      echo "<meta http-equiv='refresh' content='0; url=notice.php'>";  // 이게 있어야 이전 화면으로 다시 돌아감
+      echo "<meta http-equiv='refresh' content='0; url=board.php'>";  // 이게 있어야 이전 화면으로 다시 돌아감
       exit;
     } else {
       echo "<script>alert(\"게시물 작성에 실패하였습니다\")</script>";
-      echo "<meta http-equiv='refresh' content='0; url=notice.php'>";
+      echo "<meta http-equiv='refresh' content='0; url=board.php'>";
       exit;
     }
 
