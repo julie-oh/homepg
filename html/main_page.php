@@ -91,7 +91,7 @@ header('Content-type: text/html; charset=utf-8');
             ?>
             <tr>
               <td class="view-message dont-show"><?php echo $row['user_prodID']?></td>
-              <td class="view-massage">
+              <td class="view-message">
                 <?php
                 $nNo = $row['n_no'];
                 $view_url = '/notice/notice_view.php?nno='.$nNo;
