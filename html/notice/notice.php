@@ -20,13 +20,6 @@
 
   <!-- 채팅창 -->
   <script type='text/javascript' src='/chat/chat.js'></script>
-  <!-- 날씨 -->
-  <script type='text/javascript' src='/js/weather.js'></script>
-  <!-- 달력 -->
-  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-1.10.2.min.js'></script>
-  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/jquery/jquery-ui-1.10.3.custom.min.js'></script>
-  <script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.6.3/fullcalendar/fullcalendar.min.js'></script>
-  <script type='text/javascript' src='/js/calendar.js'></script>
   <!-- 모듈화된 네비게이션바 / 날씨 등등 로딩 -->
   <script type='text/javascript'>
   $(function () {
