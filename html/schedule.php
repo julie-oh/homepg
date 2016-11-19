@@ -28,8 +28,6 @@
   $(function () {
     $('#nav_bar').load("/navigation.php #navigation_container");
     $('#left_side').load("/left_side.php #aside1");
-    $('#article5').load("/weather.html #weather_section");
-    $('#article4').load("/food.php #food_menu_template");
   });
   </script>
 </head>
