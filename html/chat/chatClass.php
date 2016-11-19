@@ -92,6 +92,14 @@
       $statement->bind_param('issi', $usrname, $chattext, $date, $chatroomID);
       $statement->execute();
       $statement->close();
+
+      // update last_active time
+      $statement = $db->prepare(
+        "UPDATE chatlist SET last_active=? where chatroomID=?");
+      $statement->bind_param('si', $date, $chatroomID);
+      $statement->execute();
+      $statement->close();
+
       $db->close();
     }
   }
