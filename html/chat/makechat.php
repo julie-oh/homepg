@@ -16,13 +16,23 @@ if ($senderID == $receiverID) {
   exit;
 }
 
+$sql = "SELECT prodID from user where prodID=" .$receiverID;
+$result = $db->query($sql);
+if (mysqli_num_rows($result) == 0){
+  // the receiver user does not exist
+  exit;
+}
+
 // check whether the chatroom with other side already exists
 $sql = "SELECT * FROM
 (SELECT A.prodID as a_id, B.prodID as b_id, A.chatroomID
   FROM chatlist A INNER JOIN chatlist B ON A.chatroomID = B.chatroomID) chats
   WHERE a_id=" .$senderID ." AND b_id=" .$receiverID;
 $result = $db->query($sql);
-if (isset($result) || $result) {
+$num_rows = mysqli_num_rows($result);
+echo mysqli_num_rows($result);
+
+if (mysqli_num_rows($result) != 0) {
   // if exists, no need to create
   exit;
 }
