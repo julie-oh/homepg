@@ -11,25 +11,32 @@
 
       $db->query("SET NAMES 'UTF8'");
       $statement = $db->prepare(
-      "SELECT * FROM chatlist
-        WHERE prodID=? order by last_active desc");
+        "SELECT * FROM
+        (select chatlist.prodID, chatroomID, last_active, name
+          FROM chatlist INNER JOIN user on chatlist.prodID = user.prodID)
+          chatuser
+          WHERE chatroomID IN
+          (SELECT chatroomID FROM chatlist WHERE prodID=?)
+          ORDER BY last_active DESC");
       $statement->bind_param('i', $id);
       $statement->execute();
-      $statement->bind_result($regID, $id, $chatroomID, $last_active);
-
+      $statement->bind_result($chatter, $chatroomID, $last_active, $username);
       $line = new stdClass;
       while ($statement->fetch()) {
-        $active_datetime = explode(' ', $last_active);
-        if ($active_datetime[0] != Date('Y-m-d')) {
-          $last_active = $active_datetime[0];
-        } else {
-          $last_active = $active_datetime[1];
+        // if the receiver is not myself
+        if ($id != $chatter) {
+          $active_datetime = explode(' ', $last_active);
+          if ($active_datetime[0] != Date('Y-m-d')) {
+            $last_active = $active_datetime[0];
+          } else {
+            $last_active = $active_datetime[1];
+          }
+          $line->chatter = $chatter;
+          $line->username = $username;
+          $line->chatroomID = $chatroomID;
+          $line->last_active = $last_active;
+          $arr[] = json_encode($line);  // encode the row into json format
         }
-        $line->regID = $regID;
-        $line->id = $id;
-        $line->chatroomID = $chatroomID;
-        $line->last_active = $last_active;
-        $arr[] = json_encode($line);  // encode the row into json format
       }
       $statement->close();
       $db->close();

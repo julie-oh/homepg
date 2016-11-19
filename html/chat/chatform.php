@@ -3,7 +3,7 @@
   <div class="chat_window">
     <div class="top_menu">
       <div class="goback">List</div>
-      <div class="chat_title">Chat</div>
+      <div class="chat_title">채팅목록</div>
       <!-- 채팅 제목 -->
       <div id="chatroom_num"></div>
     </div>

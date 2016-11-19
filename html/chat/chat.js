@@ -32,11 +32,13 @@
       for (var i = 0; i < jsonData.results.length; i++) {
         var result = jsonData.results[i];
         var chatlistElem = $($('.chatlist_template').clone().html());
-        chatlistElem.find('#chatlist_number').html("#" + result.chatroomID);
+        chatlistElem.find('#chatlist_number').html(result.username);
         chatlistElem.find('#chatlist_number').val(result.chatroomID);
         chatlistElem.find('#chatlist_lastActive').html(result.last_active);
         chatlistElem.click(function (e) {
-          enterChat($(this).find('#chatlist_number').val());
+          // first arg = chatroomID, second arg = username
+          enterChat($(this).find('#chatlist_number').val(),
+              $(this).find('#chatlist_number').html());
         });
         $("#chatlist_list").append(chatlistElem);
       }
@@ -45,14 +47,15 @@
 
   // Enter a chat room with the given roomID.
   // Display the previous conversation.
-  enterChat = function(roomID) {
+  enterChat = function(roomID, name) {
+    console.log(name);
     setNextTimeID(0);
     $('#chatroom_num').text(roomID);
     $('#chat_list').hide();
     $('.messages').html('');
     $('.messages').show();
-    $('.chat_title').html(roomID);
-    getChatText($('#chatroom_num').text());
+    $('.chat_title').html(name);
+    getChatText(roomID);
     startChat();
   };
 
