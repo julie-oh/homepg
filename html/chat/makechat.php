@@ -11,6 +11,22 @@ if (!isset($senderID) || $senderID == "" || !isset($receiverID) || $receiverID =
   exit;
 }
 
+if ($senderID == $receiverID) {
+  echo "<script>alert(\"자기 자신과 대화할 수 없습니다.\")</script>";
+  exit;
+}
+
+// check whether the chatroom with other side already exists
+$sql = "SELECT * FROM
+(SELECT A.prodID as a_id, B.prodID as b_id, A.chatroomID
+  FROM chatlist A INNER JOIN chatlist B ON A.chatroomID = B.chatroomID) chats
+  WHERE a_id=" .$senderID ." AND b_id=" .$receiverID;
+$result = $db->query($sql);
+if (isset($result) || $result) {
+  // if exists, no need to create
+  exit;
+}
+
 // create a new chatroom
 $sql = "insert into chatroom values (null)";
 $db->query($sql);
