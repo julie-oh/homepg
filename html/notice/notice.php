@@ -110,13 +110,60 @@
   </div>
   <div class="page">
     <ol>
-      <li><a href="">◀</a></li>
-      <li><a href="">1</a></li>
-      <li><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li><a href="">4</a></li>
-      <li><a href="">5</a></li>
-      <li><a href="">▶</a></li>
+      <?php
+      if(isset($_GET["pageNum"])) {
+          $PN = $_GET["pageNum"];
+      } else {
+          $PN = 1;
+      }
+
+      $query = 'select n_no from notice order by n_no desc';
+      $result = mysqli_query($db, $query);
+      $data = mysqli_fetch_row($result);
+      $ea = ceil($data[0] / 10);
+
+      if(isset($_GET["next"])&& $_GET["pageNum"] < $ea) {
+          $PN += 1;
+      }
+      if(isset($_GET["prev"]) && $_GET["pageNum"] > 1) {
+          $PN -= 1;
+      }
+      $start = $data[0] - (($PN *10)-1);
+      $last = $start +9;
+
+      // $query = 'select * from notice where num >='.$start.' and num <= '.$last.' order by n_no desc';
+      // $result= mysqli_query($db,$query);
+
+      print '<li><a href="notice.php?pageNum='.$PN.'&prev=prev">◀</a></li> ';
+
+
+
+      if($ea >= 5) {
+        $SPageNum = $PN - 2;
+        $EPageNum = $PN + 2;
+
+        if($SPageNum < 1) {
+          $increase = 1 - $SPageNum ;
+          $SPageNum = $SPageNum + $increase;
+          $EPageNum = $EPageNum + $increase;
+        }
+
+        if($ea < $EPageNum) {
+                $decrease = $EPageNum - $ea;
+                $SPageNum = $SPageNum - $decrease;
+                $EPageNum = $EPageNum - $decrease;
+        }
+
+        for(;$SPageNum <= $EPageNum;$SPageNum++) {
+                print '<a href="notice.php?pageNum='.$SPageNum.'">' . "<li>".$SPageNum."</li>" . "</a> ";
+        }
+      } else {
+        for($i = 1;$i <= $ea;$i++) {
+                print '<a href="notice.php?pageNum='.$i.'">' . "<li>".$i."</li>" . "</a> ";
+        }
+      }
+      print '<a href="notice.php?pageNum='. $PN .'&next=next"><li>▶</li></a>';
+       ?>
     </ol>
   </div>
 </section>

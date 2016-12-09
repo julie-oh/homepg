@@ -14,6 +14,7 @@ require_once('session.php');
               $result = $db->query($query);
               $row = $result->fetch_assoc();
               $user_name = $row['name'];
+              $user_id = $row['prodID'];
               $user_mail = $row['mail'];
               $user_position = $row['position'];
               $image_path = $row['image'];

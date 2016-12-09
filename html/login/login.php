@@ -40,6 +40,6 @@ session_start();
 $_SESSION['user_id'] = $row['prodID'];
 $_SESSION['user_name'] = $row['name'];
 $_SESSION['user_pw'] = $row['pwd'];
-
+$_SESSION['user_dep'] = $row['dep'];
 ?>
 <meta http-equiv='refresh' content='0;url=../main_page.php'>

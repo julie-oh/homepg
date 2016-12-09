@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+<?php
+include '../dbconfig.php';
+require_once '../session.php';
+?>
 <html>
 <head>
+    <php? include '../session.php'; ?>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>Korea Security Company|품의/제안서 확인하기</title>
@@ -203,7 +208,7 @@ $(function(){
 <!--                   <img  width="64" hieght="60" src="images/ohyeonjoo.jpg" alt="사용자 사진" /> -->
               </a>
               <div class="user-name">
-                  <h5><a href="#">오연주 차장</a></h5>
+                  <h5><a href="#"><?php echo $user_name ?></a></h5>
                   <span><a href="#">yj_oh@naver.com</a></span>
               </div>
           </div>
@@ -323,18 +328,19 @@ $(function(){
         <form action="view.php" method="post">
   <div class="document_form">
     <div><img src="../images/form_logo.png" alt="KSC" /></div>
+
       <table>
       <caption>품의/제안서 문서 확인하기</caption>
         <tbody>
           <tr><td class="head">문서상태</td><td class="color">결재대기</td><td rowspan="" class="head">과장</td><td rowspan="" class="head">전무</td><td rowspan="" class="head">대표이사</td></tr>
           <tr><td class="head">문서번호</td><td>5</td><td rowspan="4"><span>최수진</span></td><td rowspan="4"><span>최수진</span></td><td rowspan="4"><span>최수진</span></td></tr>
           <tr><td class="head">작성일자</td><td>2016.10.14</td></tr>
-          <tr><td class="head">작성부서</td><td>데이터사업실</td></tr>
-          <tr><td class="head">작성자</td><td>오연주 </td></tr>
-          <tr><td class="head">제목</td><td colspan="4">문서 제목 가져오장</td></tr>
+          <tr><td class="head">작성부서</td><td><?php echo $user_dep ?></td></tr>
+          <tr><td class="head">작성자</td><td><?php echo $user_name ?></td></tr>
+          <tr><td class="head">제목</td><td colspan="4"></td></tr>
           <tr><td class="head">첨부파일</td><td colspan="4"><input type="file" /></td></tr>
-          <tr><td colspan="5" class="head">내용</td></tr>
-          <tr><td colspan="5" class="text_contents">문서내용 결재를 하랏</td></tr>
+          <tr><td colspan="5" class="head"></td></tr>
+          <tr><td colspan="5" class="text_contents"></td></tr>
         </tbody>
       </table>
     <div class="register">
