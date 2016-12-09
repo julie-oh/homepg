@@ -111,6 +111,9 @@ header div {
 }
 
 /* 상단 nav */
+.navbar a:visited {
+	color: #fff;
+}	
 .navbar, .dropdown-menu{
 background:rgba(255,255,255,0.25);
 border: none;
