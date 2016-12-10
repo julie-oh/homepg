@@ -3,6 +3,7 @@
   require '../dbconfig.php';
 
   date_default_timezone_set('Asia/Seoul');
+  
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,9 +69,31 @@
         </tr>
       </thead>
       <tbody>
-        <?php
-        $sql = 'select * from notice order by n_no desc';
+        <?php      
+        if(isset($_GET["pageNum"])) {
+        	$PN = $_GET["pageNum"];
+        } else {
+        	$PN = 1;
+        }
+
+        $sql = 'select n_no from notice order by n_no desc limit 1;';
         $result = mysqli_query($db, $sql);
+        $data = mysqli_fetch_row($result);
+        
+        $ea = ceil($data[0] / 10);
+
+        if(isset($_GET["next"])&& $_GET["pageNum"] < $ea) {
+        	$PN += 1;
+        }
+        if(isset($_GET["prev"]) && $_GET["pageNum"] > 1) {
+        	$PN -= 1;
+        }
+        $start = $data[0] - (($PN * 10) - 1) ;
+        $last = $start + 9 ;
+        $query = 'select * from notice where n_no >= '. $start .' and n_no <= '. $last . ' order by n_no desc';
+        $result = mysqli_query($db, $query);
+        
+        
 
         while ($row = $result->fetch_assoc()) {
           $datetime = explode(" ", $row['n_date']);
@@ -110,60 +133,34 @@
   </div>
   <div class="page">
     <ol>
-      <?php
-      if(isset($_GET["pageNum"])) {
-          $PN = $_GET["pageNum"];
-      } else {
-          $PN = 1;
-      }
+<?php
+	print '<li><a href="notice.php?pageNum='.$PN.'&prev=prev">◀</a></li> ';
+	$SPageNum = $PN - 2;
+	$EPageNum = $PN + 2;
+	
+	if($SPageNum < 1) {
+		$increase = 1 - $SPageNum ;
+		$SPageNum = $SPageNum + $increase;
+		$EPageNum = $EPageNum + $increase;
+	} else if($ea < $EPageNum && $ea > 4) {
+		$decrease = $EPageNum - $ea;
+		$SPageNum = $SPageNum - $decrease;
+		$EPageNum = $EPageNum - $decrease;
+	}
 
-      $query = 'select n_no from notice order by n_no desc';
-      $result = mysqli_query($db, $query);
-      $data = mysqli_fetch_row($result);
-      $ea = ceil($data[0] / 10);
-
-      if(isset($_GET["next"])&& $_GET["pageNum"] < $ea) {
-          $PN += 1;
-      }
-      if(isset($_GET["prev"]) && $_GET["pageNum"] > 1) {
-          $PN -= 1;
-      }
-      $start = $data[0] - (($PN *10)-1);
-      $last = $start +9;
-
-      // $query = 'select * from notice where num >='.$start.' and num <= '.$last.' order by n_no desc';
-      // $result= mysqli_query($db,$query);
-
-      print '<li><a href="notice.php?pageNum='.$PN.'&prev=prev">◀</a></li> ';
-
-
-
-      if($ea >= 5) {
-        $SPageNum = $PN - 2;
-        $EPageNum = $PN + 2;
-
-        if($SPageNum < 1) {
-          $increase = 1 - $SPageNum ;
-          $SPageNum = $SPageNum + $increase;
-          $EPageNum = $EPageNum + $increase;
-        }
-
-        if($ea < $EPageNum) {
-                $decrease = $EPageNum - $ea;
-                $SPageNum = $SPageNum - $decrease;
-                $EPageNum = $EPageNum - $decrease;
-        }
-
-        for(;$SPageNum <= $EPageNum;$SPageNum++) {
-                print '<a href="notice.php?pageNum='.$SPageNum.'">' . "<li>".$SPageNum."</li>" . "</a> ";
-        }
-      } else {
-        for($i = 1;$i <= $ea;$i++) {
-                print '<a href="notice.php?pageNum='.$i.'">' . "<li>".$i."</li>" . "</a> ";
-        }
-      }
-      print '<a href="notice.php?pageNum='. $PN .'&next=next"><li>▶</li></a>';
-       ?>
+	if( $ea <= 4 ) {
+		for(;$SPageNum <= $ea;$SPageNum++) {
+			print '<li><a href="notice.php?pageNum='.$SPageNum.'">' . $SPageNum . "</a></li> ";
+		}
+	} else {
+		for(;$SPageNum <= $EPageNum;$SPageNum++) {
+			print '<li><a href="notice.php?pageNum='.$SPageNum.'">' . $SPageNum . "</a></li> ";
+		}
+	}
+	
+	
+	print '<li><a href="notice.php?pageNum='. $PN .'&next=next">▶</a></li>';
+?>
     </ol>
   </div>
 </section>
