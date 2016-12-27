@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'dbconfig.php';
 
 $prodID = $_SESSION['user_id'];
 $name = $_SESSION['user_name'];
